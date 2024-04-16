@@ -1,0 +1,45 @@
+---
+import Title from "@/components/Title.astro";
+import CardProgress from "../CardProgress.astro";
+---
+
+<section class="py-14 md:py-28 px-5">
+  <div class="max-w-7xl mx-auto">
+    <Title
+      title="Las obras en Manarola no se detienen"
+      subtitle="Revisa nuestros avances"
+    />
+    <div class="grid grid-cols-2 md:grid-cols-6 mt-10 gap-x-5 gap-y-8">
+      <CardProgress
+        title="Adquisición del terreno, saneamiento legal y cumplimiento de regulaciones y permisos"
+        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+        active={false}
+      />
+      <CardProgress
+        title="Factibilidad de servicios básicos agua, luz y otros"
+        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+        active={false}
+      />
+      <CardProgress
+        title="Conformación de vías de acceso y áreas urbanizadas"
+        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+        active={false}
+      />
+      <CardProgress
+        title="Pórtico de ingreso y delimitación de áreas comunes"
+        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+        active={true}
+      />
+      <CardProgress
+        title="Redes de agua y desagüe"
+        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+        active={false}
+      />
+      <CardProgress
+        title="Conformación municipal, entrega a propietarios y titulación"
+        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+        active={false}
+      />
+    </div>
+  </div>
+</section>

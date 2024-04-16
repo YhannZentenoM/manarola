@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Inicio",
+    "url": "/"
+  },
+  {
+    "name": "Beneficios",
+    "url": "/beneficios"
+  },
+  {
+    "name": "Amenidades",
+    "url": "/amenidades"
+  },
+  {
+    "name": "Lotes",
+    "url": "/lotes"
+  },
+  {
+    "name": "Distancia",
+    "url": "/distancia"
+  },
+  {
+    "name": "Contacto",
+    "url": "/contacto"
+  }
+]

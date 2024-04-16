@@ -1,0 +1,24 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  active: boolean;
+}
+
+const { image, title, active = false } = Astro.props;
+---
+
+<div class="flex flex-col justify-center items-center gap-y-5">
+  <div
+    class={`rounded-full border-gray-300 border w-40 h-40 flex items-center justify-center ${active && "bg-hover"}`}
+  >
+    <img
+      src={image}
+      alt={title}
+      class="w-[138px] h-[138px] rounded-full"
+    />
+  </div>
+  <h3 class={`text-xl text-secondary text-center leading-none flex-1 ${active && "font-bold"}`}>
+    {title}
+  </h3>
+</div>
