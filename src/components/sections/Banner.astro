@@ -5,14 +5,15 @@
     autoplay
     muted
     loop
-    class="absolute top-0 left-0 bottom-0 w-full h-screen object-cover hidden md:block"
+    preload="metadata"
+    class="absolute top-0 left-0 bottom-0 w-full h-screen object-cover hidden md:block scale-105"
   >
-    <source
-      src="/video/37d32bda-ac4a-4bfd-9b40-6a46179f03d9.mp4"
-      type="video/mp4"
-    />
+    <source src="/video/video.mp4" type="video/mp4" />
   </video>
-  <div class="bg-overlay opacity-50 absolute inset-0 min-w-full min-h-full hidden md:block"></div>
+  <div
+    class="bg-overlay opacity-50 absolute inset-0 min-w-full min-h-full hidden md:block overlay"
+  >
+  </div>
   <div class="max-w-7xl md:max-w-6xl mx-auto mb-12 relative">
     <div class="flex flex-col items-center justify-center py-12">
       <h1
@@ -22,21 +23,55 @@
       </h1>
       <button
         type="button"
-        class="w-20 h-20 flex items-center justify-center text-white mt-10 rounded-full border border-white/50 anim-ping"
+        class="w-20 h-20 flex items-center justify-center text-white mt-10 rounded-full border border-white/50 anim-ping show-button"
       >
-      <span class="w-16 h-16 bg-white/30 rounded-full flex items-center justify-center">
-        <svg class="w-8 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="M17.284 11.134a1 1 0 0 1 0 1.732L6.716 18.967a1 1 0 0 1-1.5-.866V5.9a1 1 0 0 1 1.5-.866l10.568 6.101Z"
-            fill="currentColor"></path></svg
+        <span
+          class="w-16 h-16 bg-white/30 rounded-full flex items-center justify-center"
         >
-      </span>
+          <svg
+            class="w-8 ml-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M17.284 11.134a1 1 0 0 1 0 1.732L6.716 18.967a1 1 0 0 1-1.5-.866V5.9a1 1 0 0 1 1.5-.866l10.568 6.101Z"
+              fill="currentColor"></path></svg
+          >
+        </span>
       </button>
     </div>
   </div>
 </section>
+<dialog
+  id="alert-dialog"
+  class="w-full md:w-[80vw] bg-black backdrop:bg-black/60 relative"
+>
+  <video class="object-cover w-full h-full" preload="metadata" controls>
+    <source src="/video/video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <svg
+    class="w-5 absolute top-5 right-5 z-10 cursor-pointer text-zinc-200 hover:text-white btn-close-modal"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    ><path
+      d="m21 21-9-9m0 0L3 3m9 9 9-9m-9 9-9 9"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path></svg
+  >
+</dialog>
 
 <style>
+  .overlay {
+    transition:
+      background 0.3s,
+      border-radius 0.3s,
+      opacity 0.3s;
+  }
+
   @keyframes ping {
     from {
       transform: none;
@@ -51,4 +86,40 @@
   .anim-ping {
     animation: ping 2s infinite;
   }
+
+  dialog[open] {
+    animation: fadein 0.5s ease-in forwards;
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 </style>
+
+<script is:inline>
+  const video = document.querySelector("dialog video");
+  const showButton = document.querySelector(".show-button");
+  const alertDialog = document.querySelector("#alert-dialog");
+  const buttonClose = document.querySelector(".btn-close-modal");
+  showButton.addEventListener("click", function () {
+    alertDialog.showModal();
+    document.body.style.overflow = "hidden";
+    video.play();
+  });
+
+  alertDialog.addEventListener("cancel", function () {
+    document.body.style.overflow = "auto";
+    video.load();
+  });
+
+  buttonClose?.addEventListener("click", () => {
+    document.body.style.overflow = "auto";
+    video?.pause();
+    alertDialog.close();
+  });
+</script>
