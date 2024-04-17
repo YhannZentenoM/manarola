@@ -6,6 +6,7 @@ export default {
 			colors: {
 				'primary': '#89919F',
 				'secondary': '#315779',
+				'overlay': '#16243F',
 				'hover': '#A7D6FF',
 			},
 		},
