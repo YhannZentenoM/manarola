@@ -5,9 +5,10 @@ export default {
 		extend: {
 			colors: {
 				'primary': '#89919F',
-				'secondary': '#315779',
+				'secondary': '#01509e',
+				'accent': '#f08435',
 				'overlay': '#16243F',
-				'hover': '#A7D6FF',
+				'hover': '#85eaff',
 			},
 		},
 	},
