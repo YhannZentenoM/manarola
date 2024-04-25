@@ -3,6 +3,10 @@ import Header from '@/components/sections/Header.astro';
 
 import '@fontsource/gilda-display';
 import '@fontsource-variable/open-sans';
+import '@fontsource/roboto';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
 
 
 interface Props {
@@ -31,7 +35,8 @@ const { title, description } = Astro.props;
 
 <style is:global>
 	body {
-		font-family: 'Open Sans Variable', sans-serif;
+		/* font-family: 'Open Sans Variable', sans-serif; */
+		font-family: 'Roboto', sans-serif;
 	}
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Gilda Display', serif;
