@@ -4,15 +4,22 @@ import Title from "@/components/Title.astro";
 
 <section class="px-5 py-14">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-    <div class="md:col-span-2">
+    <div class="md:col-span-2 p-5">
       <Title
         title="Escoge el lote perfecto para tí"
         subtitle="Aprovecha nuestra preventa"
+        align="text-left"
+        size="text-3xl md:text-5xl"
       />
       <img src="/images/plano.png" alt="" class="w-full mt-5 md:mt-10" />
     </div>
     <div class="border border-gray-300/60 p-5">
-      <Title title="Regístrate" subtitle="Llena el formulario" />
+      <Title
+        title="Regístrate"
+        subtitle="Llena el formulario"
+        align="text-left"
+        size="text-3xl md:text-5xl"
+      />
       <p class="font-light mt-5 text-sm md:text-base text-center">
         Nos pondremos en contacto contigo para poder ayudarte a tomar la mejor
         decisión.
@@ -38,8 +45,9 @@ import Title from "@/components/Title.astro";
           class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
           placeholder="Asunto"
         />
-        <button class="bg-accent px-3 py-2 rounded-xl text-white block w-full mt-5"
-            >¡Reserva ahora!</button
+        <button
+          class="bg-accent px-3 py-2 rounded-xl text-white block w-full mt-5"
+          >¡Reserva ahora!</button
         >
       </form>
     </div>

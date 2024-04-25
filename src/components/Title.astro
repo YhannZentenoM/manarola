@@ -2,12 +2,14 @@
 interface Props {
 	title: string;
 	subtitle: string;
+	align: string;
+	size: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, align, size } = Astro.props;
 ---
 
-<div class="text-center text-secondary">
-	<span class="text-base uppercase font-light tracking-widest">{subtitle}</span>
-	<h1 class="text-4xl md:text-6xl font-normal mt-5 md:max-w-3xl md:mx-auto">{title}</h1>
+<div class={`text-secondary ${align}`}>
+	<span class="text-sm uppercase font-medium tracking-widest">{subtitle}</span>
+	<h1 class={`font-normal mt-4 md:max-w-4xl md:mx-auto ${size}`}>{title}</h1>
 </div>
