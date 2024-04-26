@@ -1,3 +1,7 @@
+---
+import Information from "./Information.astro";
+---
+
 <section
   class="bg-primary md:bg-transparent h-screen p-4 md:p-0 flex items-center relative overflow-hidden"
 >
@@ -5,13 +9,14 @@
     autoplay
     muted
     loop
+    onplay="setCurTime()"
     preload="metadata"
     class="absolute top-0 left-0 bottom-0 w-full h-screen object-cover hidden md:block scale-105"
   >
     <source src="/video/video.mp4" type="video/mp4" />
   </video>
   <div
-    class="bg-overlay opacity-50 absolute inset-0 min-w-full min-h-full hidden md:block overlay"
+    class="bg-black opacity-30 absolute inset-0 min-w-full min-h-full hidden md:block overlay"
   >
   </div>
   <div class="max-w-7xl md:max-w-4xl mx-auto mb-12 relative">
@@ -41,6 +46,7 @@
       </button>
     </div>
   </div>
+  <Information />
 </section>
 <dialog
   id="alert-dialog"
@@ -103,9 +109,11 @@
 
 <script is:inline>
   const video = document.querySelector("dialog video");
+  const videoBanner = document.querySelector("section video");
   const showButton = document.querySelector(".show-button");
   const alertDialog = document.querySelector("#alert-dialog");
   const buttonClose = document.querySelector(".btn-close-modal");
+
   showButton.addEventListener("click", function () {
     alertDialog.showModal();
     document.body.style.overflow = "hidden";
@@ -122,4 +130,8 @@
     video?.pause();
     alertDialog.close();
   });
+
+  function setCurTime() { 
+    videoBanner.currentTime=24
+  }
 </script>
