@@ -3,52 +3,11 @@ import Title from "@/components/Title.astro";
 import CardProgress from "../CardProgress.astro";
 ---
 
-<!-- <section class="py-14 md:py-28 px-5">
-  <div class="max-w-7xl mx-auto">
-    <Title
-      title="Las obras en Manarola no se detienen"
-      subtitle="Revisa nuestros avances"
-    />
-    <div class="grid grid-cols-2 md:grid-cols-6 mt-10 gap-x-5 gap-y-8">
-      <CardProgress
-        title="Adquisición del terreno, saneamiento legal y cumplimiento de regulaciones y permisos"
-        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-        active={false}
-      />
-      <CardProgress
-        title="Factibilidad de servicios básicos agua, luz y otros"
-        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-        active={false}
-      />
-      <CardProgress
-        title="Conformación de vías de acceso y áreas urbanizadas"
-        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-        active={false}
-      />
-      <CardProgress
-        title="Pórtico de ingreso y delimitación de áreas comunes"
-        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-        active={true}
-      />
-      <CardProgress
-        title="Redes de agua y desagüe"
-        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-        active={false}
-      />
-      <CardProgress
-        title="Conformación municipal, entrega a propietarios y titulación"
-        image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-        active={false}
-      />
-    </div>
-  </div>
-</section> -->
-
 <section class="max-w-6xl mx-auto py-14 md:py-28 px-5">
   <Title
     title="Las obras en Manarola no se detienen"
     subtitle="Revisa nuestros avances"
-    align="text-center"  
+    align="text-center"
     size="text-4xl md:text-6xl"
   />
   <div class="splide mt-10" role="group" aria-label="Splide Basic HTML Example">
@@ -72,33 +31,38 @@ import CardProgress from "../CardProgress.astro";
     <div class="splide__track">
       <ul class="splide__list">
         <CardProgress
-          title="Adquisición del terreno, saneamiento legal y cumplimiento de regulaciones y permisos"
-          image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-          active={false}
-        />
-        <CardProgress
-          title="Factibilidad de servicios básicos agua, luz y otros"
-          image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-          active={false}
-        />
-        <CardProgress
-          title="Conformación de vías de acceso y áreas urbanizadas"
-          image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
-          active={false}
-        />
-        <CardProgress
           title="Pórtico de ingreso y delimitación de áreas comunes"
-          image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+          image="Portico"
           active={true}
         />
         <CardProgress
           title="Redes de agua y desagüe"
-          image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+          image="Redes"
           active={false}
         />
         <CardProgress
           title="Conformación municipal, entrega a propietarios y titulación"
-          image="https://arqa.com/wp-content/uploads/2015/02/dscn1862-530x398.jpg"
+          image="ConformidadMunicipal"
+          active={false}
+        />
+        <CardProgress
+          title="Adquisición del terreno"
+          image="Adquisicion"
+          active={false}
+        />
+        <CardProgress
+          title="Saneamiento legal y cumplimiento de regulaciones y permisos"
+          image="Saneamiento"
+          active={false}
+        />
+        <CardProgress
+          title="Factibilidad de servicios básicos agua, luz y otros"
+          image="Factibilidad"
+          active={false}
+        />
+        <CardProgress
+          title="Conformación de vías de acceso y áreas urbanizadas"
+          image="ConformidadVias"
           active={false}
         />
       </ul>
@@ -135,11 +99,18 @@ import CardProgress from "../CardProgress.astro";
       type: "loop",
       perPage: 3,
       focus: "center",
-      autoplay: true,
       classes: {
         pagination: "splide__pagination",
         page: "splide__pagination__page",
       },
+      breakpoints: {
+        640: {
+          perPage: 2,
+        },
+        320: {
+          perPage: 1,
+        },
+      }
     });
 
     splide.mount();

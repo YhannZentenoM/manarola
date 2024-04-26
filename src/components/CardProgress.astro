@@ -1,4 +1,12 @@
 ---
+import Adquisicion from "@/components/icons/Adquisicion.astro";
+import ConformidadMunicipal from "@/components/icons/ConformidadMunicipal.astro";
+import ConformidadVias from "@/components/icons/ConformidadVias.astro";
+import Factibilidad from "@/components/icons/Factibilidad.astro";
+import Portico from "@/components/icons/Portico.astro";
+import Redes from "@/components/icons/Redes.astro";
+import Saneamiento from "@/components/icons/Saneamiento.astro";
+
 interface Props {
   image: string;
   title: string;
@@ -6,19 +14,32 @@ interface Props {
 }
 
 const { image, title, active = false } = Astro.props;
+
+const PROGRESS_ICONS = {
+  Adquisicion,
+  ConformidadMunicipal,
+  ConformidadVias,
+  Factibilidad,
+  Portico,
+  Redes,
+  Saneamiento,
+};
+const Icon = PROGRESS_ICONS[image];
 ---
 
-<li class="flex flex-col justify-center items-center gap-y-5 splide__slide">
+<li
+  class="flex flex-col justify-center items-center gap-y-5 splide__slide group"
+>
   <div
-    class={`rounded-full border-gray-300 border w-40 h-40 flex items-center justify-center ${active && "bg-hover"}`}
+    class={`rounded-full border-accent/40 border w-28 h-28 p-6 flex items-center justify-center group-hover:bg-accent transition-colors duration-300 ${active && "bg-accent"}`}
   >
-    <img
-      src={image}
-      alt={title}
-      class="w-[138px] h-[138px] rounded-full"
+    <Icon
+      class={`w-full group-hover:text-white transition-colors duration-300 ${active ? "text-white " : "text-accent"}`}
     />
   </div>
-  <h3 class={`text-xl text-secondary text-center leading-none flex-1 max-w-60 ${active && "font-bold"}`}>
+  <h3
+    class={`text-lg text-secondary text-center leading-tight flex-1 max-w-60 font-light`}
+  >
     {title}
   </h3>
 </li>
