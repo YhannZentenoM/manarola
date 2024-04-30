@@ -1,14 +1,50 @@
-<section class="px-5 py-14 md:py-28 relative text-center text-white">
-    <div class="bg-secondary/70 absolute top-0 left-0 w-full h-full"></div>
-    <span class="relative text-base uppercase font-light tracking-widest">Obtén hasta un 30% de descuento</span>
-	<h1 class="relative text-4xl md:text-6xl font-normal mt-5 md:max-w-3xl md:mx-auto">Financiamiento directo cero interes</h1>
-    <p class="relative mt-5 font-light">Beneficios por pago al contado</p>
+<section class="px-5 py-14 md:py-28 relative text-left text-white">
+  <div
+    class="absolute top-0 left-0 w-full h-full bg-gradient-to-l from-transparent to-black/60"
+  >
+  </div>
+  <div class="max-w-6xl mx-auto py-10 md:py-20 grid grid-cols-1 md:grid-cols-2">
+    <div>
+      <span class="relative text-base uppercase font-light tracking-widest"
+        >Obtén hasta un 30% de descuento</span
+      >
+      <h1 class="relative text-4xl md:text-6xl font-normal mt-5 md:max-w-xl">
+        Financiamiento directo cero interes
+      </h1>
+      <p class="relative mt-5 font-light">Beneficios por pago al contado</p>
+    </div>
+    <div class="relative mt-10 md:mt-0">
+      <div
+        class="flex flex-col items-center justify-center gap-y-2 w-40 h-40 md:w-64 md:h-64 rounded-full bg-accent font-light md:absolute md:-top-20 md:left-0 heart"
+      >
+        <span class="text-lg md:text-3xl">Up to</span>
+        <span class="text-3xl md:text-7xl heart">50%</span>
+        <span class="text-lg md:text-2xl">descuento</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
-    section{
-        background-image: url('https://kit.baliniz.com/malibu/wp-content/uploads/sites/60/2023/06/seasonal-feast-at-beach-resort-group-of-friends-celebrating-resting-having-fun-on-the-beach-in-e1689671838962.jpg');
-        background-size: cover;
-        background-position: center;
+  section {
+    background-image: url("https://kit.baliniz.com/malibu/wp-content/uploads/sites/60/2023/06/seasonal-feast-at-beach-resort-group-of-friends-celebrating-resting-having-fun-on-the-beach-in-e1689671838962.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .heart {
+        animation: heartbeat 4s ease-in-out infinite;
     }
 </style>
