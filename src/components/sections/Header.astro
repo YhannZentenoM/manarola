@@ -3,7 +3,7 @@ import menu from "@/data/menu.json";
 const pathname = Astro.url.pathname;
 ---
 
-<header class="bg-black/90 absolute top-0 left-0 w-full z-10">
+<header class="absolute top-0 left-0 w-full z-10">
   <div class="flex justify-between items-center max-w-7xl mx-auto p-4">
     <a href="/" class="max-w-56">
       <img
@@ -26,13 +26,13 @@ const pathname = Astro.url.pathname;
       >
     </button>
     <nav class="hidden md:block">
-      <ul class="inline-flex gap-x-2 uppercase text-sm">
+      <ul class="inline-flex gap-x-1 text-[17px]">
         {
           menu.map((item) => (
             <li
-              class={`hover:bg-white hover:text-secondary transition-colors duration-300 text-white w-full ${pathname === item.url && "bg-white"}`}
+              class={`px-3 py-1`}
             >
-              <a href={item.url} class={`px-3 py-1 tracking-[0.1rem] block ${pathname === item.url && "text-secondary"}`}>
+              <a href={item.url} class={`inline-flex relative before:absolute before:bottom-0 before:left-0 before:h-[.9px] before:bg-white  hover:before:w-full before:transition-all before:duration-300 text-white w-full ${pathname === item.url ? "before:w-full" : "before:w-0"}`}>
                 {item.name}
               </a>
             </li>
@@ -84,6 +84,15 @@ const pathname = Astro.url.pathname;
     </div>
   </div>
 </header>
+
+<style>
+  nav ul li:before {
+    content: "";
+  }
+  nav ul li a{
+    font-family: 'Gilda Display', serif;
+  }
+</style>
 
 <script is:inline>
     const menuMobile = document.querySelector("#menu-mobile");
