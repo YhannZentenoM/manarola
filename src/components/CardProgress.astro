@@ -28,13 +28,13 @@ const Icon = PROGRESS_ICONS[image];
 ---
 
 <li
-  class="flex flex-col justify-center items-center gap-y-5 splide__slide group"
+  class="flex flex-col justify-center items-center gap-y-5 splide__slide group card-progress"
 >
   <div
-    class={`rounded-full border-accent/40 border w-28 h-28 p-6 flex items-center justify-center group-hover:bg-accent transition-colors duration-300 ${active && "bg-accent"}`}
+    class={`rounded-full w-28 h-28 p-6 flex items-center justify-center transition-colors duration-300 ${active ? "background-hover" : "bg-progress"}`}
   >
     <Icon
-      class={`w-full group-hover:text-white transition-colors duration-300 ${active ? "text-white " : "text-accent"}`}
+      class={`w-full group-hover:text-white transition-colors duration-100 ${active ? "text-white" : "text-accent"}`}
     />
   </div>
   <h3
@@ -43,3 +43,16 @@ const Icon = PROGRESS_ICONS[image];
     {title}
   </h3>
 </li>
+
+<style>
+.bg-progress{
+  background-image: url('/images/svg-progress.svg');
+  background-repeat: no-repeat;
+}
+.card-progress:hover .bg-progress,
+.background-hover{
+  background-image: url('/images/svg-progress-hover.svg');
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease-in-out;
+}
+</style>
