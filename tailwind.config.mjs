@@ -5,7 +5,7 @@ export default {
 		extend: {
 			colors: {
 				'primary': '#89919F',
-				'secondary': '#DAB89A',
+				'secondary': '#fbb858',
 				'accent': '#141414',
 				'overlay': '#16243F',
 				'hover': '#85eaff',
