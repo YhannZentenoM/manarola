@@ -3,14 +3,11 @@ import menu from "@/data/menu.json";
 const pathname = Astro.url.pathname;
 ---
 
-<header class="absolute top-0 left-0 w-full z-10">
+<header class="bg-white w-full z-10">
   <div class="flex justify-between items-center max-w-7xl mx-auto p-4">
-    <a href="/" class="max-w-56">
-      <img
-        src="/images/logo.png"
-        alt="Logotipo"
-        class="w-full"
-      />
+    <!-- MOBILE -->
+    <a href="/" class="max-w-56 md:hidden">
+      <img src="/images/logo.png" alt="Logotipo" class="w-full" />
     </a>
     <button
       class="bg-white p-2.5 w-11 h-11 text-black md:hidden"
@@ -25,20 +22,30 @@ const pathname = Astro.url.pathname;
         ><path d="M7.68 32h48.64M7.68 15.97h48.64M7.68 48.03h48.64"></path></svg
       >
     </button>
-    <nav class="hidden md:block">
-      <ul class="inline-flex gap-x-1 text-[17px]">
+    <!-- DESKTOP -->
+    <nav class="hidden md:block mx-auto">
+      <ul class="inline-flex gap-x-1 relative z-20 uppercase text-[13px] text-zinc-500">
         {
-          menu.map((item) => (
-            <li
-              class={`px-3 py-1`}
-            >
-              <a href={item.url} class={`inline-flex relative before:absolute before:bottom-0 before:left-0 before:h-[.9px] before:bg-white  hover:before:w-full before:transition-all before:duration-300 text-white w-full ${pathname === item.url ? "before:w-full" : "before:w-0"}`}>
-                {item.name}
-              </a>
-            </li>
+          menu.map((item, key) => (
+            <>
+              <li class={`px-3 py-1`}>
+                <a
+                  href={item.url}
+                  class={`inline-flex tracking-[1px] hover:text-black hover:font-medium transition-colors duration-300 ${pathname === item.url && "text-black font-medium"}`}
+                >
+                  {item.name}
+                </a>
+              </li>
+              {key === 2 && <div class:list={"hidden w-64 lg:block"} />}
+            </>
           ))
         }
       </ul>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 mt-1 z-20">
+        <a href="/" class="max-w-48 block mx-auto hover:-translate-y-1 transition-transform duration-300">
+          <img src="/images/logo.png" alt="Logotipo" class="w-full" />
+        </a>
+      </div>
     </nav>
     <div
       class="h-screen bg-secondary w-[90%] fixed top-0 left-0 p-7 -translate-x-full transition-transform ease-in duration-500"
@@ -65,15 +72,16 @@ const pathname = Astro.url.pathname;
         </button>
       </div>
       <nav class="mt-5">
-        <ul
-          class="flex flex-col uppercase text-xs leading-none font-light"
-        >
+        <ul class="flex flex-col uppercase text-xs leading-none font-light">
           {
             menu.map((item) => (
               <li
                 class={`hover:bg-white hover:text-secondary text-white w-full ${pathname === item.url && "bg-white"}`}
               >
-                <a href={item.url} class={`p-4 tracking-[0.1rem] block ${pathname === item.url && "text-secondary"}`}>
+                <a
+                  href={item.url}
+                  class={`p-4 tracking-[0.1rem] block ${pathname === item.url && "text-secondary"}`}
+                >
                   {item.name}
                 </a>
               </li>
@@ -85,23 +93,14 @@ const pathname = Astro.url.pathname;
   </div>
 </header>
 
-<style>
-  nav ul li:before {
-    content: "";
-  }
-  nav ul li a{
-    font-family: 'Gilda Display', serif;
-  }
-</style>
-
 <script is:inline>
-    const menuMobile = document.querySelector("#menu-mobile");
+  const menuMobile = document.querySelector("#menu-mobile");
 
-    const openMenuMobile = () => {
-      menuMobile.classList.remove("-translate-x-full");
-    };
+  const openMenuMobile = () => {
+    menuMobile.classList.remove("-translate-x-full");
+  };
 
-    const closeMenuMobile = () => {
-      menuMobile.classList.add("-translate-x-full");
-    };
+  const closeMenuMobile = () => {
+    menuMobile.classList.add("-translate-x-full");
+  };
 </script>

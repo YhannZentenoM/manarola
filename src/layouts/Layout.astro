@@ -1,12 +1,8 @@
 ---
 import Header from '@/components/sections/Header.astro';
 
-import '@fontsource/gilda-display';
-import '@fontsource-variable/open-sans';
-import '@fontsource/roboto';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
+import '@fontsource/tenor-sans';
+import '@fontsource-variable/inter';
 
 
 interface Props {
@@ -26,7 +22,7 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
 	</head>
-	<body class="bg-zinc-100">
+	<body class="bg-white">
 		<Header />
 		<slot />
 
@@ -35,10 +31,10 @@ const { title, description } = Astro.props;
 
 <style is:global>
 	body {
-		/* font-family: 'Open Sans Variable', sans-serif; */
-		font-family: 'Roboto', sans-serif;
+		font-family: 'Inter Variable', sans-serif;
+		color: #7a7a7a;
 	}
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Gilda Display', serif;
+		font-family: 'Tenor Sans', sans-serif;
 	}
 </style>

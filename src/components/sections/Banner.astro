@@ -3,9 +3,9 @@ import Information from "./Information.astro";
 ---
 
 <section
-  class="bg-primary md:bg-transparent md:h-screen p-4 md:p-0 flex flex-col items-center relative md:overflow-hidden"
+  class="bg-white md:bg-transparent md:h-[70vh] px-7 flex flex-col items-center relative md:overflow-hidden"
 >
-  <video
+  <!-- <video
     autoplay
     muted
     loop
@@ -14,12 +14,13 @@ import Information from "./Information.astro";
     class="absolute top-0 left-0 bottom-0 w-full h-screen object-cover hidden md:block scale-105"
   >
     <source src="/video/video.mp4" type="video/mp4" />
-  </video>
-  <div
+  </video> -->
+  <!-- <img src="/images/header.avif" alt="" class="relative w-full"> -->
+  <!-- <div
     class="bg-black opacity-30 absolute inset-0 min-w-full min-h-full hidden md:block overlay"
-  >
-  </div>
-  <div class="max-w-7xl md:max-w-4xl mx-auto my-12 md:mt-32 relative">
+  > -->
+  <!-- </div> -->
+  <div class="w-full mx-auto h-full relative flex items-center justify-center content-header">
     <div class="flex flex-col items-center justify-center py-12">
       <h1
         class="text-[50px] md:text-7xl leading-none text-white font-light text-center"
@@ -46,8 +47,8 @@ import Information from "./Information.astro";
       </button>
     </div>
   </div>
-  <Information />
 </section>
+<Information />
 <dialog
   id="alert-dialog"
   class="w-full md:w-[80vw] bg-black backdrop:bg-black/60 relative"
@@ -71,6 +72,12 @@ import Information from "./Information.astro";
 </dialog>
 
 <style>
+  .content-header{
+    background-image: url('/images/header.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   .overlay {
     transition:
       background 0.3s,

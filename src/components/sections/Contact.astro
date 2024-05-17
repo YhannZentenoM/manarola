@@ -1,0 +1,60 @@
+---
+import Title from "../Title.astro";
+---
+
+<section
+  class="w-full md:max-w-7xl mx-auto px-5 py-20 flex flex-col items-center justify-center"
+>
+  <div class="flex">
+    <div class="w-full">
+      <Title
+        title="Para más información"
+        subtitle="Contáctanos"
+        align="text-left"
+        size="text-3xl md:text-[3rem]"
+      />
+      <ul class="text-[15px] mt-2 space-y-4 ml-5">
+        <li>Dirección: Lorem, ipsum dolor.</li>
+        <li>Email: correo@correo.pe</li>
+        <li>Teléfono: 9435345354</li>
+      </ul>
+    </div>
+    <div class="w-full">
+        <form action="" class="mt-5">
+            <input
+              type="text"
+              class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent"
+              placeholder="Nombre completo"
+            />
+            <input
+              type="text"
+              class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+              placeholder="Teléfono"
+            />
+            <input
+              type="email"
+              class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+              placeholder="Correo electrónico"
+            />
+            <input
+              type="text"
+              class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+              placeholder="Asunto"
+            />
+            <button
+              class="bg-accent px-6 py-4 text-xs uppercase tracking-widest text-white block mt-5"
+              >Enviar mensaje</button
+            >
+          </form>
+    </div>
+  </div>
+  <iframe
+  class="mt-10"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5914378344723!2d-72.47161118931817!3d-16.69731618401051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91410ff6d4d6955d%3A0x3db2acae2af48385!2sManarola%20-%20Condominio%20de%20Playa!5e0!3m2!1ses-419!2spe!4v1715784832976!5m2!1ses-419!2spe"
+    width="100%"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>

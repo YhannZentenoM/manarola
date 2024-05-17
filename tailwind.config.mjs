@@ -5,10 +5,11 @@ export default {
 		extend: {
 			colors: {
 				'primary': '#89919F',
-				'secondary': '#01509e',
-				'accent': '#f08435',
+				'secondary': '#DAB89A',
+				'accent': '#141414',
 				'overlay': '#16243F',
 				'hover': '#85eaff',
+				'background': '#F9F4F1'
 			},
 		},
 	},

@@ -1,8 +1,8 @@
 <div
-  class="max-w-xs md:max-w-5xl mx-auto flex flex-col md:flex-row md:absolute md:bottom-5 md:left-[40%] md:-translate-x-[34%]"
+  class="max-w-xs md:max-w-7xl mx-auto flex flex-col md:flex-row"
 >
   <div
-    class="flex flex-col items-center justify-center md:justify-between gap-2 px-10 py-6 text-secondary w-full bg-white"
+    class="relative text-accent flex flex-col items-center justify-center md:justify-between gap-2 px-10 py-6 w-full after:absolute after:w-[1px] after:h-[60%] after:bg-primary/40 after:right-0 after:top-7"
   >
     <span class="text-sm tracking-wider uppercase font-light">Área</span>
     <div class="flex items-center gap-x-2">
@@ -21,21 +21,24 @@
     </div>
   </div>
   <div
-    class="flex flex-col items-center justify-center gap-y-2 px-10 py-7 text-secondary w-full bg-white"
+    class="relative text-accent flex flex-col items-center justify-center gap-y-2 px-10 py-7 w-full after:absolute after:w-[1px] after:h-[60%] after:bg-primary/40 after:right-0 after:top-7"
   >
     <span class="text-sm tracking-wider uppercase font-light">Cuotas hasta</span>
     <h4 class="text-base font-bold text-center"><span class="text-3xl">36</span> meses ¡sin interés!</h4>
   </div>
   <div
-    class="flex flex-col items-center justify-center gap-y-5 px-10 py-7 text-secondary w-full bg-white"
+    class="relative text-accent flex items-center justify-center w-full after:absolute after:w-[1px] after:h-[60%] after:bg-primary/40 after:right-0 after:top-7"
   >
     <h4 class="text-xl font-bold leading-none text-center"
       >Aprovecha la preventa</h4
     >
   </div>
-  <button
-    class="flex items-center justify-center uppercase text-sm tracking-widest font-medium px-10 py-5 text-white w-full bg-accent"
-  >
-    ¡Reserva</br>ahora!
-  </button>
+  <div class="flex items-center justify-center w-full">
+    <button
+      type="button"
+      class="flex items-center justify-center uppercase text-sm tracking-widest font-medium px-10 py-5 text-white bg-accent"
+    >
+      ¡Reserva ahora!
+    </button>
+  </div>
 </div>
