@@ -1,4 +1,8 @@
+---
+const { clases = "" } = Astro.props;
+---
+
 <button
-  class="bg-accent px-7 py-4 text-white block mt-5 uppercase text-xs tracking-widest mx-auto"
+  class={`show-button-form bg-accent px-7 py-4 text-white block mt-5 uppercase text-xs tracking-widest mx-auto ${clases}`}
   >¡Reserva ahora!</button
 >

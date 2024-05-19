@@ -1,13 +1,12 @@
 ---
-import Header from '@/components/sections/Header.astro';
+import Header from "@/components/sections/Header.astro";
 
-import '@fontsource/tenor-sans';
-import '@fontsource-variable/inter';
-
+import "@fontsource/tenor-sans";
+import "@fontsource-variable/inter";
 
 interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
 const { title, description } = Astro.props;
@@ -15,26 +14,30 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body class="bg-white">
-		<Header />
-		<slot />
-
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white">
+    <Header />
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	body {
-		font-family: 'Inter Variable', sans-serif;
-		color: #7a7a7a;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Tenor Sans', sans-serif;
-	}
+  body {
+    font-family: "Inter Variable", sans-serif;
+    color: #7a7a7a;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Tenor Sans", sans-serif;
+  }
 </style>

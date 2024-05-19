@@ -1,34 +1,52 @@
 ---
-import Banner from '@/components/sections/Banner.astro';
-import About from '@/components/sections/About.astro';
-import Footer from '@/components/sections/Footer.astro';
-import Layout from '@/layouts/Layout.astro';
-import Progress from '@/components/sections/Progress.astro';
-import Advantages from '@/components/sections/Advantages.astro';
-import Glance from '@/components/sections/Glance.astro';
-import Facilities from '@/components/sections/Facilities.astro';
-import Financing from '@/components/sections/Financing.astro';
-import Register from '@/components/sections/Register.astro';
-import Route from '@/components/sections/Route.astro';
-import Gallery from '@/components/sections/Gallery.astro';
-import Maps from '@/components/sections/Maps.astro';
-import Activities from '@/components/sections/Activities.astro';
-import Contact from '@/components/sections/Contact.astro';
+import Banner from "@/components/sections/Banner.astro";
+import About from "@/components/sections/About.astro";
+import Footer from "@/components/sections/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+import Progress from "@/components/sections/Progress.astro";
+import Advantages from "@/components/sections/Advantages.astro";
+import Glance from "@/components/sections/Glance.astro";
+import Facilities from "@/components/sections/Facilities.astro";
+import Financing from "@/components/sections/Financing.astro";
+import Register from "@/components/sections/Register.astro";
+import Route from "@/components/sections/Route.astro";
+import Gallery from "@/components/sections/Gallery.astro";
+import Maps from "@/components/sections/Maps.astro";
+import Activities from "@/components/sections/Activities.astro";
+import Contact from "@/components/sections/Contact.astro";
+import Formulario from "@/components/sections/Formulario.astro";
 ---
 
-<Layout title="Welcome to Astro." description=''>
-	<Banner />
-	<About />
-	<Advantages />
-	<Maps />
-	<Glance />
-	<Facilities />
-	<Financing />
-	<!-- <Register /> -->
-	<Route />
-	<!-- <Progress /> -->
-	<!-- <Gallery /> -->
-	<Activities />
-	<Contact />
-	<Footer />
+<Layout title="Welcome to Astro." description="">
+  <Banner />
+  <About />
+  <Advantages />
+  <Maps />
+  <Glance />
+  <Facilities />
+  <Financing />
+  <!-- <Register /> -->
+  <Route />
+  <!-- <Progress /> -->
+  <Activities />
+  <Contact />
+  <!-- <Gallery /> -->
+  <Formulario />
+  <Footer />
 </Layout>
+
+<script>
+  const showButtons = document.querySelectorAll(".show-button-form");
+  const alertDialogForm = document.querySelector("#alert-dialog-form");
+  const buttonClose = document.querySelector(".close-form");
+
+  showButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      alertDialogForm.show();
+    });
+  });
+
+  buttonClose.addEventListener("click", () => {
+    alertDialogForm.close();
+  });
+</script>

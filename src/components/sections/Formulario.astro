@@ -1,0 +1,60 @@
+---
+import Title from "../Title.astro";
+---
+
+<dialog
+  id="alert-dialog-form"
+  class="w-full h-screen bg-black/20 backdrop:bg-black/20 fixed inset-0 z-50"
+>
+  <div class="flex justify-end h-full">
+    <div class="bg-white px-10 py-20 w-1/3 h-full">
+      <svg
+        class="w-5 absolute top-5 right-5 z-10 cursor-pointer text-zinc-500 hover:text-zinc-400 close-form"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="m21 21-9-9m0 0L3 3m9 9 9-9m-9 9-9 9"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg
+      >
+      <Title
+        title="Regístrate"
+        subtitle="Llena el formulario"
+        align="text-left"
+        size="text-3xl md:text-5xl"
+      />
+      <p class="font-light mt-5 text-sm md:text-base text-center">
+        Nos pondremos en contacto contigo para poder ayudarte a tomar la mejor
+        decisión.
+      </p>
+      <form action="" class="mt-5">
+        <input
+          type="text"
+          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent"
+          placeholder="Nombre completo"
+        />
+        <input
+          type="text"
+          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+          placeholder="Teléfono"
+        />
+        <input
+          type="email"
+          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+          placeholder="Correo electrónico"
+        />
+        <input
+          type="text"
+          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+          placeholder="Asunto"
+        />
+        <button class="bg-accent px-6 py-4 text-white w-full mt-5 block"
+          >¡Reserva ahora!</button
+        >
+      </form>
+    </div>
+  </div>
+</dialog>
