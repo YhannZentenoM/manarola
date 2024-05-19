@@ -13,8 +13,8 @@ import Title from "@/components/Title.astro";
     Quilca se caracteriza por tener un clima cálido todos los días. Por lo que podrás darte una "escapadita" en cualquier momento y disfrutar en nuestro increíble condominio.
   </p>
   <div class="max-w-7xl mx-auto mt-5 md:mt-20">
-    <div class="grid grid-cols-1 md:grid-cols-4 md:min-h-[90vh] bg-glance">
-      <div class="border-r border-b border-white/60 group">
+    <div class="grid grid-cols-1 md:grid-cols-4 md:min-h-[90vh] bg-glance scale-transition">
+      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-1">
         <div
           class="bg-primary md:bg-transparent flex flex-col items-center justify-center py-10 group-hover:bg-white transition-colors duration-300 ease-in-out"
         >
@@ -28,7 +28,7 @@ import Title from "@/components/Title.astro";
           </h3>
         </div>
       </div>
-      <div class="border-r border-b border-white/60 group">
+      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-2">
         <div
           class="bg-primary md:bg-transparent flex flex-col items-center justify-center py-10 group-hover:bg-white transition-colors duration-300 ease-in-out"
         >
@@ -42,9 +42,9 @@ import Title from "@/components/Title.astro";
           </h3>
         </div>
       </div>
-      <div class="border-r border-b border-white/60 group">
+      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-3">
         <div
-          class="bg-white flex flex-col items-center justify-center py-10 group-hover:bg-white transition-colors duration-300 ease-in-out"
+          class="bg-primary md:bg-transparent flex flex-col items-center justify-center py-10 group-hover:bg-white transition-colors duration-300 ease-in-out"
         >
           <span
             class="text-xs uppercase text-secondary font-light tracking-widest"
@@ -56,7 +56,7 @@ import Title from "@/components/Title.astro";
           </h3>
         </div>
       </div>
-      <div class="border-r border-b border-white/60 group">
+      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-4">
         <div
           class="bg-primary md:bg-transparent flex flex-col items-center justify-center py-10 group-hover:bg-white transition-colors duration-300 ease-in-out"
         >
@@ -76,9 +76,32 @@ import Title from "@/components/Title.astro";
 
 <style>
   .bg-glance {
-    background-image: url("https://kit.baliniz.com/malibu/wp-content/uploads/sites/60/2023/06/seasonal-feast-at-beach-resort-group-of-friends-celebrating-resting-having-fun-on-the-beach-in-e1689671838962.jpg");
+    background-image: url("/images/glance-1.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: all .5s ease;
+  }
+  .scale-transition {
+    /* background-size: 110%; */
+    transform: scale(1,1);
   }
 </style>
+
+<script>
+  const items = document.querySelectorAll('.item-glance');
+  const bgGlance = document.querySelector('.bg-glance');
+
+  items.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      const img = item.getAttribute('data-img');
+      bgGlance.style.backgroundImage = `url('/images/${img}.avif')`;
+      bgGlance.classList.add('scale-transition');
+    });
+
+    item.addEventListener('mouseout', () => {
+      // Eliminar la clase para revertir la transición de escala
+      bgGlance.classList.remove('scale-transition');
+    });
+  });
+</script>
