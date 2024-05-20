@@ -3,27 +3,36 @@ import Title from "@/components/Title.astro";
 import ButtonReserva from "../ButtonReserva.astro";
 ---
 
-<section
-  class="w-full md:max-w-7xl mx-auto px-5 py-20 flex flex-col items-center justify-center bg-background"
->
-  <Title
-    title="Living in the Sun, Swimming in the Sea"
-    subtitle="Tu lote te espera"
-    align="text-center"
-    size="text-3xl md:text-[3rem]"
-  />
-  <p class="text-center mt-10 text-[15px]">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore maiores
-    eveniet dolores blanditiis. Ipsum sint expedita a maiores dolor nobis
-    architecto veritatis quidem nostrum, iusto sit numquam nulla, ad excepturi?
-  </p>
-  <div class="grid grid-cols-1 md:grid-cols-2 mt-10">
-    <div class="p-10">
-      <ButtonReserva />
-      <img src="/images/mapa.png" alt="" class="mt-5" />
-    </div>
-    <div class="p-10">
-      <img src="/images/gallery-1.avif" alt="" />
+<section class="bg-background">
+  <div
+    class="w-full md:max-w-7xl mx-auto px-5 py-20 flex flex-col items-center justify-center"
+  >
+    <Title
+      title="En tu futura casa de playa"
+      subtitle="Así será la vista"
+      align="text-center"
+      size="text-3xl md:text-[3rem]"
+    />
+    <p class="text-center mt-10 text-[15px]">
+      Todas las casas tendrán una vista impresionante al mar podrás disfrutar de
+      vistas hermosas a la playa y el sunset desde tu casa
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 mt-10">
+      <div class="py-5 px-16">
+        <ButtonReserva />
+        <img
+          src="/images/mapa-01.svg"
+          alt="Plano proyecto manarola"
+          class="mt-5"
+        />
+        <span
+          class="open-mapa cursor-pointer text-[15px] font-medium text-accent/70 hover:text-accent transition-colors duration-300 mt-3 block"
+          >Ampliar imagen</span
+        >
+      </div>
+      <div class="p-10">
+        <img src="/images/gallery-1.avif" alt="" />
+      </div>
     </div>
   </div>
 </section>
@@ -48,8 +57,7 @@ import ButtonReserva from "../ButtonReserva.astro";
       size="text-4xl md:text-[3rem]"
     />
     <p class="text-center text-xs md:text-[15px] mt-5 mb-10 leading-[27px]">
-      Todas las casas tendrán una vista impresionante al mar podrás disfrutar de
-      vistas hermosas a la playa y el sunset desde tu casa
+      Diseñado para vivir las mejores experiencias en Famila con área de amenidades
     </p>
     <ButtonReserva />
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
