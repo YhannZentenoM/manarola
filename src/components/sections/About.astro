@@ -15,26 +15,76 @@ import Title from "@/components/Title.astro";
   <div class="grid grid-cols-1 md:grid-cols-2 mt-10 text-[15px]">
     <div class="py-5 px-8 leading-[27px]">
       <p>
-        Descubre el paraíso en nuestro exclusivo condominio de playa con impresionantes vistas al mar en todos los lotes desde amplias terrazas. Diseñado para ofrecer comodidad y lujo, cada terreno cuenta con amplio espacio y acceso directo a la playa. Relájate con nuestras amenidades únicas, como piscinas, zona de parrilla, zona de mascotas y mucho más, disfrutando de actividades en familia.
+        Descubre el paraíso en nuestro exclusivo condominio de playa con
+        impresionantes vistas al mar en todos los lotes desde amplias terrazas.
+        Diseñado para ofrecer comodidad y lujo, cada terreno cuenta con amplio
+        espacio y acceso directo a la playa. Relájate con nuestras amenidades
+        únicas, como piscinas, zona de parrilla, zona de mascotas y mucho más,
+        disfrutando de actividades en familia.
       </p>
     </div>
     <div class="py-5 px-8 leading-[27px]">
       <p>
-        Vive la experiencia de un estilo de vida exclusivo con servicios de primera clase y la tranquilidad que solo el sonido del mar puede proporcionar. ¡Tu hogar de ensueño te espera!
+        Vive la experiencia de un estilo de vida exclusivo con servicios de
+        primera clase y la tranquilidad que solo el sonido del mar puede
+        proporcionar. ¡Tu hogar de ensueño te espera!
       </p>
     </div>
   </div>
 </section>
-<section class="bg-reserva w-full bg-background">
-  <div class="w-full md:max-w-7xl mx-auto px-5 py-20">
+<section class="bg-reserva w-full py-20 bg-background">
+  <div class="splide">
+    <div class="splide__arrows">
+      <button class="splide__arrow splide__arrow--prev bg-accent">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+            fill="currentColor"></path></svg
+        >
+      </button>
+      <button class="splide__arrow splide__arrow--next">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+            fill="currentColor"></path></svg
+        >
+      </button>
+    </div>
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <img
+            src="/images/slide-1.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+        <li class="splide__slide">
+          <img
+            src="/images/slide-2.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+        <li class="splide__slide">
+          <img
+            src="/images/slide-3.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="w-full md:max-w-7xl mx-auto px-5 py-20">
     <div class="w-full min-h-full overflow-hidden">
       <img
         src="/images/terrazas-header.avif"
         alt="Terrazas del proyecto"
         class="w-full"
       />
-    </div>
-    <!-- <div class="w-full md:w-1/3 p-5">
+    </div> -->
+  <!-- <div class="w-full md:w-1/3 p-5">
       <Title
         title="Reserva tu terreno"
         subtitle="Tú lote te espera"
@@ -61,7 +111,7 @@ import Title from "@/components/Title.astro";
         <ButtonReserva />
       </form>
     </div> -->
-  </div>
+  <!-- </div> -->
 </section>
 
 <style>
@@ -71,4 +121,41 @@ import Title from "@/components/Title.astro";
     background-position: center;
     background-repeat: no-repeat;
   }
+  .splide__arrow {
+    background: #f08435;
+    opacity: 1;
+    color: white;
+  }
+  .splide__arrow:focus {
+    outline: none;
+  }
+  .splide__arrow--prev {
+    left: 0px;
+  }
+  .splide__arrow--next {
+    right: 0px;
+  }
+  .splide__pagination {
+    bottom: -1.5em;
+  }
+  .splide__pagination__page.is-active {
+    background: #f08435;
+  }
 </style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+  var splide = new Splide(".splide", {
+    type: "loop",
+    autoplay: true,
+    perPage: 1,
+    focus: "center",
+    classes: {
+      pagination: "splide__pagination",
+      page: "splide__pagination__page",
+    },
+  });
+
+  splide.mount();
+</script>
