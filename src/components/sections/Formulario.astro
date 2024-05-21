@@ -1,5 +1,6 @@
 ---
 import Title from "../Title.astro";
+import Plano from "../icons/Plano.astro";
 ---
 
 <dialog
@@ -52,9 +53,11 @@ import Title from "../Title.astro";
           placeholder="Lote interesado"
         />
         <span
-          class="open-mapa cursor-pointer text-[15px] font-medium text-accent/70 hover:text-accent transition-colors duration-300 mt-5 block"
-          >Ver mapa del proyecto</span
-        >
+          class="open-mapa cursor-pointer text-[15px] font-medium text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
+          >
+          <Plano class="w-10 fill-secondary group-hover:fill-white transition-colors duration-300" />
+          Ver mapa del proyecto
+        </span>
         <button class="bg-accent px-6 py-4 text-white w-full mt-5 block"
           >¡Reserva ahora!</button
         >
