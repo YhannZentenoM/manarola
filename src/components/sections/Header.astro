@@ -15,7 +15,7 @@ const pathname = Astro.url.pathname;
       onclick="openMenuMobile()"
     > -->
     <button
-      class="show-button-form bg-accent py-2.5 px-4 text-white font-light text-xs uppercase md:hidden"
+      class="show-button-form bg-accent py-2.5 px-4 text-white font-light text-xs md:text-sm uppercase absolute right-7 md:top-3 flex gap-x-2"
     >
       <!-- <svg
         viewBox="0 0 64 64"
@@ -25,7 +25,7 @@ const pathname = Astro.url.pathname;
         fill="none"
         ><path d="M7.68 32h48.64M7.68 15.97h48.64M7.68 48.03h48.64"></path></svg
       > -->
-      Reserva
+      Reserva <span class="hidden md:block">ahora</span>
     </button>
     <!-- DESKTOP -->
     <!-- <ButtonReserva clases="absolute right-7 -top-4" /> -->
