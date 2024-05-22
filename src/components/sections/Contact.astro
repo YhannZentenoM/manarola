@@ -1,5 +1,6 @@
 ---
 import Title from "../Title.astro";
+import Plano from "../icons/Plano.astro";
 ---
 
 <section
@@ -14,7 +15,7 @@ import Title from "../Title.astro";
         size="text-3xl md:text-[3rem]"
       />
       <ul class="text-[15px] mt-2 space-y-4 ml-5">
-        <li>Dirección: Lorem, ipsum dolor.</li>
+        <li>Dirección: Carr. Costanera Nte. Km 22, Quilca</li>
         <li>Email: correo@correo.pe</li>
         <li>Teléfono: 9435345354</li>
       </ul>
@@ -23,30 +24,32 @@ import Title from "../Title.astro";
       <form action="" class="mt-5">
         <input
           type="text"
-          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent"
+          class="p-3 border border-gray-300/60 w-full text-sm bg-transparent"
           placeholder="Nombre completo"
         />
         <input
           type="text"
-          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+          class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
           placeholder="Teléfono"
         />
         <input
           type="email"
-          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+          class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
           placeholder="Correo electrónico"
         />
         <input
           type="text"
-          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
+          class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
           placeholder="Lote interesado"
         />
         <span
-          class="open-mapa cursor-pointer text-[15px] font-medium text-accent/70 hover:text-accent transition-colors duration-300 mt-5 block"
-          >Ver mapa del proyecto</span
-        >
+          class="open-mapa cursor-pointer text-[15px] font-medium text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-1 w-full text-center hover:bg-secondary group"
+          >
+          <Plano class="w-8 fill-secondary group-hover:fill-white transition-colors duration-300" />
+          Ver mapa del proyecto
+        </span>
         <button
-          class="bg-accent px-6 py-4 text-xs uppercase tracking-widest text-white block mt-5"
+          class="bg-accent px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
           >Enviar mensaje</button
         >
       </form>

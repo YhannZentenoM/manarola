@@ -36,13 +36,53 @@ import ButtonReserva from "../ButtonReserva.astro";
     </div>
   </div>
 </section>
-<section class="w-full md:max-w-7xl mx-auto px-10 py-20">
-  <img
-    src="/images/orillas-header.avif"
-    alt="Orillas del mar del proyecto"
-    class="w-full"
-  />
+
+<section class="w-full pt-20">
+  <div class="splide" id="slide-secondary">
+    <div class="splide__arrows">
+      <button class="splide__arrow splide__arrow--prev bg-accent">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+            fill="currentColor"></path></svg
+        >
+      </button>
+      <button class="splide__arrow splide__arrow--next">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+            fill="currentColor"></path></svg
+        >
+      </button>
+    </div>
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <img
+            src="/images/slide-4.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+        <li class="splide__slide">
+          <img
+            src="/images/slide-5.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+        <li class="splide__slide">
+          <img
+            src="/images/slide-6.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
+
 <section class="py-14 md:py-20 px-5">
   <div class="max-w-7xl mx-auto">
     <img
@@ -85,3 +125,49 @@ import ButtonReserva from "../ButtonReserva.astro";
     </div>
   </div>
 </section>
+
+<style>
+  .bg-reserva {
+    background-image: url("/images/bg-plants.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .splide__arrow {
+    background: #f08435;
+    opacity: 1;
+    color: white;
+  }
+  .splide__arrow:focus {
+    outline: none;
+  }
+  .splide__arrow--prev {
+    left: 10px;
+  }
+  .splide__arrow--next {
+    right: 10px;
+  }
+  .splide__pagination {
+    bottom: -1.5em;
+  }
+  .splide__pagination__page.is-active {
+    background: #f08435;
+  }
+</style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+  var splideSecondary = new Splide("#slide-secondary", {
+    type: "loop",
+    autoplay: true,
+    perPage: 1,
+    focus: "center",
+    classes: {
+      pagination: "splide__pagination",
+      page: "splide__pagination__page",
+    },
+  });
+
+  splideSecondary.mount();
+</script>
