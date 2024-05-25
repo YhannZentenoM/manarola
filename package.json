@@ -22,6 +22,7 @@
     "@splidejs/splide": "^4.1.4",
     "astro": "^4.6.1",
     "photoswipe": "^5.4.3",
+    "scrollreveal": "^4.0.9",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animation-delay": "^1.2.0"
   }

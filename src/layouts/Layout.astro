@@ -41,3 +41,16 @@ const { title, description } = Astro.props;
     font-family: "Tenor Sans", sans-serif;
   }
 </style>
+
+<script>
+  import ScrollReveal from "scrollreveal";
+  ScrollReveal().reveal(".animation-bottom", {
+    distance: "30px",
+    duration: 1000,
+    easing: "cubic-bezier(0.68, -0.55, 0.27, 1.55)",
+    scale: 1,
+    origin: "bottom",
+    opacity: 0,
+    reset: false,
+  });
+</script>

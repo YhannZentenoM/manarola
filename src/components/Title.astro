@@ -9,7 +9,7 @@ interface Props {
 const { title, subtitle, align, size } = Astro.props;
 ---
 
-<div class={`${align}`}>
+<div class={`${align} animation-bottom`}>
 	<span class="text-sm uppercase font-medium tracking-[0.2em] text-secondary">{subtitle}</span>
 	<h2 class={`font-normal mt-4 md:max-w-3xl leading-snug md:mx-auto text-accent ${size}`}>{title}</h2>
 </div>
