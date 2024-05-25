@@ -6,15 +6,19 @@ import Title from "@/components/Title.astro";
 <section
   class="w-full md:max-w-7xl mx-auto px-5 py-20 flex flex-col items-center justify-center"
 >
-  <Title
-    title="El único proyecto sobre terrazas del sur del Perú"
-    subtitle="¿Estás listo?"
-    align="text-center"
-    size="text-3xl md:text-[3rem]"
-  />
-  <div class="grid grid-cols-1 md:grid-cols-2 mt-10 text-[15px]">
-    <div class="py-5 px-8 leading-[27px]">
-      <p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+    <div
+      class="bg-[url('/images/about.avif')] bg-cover bg-no-repeat bg-center w-full py-40 md:py-0"
+    >
+    </div>
+    <div class="p-12">
+      <Title
+        title="El único proyecto sobre terrazas del sur del Perú"
+        subtitle="¿Estás listo?"
+        align="text-left"
+        size="text-3xl md:text-[3rem]"
+      />
+      <p class="mt-5 text-[15px] text-pretty">
         Descubre el paraíso en nuestro exclusivo condominio de playa con
         impresionantes vistas al mar en todos los lotes desde amplias terrazas.
         Diseñado para ofrecer comodidad y lujo, cada terreno cuenta con amplio
@@ -22,16 +26,34 @@ import Title from "@/components/Title.astro";
         únicas, como piscinas, zona de parrilla, zona de mascotas y mucho más,
         disfrutando de actividades en familia.
       </p>
-    </div>
-    <div class="py-5 px-8 leading-[27px]">
-      <p>
+      <p class="mt-5 text-[15px] text-pretty">
         Vive la experiencia de un estilo de vida exclusivo con servicios de
         primera clase y la tranquilidad que solo el sonido del mar puede
         proporcionar. ¡Tu hogar de ensueño te espera!
       </p>
     </div>
   </div>
+  <div class="grid grid-cols-1 md:grid-cols-5 w-full mt-10">
+    <div class="col-span-3 bg-[url('/images/about.avif')] bg-cover bg-no-repeat bg-center w-full"></div>
+    <div
+      class="relative text-accent flex flex-col items-center justify-center gap-2 px-5 py-10 w-full after:absolute after:w-[1px] after:h-[60%] after:bg-primary/40 after:right-0 after:top-7"
+    >
+      <h4 class="text-4xl">4000 <span class="text-sm">m<sup>2</sup></span></h4>
+      <span class="text-sm tracking-wider uppercase font-light"
+        >areas libres</span
+      >
+    </div>
+    <div
+      class="relative text-accent flex flex-col items-center justify-center gap-2 px-5 py-10 w-full after:absolute after:w-[1px] after:h-[60%] after:bg-primary/40 after:right-0 after:top-7"
+    >
+      <h4 class="text-4xl">15 <span class="text-sm">minutos</span></h4>
+      <span class="text-sm tracking-wider uppercase font-light"
+        >de Camaná</span
+      >
+    </div>
+  </div>
 </section>
+
 <section class="bg-reserva w-full pt-20 bg-background">
   <div class="splide" id="slide-first">
     <div class="splide__arrows">
