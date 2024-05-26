@@ -9,65 +9,83 @@ import Title from "@/components/Title.astro";
     align="text-center"
     size="text-4xl md:text-[3rem]"
   />
-  <p class="text-sm md:text-base font-light text-center mt-5 max-w-5xl mx-auto animation-bottom">
-    Quilca se caracteriza por tener un clima cálido todos los días. Por lo que podrás darte una "escapadita" en cualquier momento y disfrutar en nuestro increíble condominio.
+  <p
+    class="text-sm md:text-base font-light text-center mt-5 max-w-5xl mx-auto animation-bottom"
+  >
+    Quilca se caracteriza por tener un clima cálido todos los días. Por lo que
+    podrás darte una "escapadita" en cualquier momento y disfrutar en nuestro
+    increíble condominio.
   </p>
   <div class="max-w-7xl mx-auto mt-5 md:mt-20">
-    <div class="grid grid-cols-1 md:grid-cols-4 md:min-h-[90vh] bg-glance scale-transition">
-      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-1">
+    <div
+      class="grid grid-cols-1 md:grid-cols-4 md:min-h-[90vh] bg-glance scale-transition"
+    >
+      <div
+        class="border-r border-b border-white/60 group item-glance"
+        data-img="glance-1"
+      >
         <div
           class="bg-[url('/images/glance-1.avif')] bg-cover md:bg-none flex flex-col items-center justify-center py-10 group-hover:bg-button transition-colors duration-300 ease-in-out"
         >
-          <span
-            class="text-xs uppercase text-white font-light tracking-widest"
-          >
-            Disfruta con tu
-          </span>
-          <h3 class="text-white text-xl font-normal mt-3">
-            Familia y amigos
-          </h3>
+          <div class="bg-button p-3 text-center md:bg-transparent md:p-0 rounded-xl">
+            <span
+              class="text-xs uppercase text-white font-light tracking-widest"
+            >
+              Disfruta con tu
+            </span>
+            <h3 class="text-white text-xl font-normal mt-3">
+              Familia y amigos
+            </h3>
+          </div>
         </div>
       </div>
-      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-2">
+      <div
+        class="border-r border-b border-white/60 group item-glance"
+        data-img="glance-2"
+      >
         <div
           class="bg-[url('/images/glance-2.avif')] bg-cover md:bg-none flex flex-col items-center justify-center py-10 group-hover:bg-button transition-colors duration-300 ease-in-out"
         >
-          <span
-            class="text-xs uppercase text-white font-light tracking-widest"
-          >
+        <div class="bg-button p-3 text-center md:bg-transparent md:p-0 rounded-xl">
+          <span class="text-xs uppercase text-white font-light tracking-widest">
             Todas las
           </span>
-          <h3 class="text-white text-xl font-normal mt-3">
-            Comodidades
-          </h3>
+          <h3 class="text-white text-xl font-normal mt-3">Comodidades</h3>
+        </div>
         </div>
       </div>
-      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-3">
+      <div
+        class="border-r border-b border-white/60 group item-glance"
+        data-img="glance-3"
+      >
         <div
           class="bg-[url('/images/glance-3.avif')] bg-cover md:bg-none flex flex-col items-center justify-center py-10 group-hover:bg-button transition-colors duration-300 ease-in-out"
         >
-          <span
-            class="text-xs uppercase text-white font-light tracking-widest"
-          >
+        <div class="bg-button p-3 text-center md:bg-transparent md:p-0 rounded-xl">
+          <span class="text-xs uppercase text-white font-light tracking-widest">
             Siempre con
           </span>
           <h3 class="text-white text-xl font-normal mt-3">
             una increíble vista
           </h3>
         </div>
+        </div>
       </div>
-      <div class="border-r border-b border-white/60 group item-glance" data-img="glance-4">
+      <div
+        class="border-r border-b border-white/60 group item-glance"
+        data-img="glance-4"
+      >
         <div
           class="bg-[url('/images/glance-4.avif')] bg-cover md:bg-none flex flex-col items-center justify-center py-10 group-hover:bg-button transition-colors duration-300 ease-in-out"
         >
-          <span
-            class="text-xs uppercase text-white font-light tracking-widest"
-          >
+        <div class="bg-button p-3 text-center md:bg-transparent md:p-0 rounded-xl">
+          <span class="text-xs uppercase text-white font-light tracking-widest">
             En un lugar
           </span>
           <h3 class="text-white text-xl font-normal mt-3">
             Privilegiado de Camaná
           </h3>
+        </div>
         </div>
       </div>
     </div>
@@ -80,28 +98,28 @@ import Title from "@/components/Title.astro";
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
   }
   .scale-transition {
     /* background-size: 110%; */
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
 </style>
 
 <script>
-  const items = document.querySelectorAll('.item-glance');
-  const bgGlance = document.querySelector('.bg-glance');
+  const items = document.querySelectorAll(".item-glance");
+  const bgGlance = document.querySelector(".bg-glance");
 
-  items.forEach(item => {
-    item.addEventListener('mouseover', () => {
-      const img = item.getAttribute('data-img');
+  items.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      const img = item.getAttribute("data-img");
       bgGlance.style.backgroundImage = `url('/images/${img}.avif')`;
-      bgGlance.classList.add('scale-transition');
+      bgGlance.classList.add("scale-transition");
     });
 
-    item.addEventListener('mouseout', () => {
+    item.addEventListener("mouseout", () => {
       // Eliminar la clase para revertir la transición de escala
-      bgGlance.classList.remove('scale-transition');
+      bgGlance.classList.remove("scale-transition");
     });
   });
 </script>
