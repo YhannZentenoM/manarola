@@ -21,7 +21,7 @@ import ButtonReserva from "../ButtonReserva.astro";
       <div class="py-5 px-16">
         <ButtonReserva />
         <img
-          src="/images/mapa-01.svg"
+          src="/images/mapa-01.avif"
           alt="Plano proyecto manarola"
           class="mt-5"
         />
@@ -92,15 +92,17 @@ import ButtonReserva from "../ButtonReserva.astro";
     />
     <Title
       title="A orillas del mar"
-      subtitle="La ventaja de vivir frente al mar"
+      subtitle="La ventaja de vivir"
       align="text-center"
       size="text-4xl md:text-[3rem]"
     />
-    <p class="text-center text-xs md:text-[15px] mt-5 mb-10 leading-[27px] animation-bottom">
-      Todas los terrenos tienen acceso directo a la playa
+    <p
+      class="text-center text-xs md:text-[15px] mt-5 mb-10 leading-[27px] animation-bottom"
+    >
+      Todos los terrenos tienen acceso directo a la playa
     </p>
     <ButtonReserva />
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="md:grid md:grid-cols-3 gap-5 hidden">
       <div class="p-5 group">
         <img
           src="/images/orilla-1.avif"
@@ -121,6 +123,55 @@ import ButtonReserva from "../ButtonReserva.astro";
           alt="Familia disfrutando de la playa"
           class="group-hover:-translate-y-2 transition-transform duration-300"
         />
+      </div>
+    </div>
+    <div class="splide mt-5 md:hidden" id="slide-orillas">
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev bg-accent">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+              fill="currentColor"></path></svg
+          >
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+              fill="currentColor"></path></svg
+          >
+        </button>
+      </div>
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide group">
+            <img
+              src="/images/orilla-1.avif"
+              alt="Familia disfrutando de la playa"
+              class="group-hover:-translate-y-2 transition-transform duration-300"
+            />
+          </li>
+          <li class="splide__slide group">
+            <img
+              src="/images/orilla-2.avif"
+              alt="Familia disfrutando de la playa"
+              class="group-hover:-translate-y-2 transition-transform duration-300"
+            />
+          </li>
+          <li class="splide__slide group">
+            <img
+              src="/images/orilla-3.avif"
+              alt="Familia disfrutando de la playa"
+              class="group-hover:-translate-y-2 transition-transform duration-300"
+            />
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -170,4 +221,23 @@ import ButtonReserva from "../ButtonReserva.astro";
   });
 
   splideSecondary.mount();
+
+  var splideGalleryOrillas = new Splide("#slide-orillas", {
+    type: "loop",
+    autoplay: true,
+    perPage: 1,
+    focus: "center",
+    classes: {
+      pagination: "splide__pagination",
+      page: "splide__pagination__page",
+    },
+    mediaQuery: "min",
+    breakpoints: {
+      640: {
+        destroy: true,
+      },
+    },
+  });
+
+  splideGalleryOrillas.mount();
 </script>

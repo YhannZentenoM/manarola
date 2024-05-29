@@ -17,7 +17,7 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
       size="text-4xl md:text-[3rem]"
     />
     <p class="text-center text-xs md:text-[15px] mt-5 mb-10 leading-[27px] animation-bottom">
-      Disfruta de una paradisiaca vista al mar e impresionante Sunset desde tu casa
+      Disfruta de una impresionante vista al mar y una paradisiaca vista al Sunset desde tu propia casa
     </p>
     <ButtonReserva />
     <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-x-10 md:mt-10">
@@ -37,7 +37,7 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
         <img src="/images/360.png" alt="" class="w-full mt-5" />
       </div>
     </div> -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="md:grid md:grid-cols-3 gap-5 hidden">
       <div class="p-5 group">
         <img
           src="/images/terraza-1.avif"
@@ -60,5 +60,101 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
         />
       </div>
     </div>
+    <div class="splide mt-5 md:hidden" id="slide-terrazas">
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev bg-accent">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+              fill="currentColor"></path></svg
+          >
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+              fill="currentColor"></path></svg
+          >
+        </button>
+      </div>
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide group">
+            <img
+              src="/images/terraza-1.avif"
+              alt="Grupo de amigos disfrutando la vista"
+              class="group-hover:-translate-y-2 transition-transform duration-300"
+            />
+          </li>
+          <li class="splide__slide group">
+            <img
+              src="/images/terraza-2.avif"
+              alt="Pareja dentro de una piscina"
+              class="group-hover:-translate-y-2 transition-transform duration-300"
+            />
+          </li>
+          <li class="splide__slide group">
+            <img
+              src="/images/terraza-3.avif"
+              alt="Mujer disfrutando de la vista al mar"
+              class="group-hover:-translate-y-2 transition-transform duration-300"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .splide__arrow {
+    background: #f08435;
+    opacity: 1;
+    color: white;
+  }
+  .splide__arrow:focus {
+    outline: none;
+  }
+  .splide__arrow--prev {
+    left: 10px;
+  }
+  .splide__arrow--next {
+    right: 10px;
+  }
+  .splide__pagination {
+    bottom: -1.5em;
+  }
+  .splide__pagination__page.is-active {
+    background: #f08435;
+  }
+</style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+  
+  var splideGalleryTerrazas = new Splide("#slide-terrazas", {
+    type: "loop",
+    autoplay: true,
+    perPage: 1,
+    focus: "center",
+    classes: {
+      pagination: "splide__pagination",
+      page: "splide__pagination__page",
+    },
+    mediaQuery: "min",
+    breakpoints: {
+      640: {
+        destroy: true,
+      },
+    },
+  });
+
+  splideGalleryTerrazas.mount();
+</script>
