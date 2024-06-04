@@ -29,17 +29,35 @@ import Title from "../Title.astro";
           seguridad fiscal que los propietarios de Manarola desean.
         </p>
         <ul class="list-disc ml-5 mt-2 text-[15px]">
-          <li>Adquisición del terreno</li>
-          <li>Saneamiento legal y cumplimiento de regulaciones y permisos</li>
-          <li>Factibilidad de servicios básicos de agua y luz</li>
+          <li>
+            Adquisición del terreno
+            <span
+              class="text-secondary uppercase text-xs cursor-pointer show-documentos"
+              data-img={`${["partida-registral"]}`}>(Ver documento)</span
+            >
+          </li>
+          <li>Saneamiento legal</li>
+          <li>
+            Cumplimiento de regulaciones
+            <span
+              class="text-secondary uppercase text-xs cursor-pointer show-documentos"
+              data-img={`${["cira","maritima-nacional"]}`}>(Ver documentos)</span
+            >
+          </li>
+          <li>Licencia de Habilitación urbana
+            <span
+              class="text-secondary uppercase text-xs cursor-pointer show-documentos"
+              data-img={`${["licencia-1","licencia-2","licencia-3","licencia-4"]}`}>(Ver documento)</span
+            >
+          </li>
+          <li>Factibilidad de servicios básicos de luz
+            <span
+              class="text-secondary uppercase text-xs cursor-pointer show-documentos"
+              data-img={`${["factibilidad-seal"]}`}>(Ver documento)</span
+            >
+          </li>
+          <li>Factibilidad de servicio de agua de reservorio a domicilio</li>
         </ul>
-        <a
-          href="https://drive.google.com/drive/folders/13oOItO2hsLBWddMb_FpIQcj1OAnGz_cg"
-          target="_blank"
-          class="text-xs tracking-widest uppercase rounded-lg  text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
-          >
-          Ver documentos
-        </a>
       </div>
     </div>
     <div class="p-5 md:p-10 animation-bottom">
@@ -162,6 +180,53 @@ import Title from "../Title.astro";
   </div>
 </dialog>
 
+<dialog
+  id="alert-primera-parte"
+  class="w-full h-screen bg-black/70 fixed top-0 z-10"
+>
+  <div class="relative w-full h-full">
+    <svg
+      class="w-5 absolute top-5 right-5 z-10 cursor-pointer text-zinc-200 hover:text-white btn-close-primera-parte"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      ><path
+        d="m21 21-9-9m0 0L3 3m9 9 9-9m-9 9-9 9"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path></svg
+    >
+    <div class="splide" id="slide-primera-parte">
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev bg-accent">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+              fill="currentColor"></path></svg
+          >
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+              fill="currentColor"></path></svg
+          >
+        </button>
+      </div>
+      <div class="splide__track h-screen">
+        <ul class="splide__list"></ul>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <style>
   .shadow-card {
     box-shadow: 0px 0px 11px 3px rgba(251, 184, 88, 1);
@@ -182,9 +247,29 @@ import Title from "../Title.astro";
   .anim-ping {
     animation: ping 2s infinite;
   }
+  .splide__arrow {
+    background: #f08435;
+    opacity: 1;
+    color: white;
+  }
+  .splide__arrow:focus {
+    outline: none;
+  }
+  .splide__arrow--prev {
+    left: 10px;
+  }
+  .splide__arrow--next {
+    right: 10px;
+  }
+  .splide__pagination {
+    bottom: -1.5em;
+  }
+  .splide__pagination__page.is-active {
+    background: #f08435;
+  }
 </style>
 
-<script >
+<script>
   const video = document.querySelector(".video-etapa");
   const showButton = document.querySelector(".show-video-etapa");
   const alertDialog = document.querySelector("#alert-dialog-etapa");
@@ -206,4 +291,55 @@ import Title from "../Title.astro";
     video?.pause();
     alertDialog.close();
   });
+
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+
+  const showDocumentos = document.querySelectorAll(".show-documentos");
+  const alertDocumentos = document.querySelector("#alert-primera-parte");
+  const buttonCloseDocumentos = document.querySelector(
+    ".btn-close-primera-parte"
+  );
+
+  showDocumentos.forEach((element) => {
+    element.addEventListener("click", function () {
+      const img = element.getAttribute("data-img").split(",");
+      splideGalleryPrimeraParte.remove( '.is-visible' );
+      // const slideList = document.querySelector(".splide__list");
+      // slideList.innerHTML = "";
+      for (let i = 0; i < img.length; i++) {
+        // const htmlSliderDocumentos = `<li class="splide__slide"><img src="/images/${img[i]}.png" alt="Familia disfrutando de la playa" class="h-[95vh] mx-auto"/></li>`
+        // const htmlSliderDocumentos = `<li class="splide__slide bg-green-400"><div class="w-full h-full" style="width:100%;">HOLA</div></li>`
+        splideGalleryPrimeraParte.add(
+          `<li class="splide__slide is-visible"><img src="/images/${img[i]}.png" alt="Familia disfrutando de la playa" class="h-[98vh] mx-auto"/></li>`
+        );
+        // alertDocumentos.querySelector(".splide__list").innerHTML += htmlSliderDocumentos;
+      }
+
+      alertDocumentos.show();
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  buttonCloseDocumentos?.addEventListener("click", () => {
+    document.body.style.overflow = "auto";
+    alertDocumentos.close();
+  });
+  // showDocumentos.addEventListener("click", function () {
+  //   alertDocumentos.show();
+  //   document.body.style.overflow = "hidden";
+  // });
+
+  var splideGalleryPrimeraParte = new Splide("#slide-primera-parte", {
+    type: "loop",
+    autoplay: true,
+    perPage: 1,
+    focus: "center",
+    classes: {
+      pagination: "splide__pagination",
+      page: "splide__pagination__page",
+    },
+  });
+
+  splideGalleryPrimeraParte.mount();
 </script>
