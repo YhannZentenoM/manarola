@@ -16,17 +16,17 @@ import Information from "./Information.astro";
     <source src="/video/video.mp4" type="video/mp4" />
   </video>
   <!-- <img src="/images/header.avif" alt="" class="relative w-full"> -->
-  <div
+  <!-- <div
     class="bg-black opacity-30 absolute inset-0 min-w-full min-h-full overlay"
   >
-  </div>
+  </div> -->
   <div class="w-full mx-auto h-full relative flex items-center justify-center">
     <div class="flex flex-col items-center justify-center py-12">
-      <h1
+      <!-- <h1
         class="text-[50px] md:text-7xl leading-none text-white font-light text-center"
       >
         Somos el único proyecto sobre terrazas y a orillas del mar
-      </h1>
+      </h1> -->
       <button
         type="button"
         class="w-20 h-20 flex items-center justify-center text-white mt-10 rounded-full border border-white/50 anim-ping show-button"
@@ -138,7 +138,13 @@ import Information from "./Information.astro";
     alertDialog.close();
   });
 
-  function setCurTime() { 
-    videoBanner.currentTime=4
+  function setCurTime() {
+    if (window.innerWidth < 600) {
+      videoBanner.currentTime=23
+    }else{
+      videoBanner.currentTime=4
+    }
   }
+  window.addEventListener('resize', setCurTime);
+  setCurTime();
 </script>
