@@ -3,6 +3,7 @@ import Header from "@/components/sections/Header.astro";
 
 import "@fontsource/tenor-sans";
 import "@fontsource-variable/inter";
+import FloattingButton from "@/components/FloattingButton.astro";
 
 interface Props {
   title: string;
@@ -21,7 +22,8 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="bg-white">
+  <body class="bg-white relative">
+    <FloattingButton />
     <Header />
     <slot />
   </body>
