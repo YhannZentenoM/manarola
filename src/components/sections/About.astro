@@ -53,8 +53,18 @@ import Title from "@/components/Title.astro";
   </div>
 </section>
 
-<section class="bg-reserva w-full pt-10 bg-background">
-  <div class="splide" id="slide-first">
+<section class="bg-reserva w-full pt-20 bg-background">
+  <Title
+    title="En tu futura casa de playa"
+    subtitle="Así será la vista"
+    align="text-center"
+    size="text-3xl md:text-[3rem]"
+  />
+  <p class="text-center mt-10 text-[15px] animation-bottom">
+    Todas las casas tendrán una vista impresionante al mar podrás disfrutar de
+    vistas hermosas a la playa y el sunset desde tu casa
+  </p>
+  <div class="splide mt-10" id="slide-first">
     <div class="splide__arrows">
       <button class="splide__arrow splide__arrow--prev bg-accent">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +102,20 @@ import Title from "@/components/Title.astro";
             src="/images/slide-3.avif"
             alt="Terrazas del proyecto"
             class="w-full aspect-video"
+          />
+        </li>
+        <li class="splide__slide">
+          <img
+            src="/images/slide-5.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
+          />
+        </li>
+        <li class="splide__slide">
+          <img
+            src="/images/slide-6.avif"
+            alt="Terrazas del proyecto"
+            class="w-full"
           />
         </li>
       </ul>
