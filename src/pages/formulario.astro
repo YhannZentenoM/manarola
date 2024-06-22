@@ -1,5 +1,6 @@
 ---
 import Title from "@/components/Title.astro";
+import Plano from "@/components/icons/Plano.astro";
 import Footer from "@/components/sections/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -7,37 +8,77 @@ import Layout from "@/layouts/Layout.astro";
 <Layout title="Welcome to Astro." description="">
   <section class="max-w-7xl mx-auto py-20 flex gap-x-10">
     <div class="w-full">
-      <Title
-        title="Lorem Repellendus"
-        subtitle="Lorem"
-        align="text-left"
-        size="text-3xl md:text-[3rem]"
-      />
-      <p class="text-left mt-10 text-[15px] animation-bottom">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deserunt tempora deleniti, reprehenderit sint repudiandae eaque ad numquam ratione ipsam eveniet consequuntur quasi ab iusto ex, libero, assumenda cupiditate sequi dolor. Voluptatum accusamus sequi ullam maxime rerum nobis! Repellendus, vitae!
-      </p>
+      <img src="/images/precios.svg" alt="Precios actuales">
     </div>
     <form action="" class="mt-5 w-full">
       <input
         type="text"
-        class="p-3 border border-gray-300/60 w-full text-sm bg-transparent"
+        class="p-4 border border-gray-300 w-full text-base bg-transparent"
         placeholder="Nombre completo"
       />
       <input
         type="text"
-        class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
+        class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
         placeholder="Celular"
       />
       <input
         type="email"
-        class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
+        class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
         placeholder="Horario de contacto"
       />
+      <span
+        class="open-mapa cursor-pointer text-xs tracking-widest uppercase text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary py-2 w-full text-center hover:bg-secondary group rounded-lg"
+      >
+        <Plano
+          class="w-8 fill-secondary group-hover:fill-white transition-colors duration-300"
+        />
+        Ver mapa del proyecto
+      </span>
       <button
         class="bg-button rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
         >Enviar mensaje</button
       >
     </form>
   </section>
+  <dialog
+    id="alert-dialog-mapa"
+    class="w-full h-screen bg-black/20 backdrop:bg-black/20 fixed inset-0 z-50 p-5"
+  >
+    <svg
+      class="w-5 absolute top-10 right-10 z-10 cursor-pointer text-zinc-800 hover:text-zinc-400 close-mapa"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      ><path
+        d="m21 21-9-9m0 0L3 3m9 9 9-9m-9 9-9 9"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path></svg
+    >
+    <div class="h-[90vh] flex items-center justify-center">
+      <img
+        src="/images/mapa-01.avif"
+        alt="Plano del proyecto"
+        class="md:h-full bg-white"
+      />
+    </div>
+  </dialog>
   <Footer />
 </Layout>
+
+<script is:inline>
+  const alertDialogMapa = document.getElementById("alert-dialog-mapa");
+  const closeMapa = document.querySelector(".close-mapa");
+  const openMapa = document.querySelectorAll(".open-mapa");
+
+  closeMapa.addEventListener("click", () => {
+    alertDialogMapa.close();
+  });
+
+  openMapa.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      alertDialogMapa.showModal();
+    });
+  });
+</script>
