@@ -1,28 +1,35 @@
 ---
-import Title from "@/components/Title.astro";
-import Plano from "@/components/icons/Plano.astro";
 import Footer from "@/components/sections/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro." description="">
-  <section class="max-w-7xl mx-auto py-20 flex gap-x-10">
+  <section class="max-w-7xl mx-auto py-20 flex flex-col md:flex-row gap-x-10">
     <div class="w-full">
-      <img src="/images/precios.svg" alt="Precios actuales">
+      <img src="/images/precios.svg" alt="Precios actuales" />
+      <a
+        href="/archivos/terminos_y_condiciones_promociones.pdf"
+        target="_blank"
+        class="text-blue-800 text-sm underline italic hover:translate-y-1 transition-transform duration-300 p-1 block"
+        >Terminos y condiciones promociones</a
+      >
     </div>
-    <form action="" class="mt-5 w-full">
+    <form action="" method="post" class="mt-5 w-full submit-form" name="submit-form">
       <input
         type="text"
+        name="Nombre completo"
         class="p-4 border border-gray-300 w-full text-base bg-transparent"
         placeholder="Nombre completo"
       />
       <input
         type="text"
+        name="Número de celular"
         class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
         placeholder="Celular"
       />
-      <input
-        type="email"
+      <!-- <input
+        type="text"
+        name="motivo"
         class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
         placeholder="Horario de contacto"
       />
@@ -33,14 +40,28 @@ import Layout from "@/layouts/Layout.astro";
           class="w-8 fill-secondary group-hover:fill-white transition-colors duration-300"
         />
         Ver mapa del proyecto
-      </span>
+      </span> -->
       <button
-        class="bg-button rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
-        >Enviar mensaje</button
+        type="submit"
+        class="bg-button btn-submit disabled:bg-button/30 rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
+        >Reservar ahora</button
       >
+      <div class="w-full flex flex-col md:flex-row gap-x-4">
+        <a
+          href="tel:051983792957"
+          class="bg-black block text-center rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
+          >Realizar llamada</a
+        >
+        <a
+          href="https://wa.link/rqpq1a"
+          target="_blank"
+          class="bg-[#54b547] block text-center rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
+          >Contactar por Whatsapp</a
+        >
+      </div>
     </form>
   </section>
-  <dialog
+  <!-- <dialog
     id="alert-dialog-mapa"
     class="w-full h-screen bg-black/20 backdrop:bg-black/20 fixed inset-0 z-50 p-5"
   >
@@ -63,11 +84,11 @@ import Layout from "@/layouts/Layout.astro";
         class="md:h-full bg-white"
       />
     </div>
-  </dialog>
+  </dialog> -->
   <Footer />
 </Layout>
 
-<script is:inline>
+<!-- <script is:inline>
   const alertDialogMapa = document.getElementById("alert-dialog-mapa");
   const closeMapa = document.querySelector(".close-mapa");
   const openMapa = document.querySelectorAll(".open-mapa");
@@ -80,5 +101,32 @@ import Layout from "@/layouts/Layout.astro";
     btn.addEventListener("click", () => {
       alertDialogMapa.showModal();
     });
+  });
+</script> -->
+<script>
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbwxrMzAGsT0QTYxfhyK37J-vHYU2BY6lIT6-_8VUqvLNKUS0kYdGxEOvW6_EbOZocqL/exec";
+  // const scriptURL =
+  //   "https://script.google.com/macros/s/AKfycbzWLcqg7qU4BJXYvVYZ5dUNk6q7zCNxhEZj6uxLG-zpOs7PR3v4lMj5anOtgBS8As4X/exec";
+  const form = document.forms["submit-form"];
+  const button = document.querySelector('.btn-submit')
+  const formMessage = document.querySelector('.submit-form')
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    button.setAttribute("disabled", "true")
+    button.textContent = "Enviando ..."
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then((response) => {
+        if(!response.ok){
+          alert("Mensaje no fue enviado, intentelo nuevamente.")
+          return
+        }
+        button.removeAttribute("disabled")
+        button.textContent = "Enviar mensaje"
+        formMessage.reset()
+        alert("Mensaje enviado correctamente.")
+      })
+      .catch((error) => console.error("Error!", error.message));
   });
 </script>

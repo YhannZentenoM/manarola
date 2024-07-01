@@ -1,10 +1,10 @@
 ---
 import Title from "../Title.astro";
-import Plano from "../icons/Plano.astro";
 ---
 
 <section
   class="w-full md:max-w-7xl mx-auto px-5 py-20 flex flex-col items-center justify-center"
+  id="contacto"
 >
   <div class="flex flex-col md:flex-row items-center gap-10">
     <div class="w-full">
@@ -17,9 +17,21 @@ import Plano from "../icons/Plano.astro";
       <ul class="text-[15px] mt-2 space-y-4 ml-5">
         <li>Dirección: Carr. Costanera Nte. Km 22, Quilca</li>
       </ul>
-      <picture class="p-10 w-full">
-        <img src="/images/precios.svg" alt="Esquema de precios" class="w-full">
-      </picture>
+      <div>
+        <picture class="p-10 w-full">
+          <img
+            src="/images/precios.svg"
+            alt="Esquema de precios"
+            class="w-full"
+          />
+        </picture>
+        <a
+          href="/archivos/terminos_y_condiciones_promociones.pdf"
+          target="_blank"
+          class="text-blue-800 text-sm underline italic hover:translate-y-1 transition-transform duration-300 p-1 block"
+          >Terminos y condiciones promociones</a
+        >
+      </div>
     </div>
     <div class="w-full">
       <form action="" class="mt-5">
@@ -38,34 +50,36 @@ import Plano from "../icons/Plano.astro";
           class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
           placeholder="Correo electrónico"
         />
-        <input
-          type="text"
-          class="p-3 border border-gray-300/60 w-full text-sm bg-transparent mt-4"
-          placeholder="Lote interesado"
-        />
-        <span
-          class="open-mapa cursor-pointer text-xs tracking-widest uppercase text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary py-2 w-full text-center hover:bg-secondary group rounded-lg"
-          >
-          <Plano class="w-8 fill-secondary group-hover:fill-white transition-colors duration-300" />
-          Ver mapa del proyecto
-        </span>
         <button
           class="bg-button rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
-          >Enviar mensaje</button
+          >Reservar ahora</button
         >
+        <div class="w-full flex flex-col md:flex-row gap-x-4">
+          <a
+            href="tel:051983792957"
+            class="bg-black block text-center rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
+            >Realizar llamada</a
+          >
+          <a
+            href="https://wa.link/rqpq1a"
+            target="_blank"
+            class="bg-[#54b547] block text-center rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
+            >Contactar por Whatsapp</a
+          >
+        </div>
       </form>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mt-10">
     <iframe
-    class="mt-10"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5914378344723!2d-72.47161118931817!3d-16.69731618401051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91410ff6d4d6955d%3A0x3db2acae2af48385!2sManarola%20-%20Condominio%20de%20Playa!5e0!3m2!1ses-419!2spe!4v1715784832976!5m2!1ses-419!2spe"
-    width="100%"
-    height="550"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <img src="/images/mapa-02.avif" alt="Mapa del camino hacia el terreno">
+      class="mt-10"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5914378344723!2d-72.47161118931817!3d-16.69731618401051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91410ff6d4d6955d%3A0x3db2acae2af48385!2sManarola%20-%20Condominio%20de%20Playa!5e0!3m2!1ses-419!2spe!4v1715784832976!5m2!1ses-419!2spe"
+      width="100%"
+      height="550"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <img src="/images/mapa-02.avif" alt="Mapa del camino hacia el terreno" />
   </div>
 </section>

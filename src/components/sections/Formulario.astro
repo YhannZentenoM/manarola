@@ -1,6 +1,5 @@
 ---
 import Title from "../Title.astro";
-import Plano from "../icons/Plano.astro";
 ---
 
 <dialog
@@ -47,17 +46,7 @@ import Plano from "../icons/Plano.astro";
           class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
           placeholder="Correo electrónico"
         />
-        <input
-          type="text"
-          class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent mt-4"
-          placeholder="Lote interesado"
-        />
-        <span
-          class="open-mapa cursor-pointer text-xs tracking-widest uppercase rounded-lg  text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
-          >
-          <Plano class="w-10 fill-secondary group-hover:fill-white transition-colors duration-300" />
-          Ver mapa del proyecto
-        </span>
+        
         <button class="bg-button rounded-lg px-6 py-4 text-white w-full mt-5 block uppercase tracking-widest text-xs"
           >¡Reserva ahora!</button
         >
@@ -66,7 +55,7 @@ import Plano from "../icons/Plano.astro";
   </div>
 </dialog>
 
-<dialog
+<!-- <dialog
   id="alert-dialog-mapa"
   class="w-full h-screen bg-black/20 backdrop:bg-black/20 fixed inset-0 z-50 p-5"
 >
@@ -85,7 +74,7 @@ import Plano from "../icons/Plano.astro";
   <div class="h-[90vh] flex items-center justify-center">
     <img src="/images/mapa-01.avif" alt="Plano del proyecto" class="md:h-full bg-white" />
   </div>
-</dialog>
+</dialog> -->
 
 <script is:inline>
   const alertDialogMapa = document.getElementById("alert-dialog-mapa");

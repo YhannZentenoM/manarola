@@ -4,7 +4,7 @@ import ButtonReserva from "../ButtonReserva.astro";
 import Plano from "../icons/Plano.astro";
 ---
 
-<section class="bg-background">
+<section class="bg-background" id="lotes">
   <div
     class="w-full md:max-w-7xl mx-auto px-5 py-20 flex flex-col items-center justify-center"
   >
@@ -40,7 +40,7 @@ import Plano from "../icons/Plano.astro";
 </section>
 
 <section class="w-full pt-20">
-  <div class="h-[85vh] overflow-hidden">
+  <div class="md:h-[85vh] overflow-hidden">
     <div class="splide h-full" id="slide-secondary">
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev bg-accent">
@@ -63,6 +63,20 @@ import Plano from "../icons/Plano.astro";
           <li class="splide__slide">
             <img
               src="/images/slide-4.avif"
+              alt="Terrazas del proyecto"
+              class="w-full"
+            />
+          </li>
+          <li class="splide__slide">
+            <img
+              src="/images/slide-5.avif"
+              alt="Terrazas del proyecto"
+              class="w-full"
+            />
+          </li>
+          <li class="splide__slide">
+            <img
+              src="/images/slide-6.avif"
               alt="Terrazas del proyecto"
               class="w-full"
             />

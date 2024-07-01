@@ -5,22 +5,22 @@
   },
   {
     "name": "Beneficios",
-    "url": "/beneficios"
+    "url": "#beneficios"
   },
   {
     "name": "Amenidades",
-    "url": "/amenidades"
+    "url": "#amenidades"
   },
   {
     "name": "Lotes",
-    "url": "/lotes"
+    "url": "#lotes"
   },
   {
     "name": "Distancia",
-    "url": "/distancia"
+    "url": "#distancia"
   },
   {
     "name": "Contacto",
-    "url": "/contacto"
+    "url": "#contacto"
   }
 ]
