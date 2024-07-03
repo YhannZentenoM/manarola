@@ -1,4 +1,6 @@
 ---
+import FormReserva from "@/components/FormReserva.astro";
+import ModalConfirmacion from "@/components/ModalConfirmacion.astro";
 import Footer from "@/components/sections/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -14,7 +16,8 @@ import Layout from "@/layouts/Layout.astro";
         >Terminos y condiciones</a
       >
     </div>
-    <form action="" method="post" class="mt-5 w-full submit-form" name="submit-form">
+    <FormReserva />
+    <!-- <form action="" method="post" class="mt-5 w-full submit-form" name="submit-form">
       <input
         type="text"
         name="Nombre completo"
@@ -27,20 +30,6 @@ import Layout from "@/layouts/Layout.astro";
         class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
         placeholder="Celular"
       />
-      <!-- <input
-        type="text"
-        name="motivo"
-        class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
-        placeholder="Horario de contacto"
-      />
-      <span
-        class="open-mapa cursor-pointer text-xs tracking-widest uppercase text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary py-2 w-full text-center hover:bg-secondary group rounded-lg"
-      >
-        <Plano
-          class="w-8 fill-secondary group-hover:fill-white transition-colors duration-300"
-        />
-        Ver mapa del proyecto
-      </span> -->
       <button
         type="submit"
         class="bg-button btn-submit disabled:bg-button/30 rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
@@ -63,14 +52,15 @@ import Layout from "@/layouts/Layout.astro";
             Contactar por Whatsapp
           </a>
       </div>
-    </form>
+    </form> -->
   </section>
+  <ModalConfirmacion />
   <!-- <dialog
-    id="alert-dialog-mapa"
-    class="w-full h-screen bg-black/20 backdrop:bg-black/20 fixed inset-0 z-50 p-5"
+    id="alert-dialog-confirm"
+    class="md:w-[50vw] md:h-[70vh] bg-white backdrop:bg-black/50 fixed  inset-0 z-50 p-5 text-center"
   >
     <svg
-      class="w-5 absolute top-10 right-10 z-10 cursor-pointer text-zinc-800 hover:text-zinc-400 close-mapa"
+      class="w-5 absolute top-6 right-6 z-10 cursor-pointer text-zinc-800 hover:text-zinc-400 close-dialog"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -81,33 +71,44 @@ import Layout from "@/layouts/Layout.astro";
         stroke-linecap="round"
         stroke-linejoin="round"></path></svg
     >
-    <div class="h-[90vh] flex items-center justify-center">
-      <img
-        src="/images/mapa-01.avif"
-        alt="Plano del proyecto"
-        class="md:h-full bg-white"
-      />
+    <div class="max-w-lg mx-auto">
+      <h3 class="text-4xl md:text-5xl font-medium text-zinc-800 mt-10">Gracias por comunicarte con nosotros, nos contactaremos contigo</h3>
+      <p class="mt-10 font-light">Dale clic al botón para comunicarte mediante WhatsApp</p>
+      <a
+        href="https://wa.link/rqpq1a"
+        target="_blank"
+        class="bg-[#54b547] text-center rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-10 flex gap-x-5 items-center justify-center"
+        >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M6.014 8.006c.114-.904 1.289-2.132 2.22-1.996V6.01c.907.172 1.625 1.734 2.03 2.436.286.509.1 1.025-.167 1.243-.361.29-.926.692-.808 1.095C9.5 11.5 12 14 13.23 14.711c.466.269.804-.44 1.092-.804.21-.28.726-.447 1.234-.171.759.442 1.474.956 2.135 1.534.33.276.408.684.179 1.115-.403.76-1.569 1.76-2.415 1.557C13.976 17.587 8 15.27 6.08 8.558c-.108-.318-.08-.438-.066-.552Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 23c-1.224 0-1.9-.131-3-.5l-2.106 1.053A2 2 0 0 1 4 21.763V19.5c-2.153-2.008-3-4.323-3-7.5C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11Zm-6-4.37-.636-.593C3.691 16.477 3 14.733 3 12a9 9 0 1 1 9 9c-.986 0-1.448-.089-2.364-.396l-.788-.264L6 21.764V18.63Z"/></g></svg>
+        Contactar por Whatsapp
+      </a>
     </div>
   </dialog> -->
   <Footer />
 </Layout>
 
 <!-- <script is:inline>
-  const alertDialogMapa = document.getElementById("alert-dialog-mapa");
   const closeMapa = document.querySelector(".close-mapa");
   const openMapa = document.querySelectorAll(".open-mapa");
-
+  
   closeMapa.addEventListener("click", () => {
     alertDialogMapa.close();
   });
-
+  
   openMapa.forEach((btn) => {
     btn.addEventListener("click", () => {
       alertDialogMapa.showModal();
     });
   });
 </script> -->
-<script>
+<!-- <script>
+  const alertDialogMapa = document.getElementById("alert-dialog-confirm");
+  const closeDialog = document.querySelector(".close-dialog");
+
+  closeDialog.addEventListener("click", () => {
+    alertDialogMapa.close();
+  });
+
   const scriptURL =
     "https://script.google.com/macros/s/AKfycbwxrMzAGsT0QTYxfhyK37J-vHYU2BY6lIT6-_8VUqvLNKUS0kYdGxEOvW6_EbOZocqL/exec";
   // const scriptURL =
@@ -126,11 +127,11 @@ import Layout from "@/layouts/Layout.astro";
           alert("Mensaje no fue enviado, intentelo nuevamente.")
           return
         }
+        alertDialogMapa.showModal();
         button.removeAttribute("disabled")
         button.textContent = "Enviar mensaje"
         formMessage.reset()
-        alert("Mensaje enviado correctamente.")
       })
       .catch((error) => console.error("Error!", error.message));
   });
-</script>
+</script> -->

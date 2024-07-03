@@ -1,4 +1,6 @@
 ---
+import FormReserva from "../FormReserva.astro";
+import ModalConfirmacion from "../ModalConfirmacion.astro";
 import Title from "../Title.astro";
 ---
 
@@ -30,7 +32,8 @@ import Title from "../Title.astro";
         Nos pondremos en contacto contigo para poder ayudarte a tomar la mejor
         decisión.
       </p>
-      <form action="" class="mt-5">
+      <FormReserva />
+      <!-- <form action="" class="mt-5">
         <input
           type="text"
           class="p-3 border border-gray-300/60 w-full text-sm md:text-base bg-transparent"
@@ -50,11 +53,11 @@ import Title from "../Title.astro";
         <button class="bg-button rounded-lg px-6 py-4 text-white w-full mt-5 block uppercase tracking-widest text-xs"
           >¡Reserva ahora!</button
         >
-      </form>
+      </form> -->
     </div>
   </div>
 </dialog>
-
+<ModalConfirmacion />
 <!-- <dialog
   id="alert-dialog-mapa"
   class="w-full h-screen bg-black/20 backdrop:bg-black/20 fixed inset-0 z-50 p-5"
@@ -76,7 +79,7 @@ import Title from "../Title.astro";
   </div>
 </dialog> -->
 
-<script is:inline>
+<!-- <script is:inline>
   const alertDialogMapa = document.getElementById("alert-dialog-mapa");
   const closeMapa = document.querySelector(".close-mapa");
   const openMapa = document.querySelectorAll(".open-mapa");
@@ -90,7 +93,7 @@ import Title from "../Title.astro";
       alertDialogMapa.showModal();
     });
   });
-</script>
+</script> -->
 
 <style>
   .bg-plants {

@@ -1,6 +1,5 @@
 ---
 import Title from "@/components/Title.astro";
-// import ButtonReserva from "@/components/ButtonReserva.astro";
 ---
 
 <section
@@ -42,14 +41,6 @@ import Title from "@/components/Title.astro";
         >áreas libres</span
       >
     </div>
-    <!-- <div
-      class="relative text-accent flex flex-col items-center justify-center gap-2 px-5 py-10 w-full after:absolute after:w-[1px] after:h-[60%] after:bg-primary/40 after:right-0 after:top-7"
-    >
-      <h4 class="text-4xl">15 <span class="text-sm">minutos</span></h4>
-      <span class="text-sm tracking-wider uppercase font-light"
-        >de Camaná</span
-      >
-    </div> -->
   </div>
 </section>
 
@@ -89,6 +80,7 @@ import Title from "@/components/Title.astro";
               src="/images/slide-1.avif"
               alt="Terrazas del proyecto"
               class="w-full aspect-video"
+              loading="lazy"
             />
           </li>
           <li class="splide__slide">
@@ -96,6 +88,7 @@ import Title from "@/components/Title.astro";
               src="/images/header.avif"
               alt="Terrazas del proyecto"
               class="w-full aspect-video"
+              loading="lazy"
             />
           </li>
           <li class="splide__slide">
@@ -103,48 +96,13 @@ import Title from "@/components/Title.astro";
               src="/images/slide-3.avif"
               alt="Terrazas del proyecto"
               class="w-full aspect-video"
+              loading="lazy"
             />
           </li>
         </ul>
       </div>
     </div>
   </div>
-  <!-- <div class="w-full md:max-w-7xl mx-auto px-5 py-20">
-    <div class="w-full min-h-full overflow-hidden">
-      <img
-        src="/images/terrazas-header.avif"
-        alt="Terrazas del proyecto"
-        class="w-full"
-      />
-    </div> -->
-  <!-- <div class="w-full md:w-1/3 p-5">
-      <Title
-        title="Reserva tu terreno"
-        subtitle="Tú lote te espera"
-        align="text-left"
-        size="text-2xl md:text-[2.3rem]"
-      />
-      <form action="" class="mt-5">
-        <input
-          type="text"
-          class="p-3 border border-gray-300/60 w-full text-xs md:text-sm bg-transparent"
-          placeholder="Nombre completo"
-        />
-        <input
-          type="email"
-          class="p-3 border border-gray-300/60 w-full text-xs md:text-sm bg-transparent mt-4"
-          placeholder="Correo electrónico"
-        />
-        <textarea
-          class="p-3 border border-gray-300/60 w-full text-xs md:text-sm bg-transparent mt-4"
-          placeholder="Mensaje"></textarea>
-        <span class="text-sm tracking-widest">Click para ver nustros lotes</span
-        >
-        <img src="/images/mapa.png" alt="Plano del terreno" class="w-full" />
-        <ButtonReserva />
-      </form>
-    </div> -->
-  <!-- </div> -->
 </section>
 
 <style>

@@ -9,6 +9,7 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
       src="/images/terrazas.svg"
       alt="Icono terrazas"
       class="w-20 mx-auto mb-5 animation-bottom"
+      loading="lazy"
     />
     <Title
       title="Sobre terrazas"
@@ -16,31 +17,31 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
       align="text-center"
       size="text-4xl md:text-[3rem]"
     />
-    <p class="text-center text-xs md:text-[15px] mt-5 mb-10 leading-[27px] animation-bottom">
-      Disfruta de una impresionante vista al mar y una paradisiaca vista al Sunset desde tu propia casa
+    <p
+      class="text-center text-xs md:text-[15px] mt-5 mb-10 leading-[27px] animation-bottom"
+    >
+      Disfruta de una impresionante vista al mar y una paradisiaca vista al
+      Sunset desde tu propia casa
     </p>
     <ButtonReserva />
     <div class="md:grid md:grid-cols-3 gap-5 hidden">
-      <div class="p-5 group">
-        <img
-          src="/images/terraza-1.avif"
-          alt="Grupo de amigos disfrutando la vista"
-          class="group-hover:-translate-y-2 transition-transform duration-300"
-        />
+      <div class="p-5 h-[500px]">
+        <div
+          class="hover:-translate-y-2 transition-transform duration-300 bg-[url('/images/terraza-1.avif')] bg-no-repeat bg-contain w-full h-full"
+        >
+        </div>
       </div>
-      <div class="p-5 md:mt-20 group">
-        <img
-          src="/images/terraza-2.avif"
-          alt="Pareja dentro de una piscina"
-          class="group-hover:-translate-y-2 transition-transform duration-300"
-        />
+      <div class="p-5 h-[500px]">
+        <div
+          class="hover:-translate-y-2 transition-transform duration-300 md:mt-20 group bg-[url('/images/terraza-2.avif')] bg-no-repeat bg-cover w-full h-full"
+        >
+        </div>
       </div>
-      <div class="p-5 group">
-        <img
-          src="/images/terraza-3.avif"
-          alt="Mujer disfrutando de la vista al mar"
-          class="group-hover:-translate-y-2 transition-transform duration-300"
-        />
+      <div class="p-5 h-[500px]">
+        <div
+          class="hover:-translate-y-2 transition-transform duration-300 bg-[url('/images/terraza-3.avif')] bg-no-repeat bg-contain w-full h-full"
+        >
+        </div>
       </div>
     </div>
     <div class="splide mt-5 md:hidden" id="slide-terrazas">
@@ -68,26 +69,23 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
       </div>
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide group">
-            <img
-              src="/images/terraza-1.avif"
-              alt="Grupo de amigos disfrutando la vista"
-              class="group-hover:-translate-y-2 transition-transform duration-300"
-            />
+          <li class="splide__slide h-[500px]">
+            <div
+              class="bg-[url('/images/terraza-1.avif')] bg-no-repeat bg-cover w-full h-full"
+            >
+            </div>
           </li>
-          <li class="splide__slide group">
-            <img
-              src="/images/terraza-2.avif"
-              alt="Pareja dentro de una piscina"
-              class="group-hover:-translate-y-2 transition-transform duration-300"
-            />
+          <li class="splide__slide h-[500px]">
+            <div
+              class="bg-[url('/images/terraza-2.avif')] bg-no-repeat bg-cover w-full h-full"
+            >
+            </div>
           </li>
-          <li class="splide__slide group">
-            <img
-              src="/images/terraza-3.avif"
-              alt="Mujer disfrutando de la vista al mar"
-              class="group-hover:-translate-y-2 transition-transform duration-300"
-            />
+          <li class="splide__slide h-[500px]">
+            <div
+              class="bg-[url('/images/terraza-3.avif')] bg-no-repeat bg-cover w-full h-full"
+            >
+            </div>
           </li>
         </ul>
       </div>
@@ -121,7 +119,7 @@ import ButtonReserva from "@/components/ButtonReserva.astro";
 <script>
   import Splide from "@splidejs/splide";
   import "@splidejs/splide/css";
-  
+
   var splideGalleryTerrazas = new Splide("#slide-terrazas", {
     type: "loop",
     autoplay: true,
