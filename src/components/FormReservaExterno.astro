@@ -11,15 +11,25 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
   <input
     type="text"
     name="Nombre completo"
+    id="inputTexto"
+    minlength="5"
     class="p-4 border border-gray-300 w-full text-base bg-transparent"
     placeholder="Nombre completo"
   />
+  <span id="errorTexto" style="color: red; display: none;"
+    >Debe contener al menos 5 caracteres alfabéticos.</span
+  >
   <input
-    type="text"
+    type="tel"
     name="Número de celular"
+    min="5"
+    id="inputNumeros"
     class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4"
     placeholder="Celular"
   />
+  <span id="errorNumeros" style="color: red; display: none;"
+    >Debe contener exactamente 9 dígitos numéricos.</span
+  >
   <button
     type="submit"
     class="bg-button btn-submit disabled:bg-button/30 rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
@@ -85,6 +95,15 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
   const formMessage = document.querySelector(".submit-form");
 
   form.addEventListener("submit", (e) => {
+    if (
+      !/^[A-Za-z]{5,}$/.test(inputTexto.value) ||
+      !/^\d{9}$/.test(inputNumeros.value)
+    ) {
+      alert(
+        "Por favor, asegúrate de que ambos campos cumplan con los requisitos."
+      );
+      return;
+    }
     e.preventDefault();
     button.setAttribute("disabled", "true");
     button.textContent = "Enviando ...";
@@ -116,7 +135,10 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
 
     countdownElement.textContent = `00:${seconds}`;
 
-    const url = (window.location.pathname === "/formulario-zoom") ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x" : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1"
+    const url =
+      window.location.pathname === "/formulario-zoom"
+        ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x"
+        : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1";
 
     if (timeLeft > 0) {
       timeLeft--;
@@ -124,4 +146,34 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
       window.location.href = url; // Cambia esta URL por la página a la que deseas redirigir
     }
   }
+
+  const inputTexto = document.getElementById("inputTexto");
+  const inputNumeros = document.getElementById("inputNumeros");
+  const errorTexto = document.getElementById("errorTexto");
+  const errorNumeros = document.getElementById("errorNumeros");
+
+  function showError(element) {
+    element.style.display = "inline";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, 4000);
+  }
+
+  inputTexto.addEventListener("input", () => {
+    const regex = /^[A-Za-z]{5,}$/;
+    if (regex.test(inputTexto.value)) {
+      errorTexto.style.display = "none";
+    } else {
+      showError(errorTexto);
+    }
+  });
+
+  inputNumeros.addEventListener("input", () => {
+    const regex = /^\d{9}$/;
+    if (regex.test(inputNumeros.value)) {
+      errorNumeros.style.display = "none";
+    } else {
+      showError(errorNumeros);
+    }
+  });
 </script>
