@@ -95,10 +95,33 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
           return;
         }
         alertDialogConfirm.showModal();
+        setInterval(updateCountdown, 1000);
         button.removeAttribute("disabled");
         button.textContent = "Enviar mensaje";
         formMessage.reset();
       })
       .catch((error) => console.error("Error!", error.message));
   });
+
+  let countdownElement = document.getElementById("countdown");
+  let timeLeft = 5; // segundos
+
+  function updateCountdown() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    countdownElement.textContent = `00:${seconds}`;
+
+    const url = (window.location.pathname === "/formulario-zoom") ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x" : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1"
+
+    if (timeLeft > 0) {
+      timeLeft--;
+    } else {
+      window.location.href = url; // Cambia esta URL por la página a la que deseas redirigir
+    }
+  }
 </script>

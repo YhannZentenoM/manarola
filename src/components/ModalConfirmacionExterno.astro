@@ -1,3 +1,6 @@
+---
+const {url} = Astro.props
+---
 <dialog
   id="alert-dialog-confirm"
   class="md:w-[50vw] md:h-[70vh] bg-white backdrop:bg-black/50 fixed inset-0 z-50 p-5 text-center"
@@ -24,7 +27,7 @@
       mensual con precios increíbles.
     </p>
     <a
-      href="https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x"
+      href={`${url}`}
       target="_blank"
       class="bg-[#54b547] text-center rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-10 flex gap-x-5 items-center justify-center"
     >
@@ -45,5 +48,6 @@
       >
       Unirte al grupo de WhatsApp
     </a>
+    <span id="countdown" class="text-2xl mt-3">00:05</span>
   </div>
 </dialog>
