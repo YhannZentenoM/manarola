@@ -1,6 +1,7 @@
 ---
 import FormReservaExterno from "@/components/FormReservaExterno.astro";
 import ModalConfirmacionExterno from "@/components/ModalConfirmacionExterno.astro";
+import Title from "@/components/Title.astro";
 import Footer from "@/components/sections/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -17,11 +18,17 @@ import Layout from "@/layouts/Layout.astro";
           >Terminos y condiciones</a
         >
       </div>
-      <div class="px-5">
-        <h2 class="text-xl text-center">Genera rentas mensuales de hasta 4000 dólares  alquilando tu casa de playa en el único condominio sobre terrazas del sur del Perú</h2>
-        <FormReservaExterno nameBoton="Accede a Inscríbete a la presentación aquí" />
+      <div class="px-5 w-full">
+        <h2 class="text-xl text-center">Completa tus datos para contactarte y brindarte información personalizada</h2>
+        <FormReservaExterno nameBoton="Solicitar información" />
       </div>
     </div>
+    <Title
+      title="Esta es la impresionante vista que tendrás desde tu terreno de playa"
+      subtitle=""
+      align="text-center"
+      size="text-3xl md:text-[3rem]"
+    />
     <div class="splide mt-10 h-full" id="slide-form">
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev bg-accent">
