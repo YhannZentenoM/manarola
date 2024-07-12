@@ -5,13 +5,13 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
 <form
   action=""
   method="post"
-  class="mt-5 w-full submit-form"
-  name="submit-form"
+  class="mt-5 w-full submit-form-menu"
+  name="submit-form-menu"
 >
   <input
     type="text"
     name="Nombre completo"
-    class="p-4 border border-gray-300 w-full text-base bg-transparent inputTexto"
+    class="p-4 border border-gray-300 w-full text-base bg-transparent inputTextoMenu"
     placeholder="Nombre completo"
   />
   <span id="errorTexto" class="errorTexto" style="color: red; display: none;"
@@ -20,7 +20,7 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
   <input
     type="text"
     name="Número de celular"
-    class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4 inputNumeros"
+    class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4 inputNumerosMenu"
     placeholder="Celular"
   />
   <span id="errorNumeros" class="errorNumeros" style="color: red; display: none;"
@@ -28,7 +28,7 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
   >
   <button
     type="submit"
-    class="bg-button btn-submit disabled:bg-button/30 rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
+    class="bg-button btn-submit-menu disabled:bg-button/30 rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
     >{nameBoton}</button
   >
   <div class="w-full flex flex-col md:flex-row gap-x-4">
@@ -86,9 +86,9 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
     "https://script.google.com/macros/s/AKfycbwxrMzAGsT0QTYxfhyK37J-vHYU2BY6lIT6-_8VUqvLNKUS0kYdGxEOvW6_EbOZocqL/exec";
   // const scriptURL =
   //   "https://script.google.com/macros/s/AKfycbzWLcqg7qU4BJXYvVYZ5dUNk6q7zCNxhEZj6uxLG-zpOs7PR3v4lMj5anOtgBS8As4X/exec";
-  const form = document.forms["submit-form"];
-  const button = document.querySelector(".btn-submit");
-  const formMessage = document.querySelector(".submit-form");
+  const form = document.forms["submit-form-menu"];
+  const button = document.querySelector(".btn-submit-menu");
+  const formMessage = document.querySelector(".submit-form-menu");
 
   form.addEventListener("submit", (e) => {
     if (
@@ -118,8 +118,8 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
       .catch((error) => console.error("Error!", error.message));
   });
 
-  const inputTexto = document.querySelector(".inputTexto");
-  const inputNumeros = document.querySelector(".inputNumeros");
+  const inputTexto = document.querySelector(".inputTextoMenu");
+  const inputNumeros = document.querySelector(".inputNumerosMenu");
 
   function showError(element) {
     element.style.display = "inline";
@@ -149,14 +149,4 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
     }
   });
   
-
-  // inputNumeros.addEventListener("input", () => {
-  //   console.log(inputNumeros.value)
-  //   const regex = /^\d{9}$/;
-  //   if (regex.test(inputNumeros.value)) {
-  //     errorNumeros.style.display = "none";
-  //   } else {
-  //     showError(errorNumeros);
-  //   }
-  // });
 </script>

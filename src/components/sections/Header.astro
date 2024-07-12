@@ -1,6 +1,5 @@
 ---
 import menu from "@/data/menu.json";
-// import ButtonReserva from "../ButtonReserva.astro";
 const pathname = Astro.url.pathname;
 ---
 
@@ -10,21 +9,9 @@ const pathname = Astro.url.pathname;
     <a href="/" class="max-w-56 md:hidden">
       <img src="/images/logo.png" alt="Logotipo" class="w-full" />
     </a>
-    <!-- <button
-      class="bg-accent py-2.5 px-4 text-white font-light text-xs uppercase md:hidden"
-      onclick="openMenuMobile()"
-    > -->
     <button
       class="show-button-form bg-button hover:bg-white py-2.5 px-4 text-white hover:text-button text-xs tracking-widest uppercase absolute right-7 md:top-3 flex gap-x-2 rounded-lg border border-button transition-colors duration-300"
     >
-      <!-- <svg
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke-width="3"
-        stroke="currentColor"
-        fill="none"
-        ><path d="M7.68 32h48.64M7.68 15.97h48.64M7.68 48.03h48.64"></path></svg
-      > -->
       Reserva <span class="hidden md:block">ahora</span>
     </button>
     <!-- DESKTOP -->
@@ -98,15 +85,3 @@ const pathname = Astro.url.pathname;
     </div>
   </div>
 </header>
-
-<!-- <script is:inline>
-  const menuMobile = document.querySelector("#menu-mobile");
-
-  const openMenuMobile = () => {
-    menuMobile.classList.remove("-translate-x-full");
-  };
-
-  const closeMenuMobile = () => {
-    menuMobile.classList.add("-translate-x-full");
-  };
-</script> -->
