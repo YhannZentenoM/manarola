@@ -95,6 +95,11 @@ const currentPath = Astro.url.pathname;
   const button = document.querySelector(".btn-submit");
   const formMessage = document.querySelector(".submit-form");
 
+  const url =
+      window.location.pathname === "/formulario-zoom"
+        ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x"
+        : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1";
+
   form.addEventListener("submit", (e) => {
     if (
       !/^[A-Za-z]{5,}$/.test(inputTexto.value) ||
@@ -136,10 +141,6 @@ const currentPath = Astro.url.pathname;
 
     countdownElement.textContent = `00:${seconds}`;
 
-    const url =
-      window.location.pathname === "/formulario-zoom"
-        ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x"
-        : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1";
 
     if (timeLeft > 0) {
       timeLeft--;
