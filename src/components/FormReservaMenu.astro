@@ -92,7 +92,7 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
 
   form.addEventListener("submit", (e) => {
     if (
-      !/^[A-Za-z]{5,}$/.test(inputTexto.value) ||
+      !/^[A-Za-z\s]{5,}$/.test(inputTexto.value) ||
       !/^\d{9}$/.test(inputNumeros.value)
     ) {
       e.preventDefault();

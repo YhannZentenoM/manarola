@@ -13,7 +13,7 @@ import Title from "../Title.astro";
   />
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
     <div class="p-5 md:p-10 animation-bottom">
-      <img src="/images/actividad-1.avif" alt="Primera etapa" loading="lazy" />
+      <img src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721360476/manarola/actividad-1_osb2ao.avif" alt="Primera etapa" loading="lazy" />
       <div class="p-5 mt-2">
         <span
           class="text-sm uppercase font-medium tracking-[0.2em] text-secondary"
@@ -81,7 +81,7 @@ import Title from "../Title.astro";
           </span>
         </button>
         <img
-          src="/images/actividad-3.avif"
+          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721360519/manarola/actividad-3_ypqqel.avif"
           alt="Segunda etapa"
           class="shadow-card"
           loading="lazy"
@@ -110,7 +110,7 @@ import Title from "../Title.astro";
       </div>
     </div>
     <div class="p-5 md:p-10 animation-bottom">
-      <img src="/images/actividad-2.avif" alt="Tercera etapa" loading="lazy" />
+      <img src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721360543/manarola/actividad-2_y25mth.avif" alt="Tercera etapa" loading="lazy" />
       <div class="p-5 mt-2">
         <span
           class="text-sm uppercase font-medium tracking-[0.2em] text-secondary"
@@ -132,7 +132,7 @@ import Title from "../Title.astro";
       </div>
     </div>
     <div class="p-5 md:p-10 animation-bottom">
-      <img src="/images/actividad-4.avif" alt="Cuarta etapa" loading="lazy" />
+      <img src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721360544/manarola/actividad-4_akjmdk.avif" alt="Cuarta etapa" loading="lazy" />
       <div class="p-5 mt-2">
         <span
           class="text-sm uppercase font-medium tracking-[0.2em] text-secondary"
@@ -163,7 +163,7 @@ import Title from "../Title.astro";
 >
   <div class="relative w-full h-full">
     <video class="h-[95%] mt-5 mx-auto video-etapa" preload="metadata" controls>
-      <source src="/video/segunda-etapa.webm" type="video/webm" />
+      <source src="https://res.cloudinary.com/dnwshzyqp/video/upload/v1721363234/manarola/segunda-etapa_xbtqul.webm" type="video/webm" />
       Your browser does not support the video tag.
     </video>
     <svg
@@ -306,15 +306,10 @@ import Title from "../Title.astro";
     element.addEventListener("click", function () {
       const img = element.getAttribute("data-img").split(",");
       splideGalleryPrimeraParte.remove( '.is-visible' );
-      // const slideList = document.querySelector(".splide__list");
-      // slideList.innerHTML = "";
       for (let i = 0; i < img.length; i++) {
-        // const htmlSliderDocumentos = `<li class="splide__slide"><img src="/images/${img[i]}.png" alt="Familia disfrutando de la playa" class="h-[95vh] mx-auto"/></li>`
-        // const htmlSliderDocumentos = `<li class="splide__slide bg-green-400"><div class="w-full h-full" style="width:100%;">HOLA</div></li>`
         splideGalleryPrimeraParte.add(
           `<li class="splide__slide is-visible"><img src="/images/${img[i]}.png" alt="Familia disfrutando de la playa" class="h-[98vh] mx-auto"/></li>`
         );
-        // alertDocumentos.querySelector(".splide__list").innerHTML += htmlSliderDocumentos;
       }
 
       alertDocumentos.show();
@@ -326,10 +321,6 @@ import Title from "../Title.astro";
     document.body.style.overflow = "auto";
     alertDocumentos.close();
   });
-  // showDocumentos.addEventListener("click", function () {
-  //   alertDocumentos.show();
-  //   document.body.style.overflow = "hidden";
-  // });
 
   var splideGalleryPrimeraParte = new Splide("#slide-primera-parte", {
     type: "loop",

@@ -2,6 +2,7 @@
 import Title from "@/components/Title.astro";
 import ButtonReserva from "../ButtonReserva.astro";
 import Plano from "../icons/Plano.astro";
+import InteractiveMap from "../InteractiveMap";
 ---
 
 <section class="bg-background" id="lotes">
@@ -15,26 +16,37 @@ import Plano from "../icons/Plano.astro";
       size="text-3xl md:text-[3rem]"
     />
     <p class="text-center mt-10 text-[15px] animation-bottom">
-      Revisa nuestra lotización y escoge el terreno ideal para ti y tu familia, recuerda que absolutamente todos los lotes cuentan con una increíble vista al mar
+      Revisa nuestra lotización y escoge el terreno ideal para ti y tu familia,
+      recuerda que absolutamente todos los lotes cuentan con una increíble vista
+      al mar
     </p>
     <div class="grid grid-cols-1 md:grid-cols-2 mt-10">
-      <div class="py-5 px-16">
+      <div class="py-5 px-2">
         <ButtonReserva />
         <img
-          src="/images/mapa-01.avif"
+          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1724265628/manarola/mapa_02_bi3jaf.avif"
           alt="Plano proyecto manarola"
           class="mt-5"
           loading="lazy"
         />
         <span
-          class="open-mapa cursor-pointer text-xs tracking-widest uppercase ounded-lg  text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
-          >
-          <Plano class="w-7 fill-secondary group-hover:fill-white transition-colors duration-300" />
+          id="openModal"
+          class="cursor-pointer text-xs tracking-widest uppercase ounded-lg text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
+        >
+          <Plano
+            class="w-7 fill-secondary group-hover:fill-white transition-colors duration-300"
+          />
           Ampliar imagen</span
         >
       </div>
       <div class="p-10 hidden md:block">
         <img src="/images/gallery-1.avif" alt="" />
+      </div>
+    </div>
+    <div id="modalOverlay" class="overlay">
+      <div class="modal">
+        <button class="closeBtn">&times;</button>
+        <InteractiveMap client:only />
       </div>
     </div>
   </div>
@@ -45,14 +57,20 @@ import Plano from "../icons/Plano.astro";
     <div class="splide h-full" id="slide-secondary">
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev bg-accent">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
             ><path
               d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
               fill="currentColor"></path></svg
           >
         </button>
         <button class="splide__arrow splide__arrow--next">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
             ><path
               d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
               fill="currentColor"></path></svg
@@ -61,11 +79,17 @@ import Plano from "../icons/Plano.astro";
       </div>
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide bg-[url('/images/slide-4.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-bottom">
+          <li
+            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362229/manarola/slide-4_pwi2wa.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-bottom"
+          >
           </li>
-          <li class="splide__slide bg-[url('/images/slide-5.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-cover">
+          <li
+            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362232/manarola/slide-5_ukmnll.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-cover"
+          >
           </li>
-          <li class="splide__slide bg-[url('/images/slide-6.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-bottom">
+          <li
+            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362234/manarola/slide-6_nn80ig.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-bottom"
+          >
           </li>
         </ul>
       </div>
@@ -96,7 +120,7 @@ import Plano from "../icons/Plano.astro";
     <div class="md:grid md:grid-cols-3 gap-5 hidden">
       <div class="p-5 group">
         <img
-          src="/images/orilla-1.avif"
+          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362308/manarola/orilla-1_nacjsr.avif"
           alt="Familia disfrutando de la playa"
           class="group-hover:-translate-y-2 transition-transform duration-300"
           loading="lazy"
@@ -104,7 +128,7 @@ import Plano from "../icons/Plano.astro";
       </div>
       <div class="p-5 md:mt-20 group">
         <img
-          src="/images/orilla-2.avif"
+          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362311/manarola/orilla-2_mls77e.avif"
           alt="Familia disfrutando de la playa"
           class="group-hover:-translate-y-2 transition-transform duration-300"
           loading="lazy"
@@ -112,7 +136,7 @@ import Plano from "../icons/Plano.astro";
       </div>
       <div class="p-5 group">
         <img
-          src="/images/orilla-3.avif"
+          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362313/manarola/orilla-3_hcv1nu.avif"
           alt="Familia disfrutando de la playa"
           class="group-hover:-translate-y-2 transition-transform duration-300"
           loading="lazy"
@@ -146,7 +170,7 @@ import Plano from "../icons/Plano.astro";
         <ul class="splide__list">
           <li class="splide__slide group">
             <img
-              src="/images/orilla-1.avif"
+              src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362308/manarola/orilla-1_nacjsr.avif"
               alt="Familia disfrutando de la playa"
               class="group-hover:-translate-y-2 transition-transform duration-300"
               loading="lazy"
@@ -154,7 +178,7 @@ import Plano from "../icons/Plano.astro";
           </li>
           <li class="splide__slide group">
             <img
-              src="/images/orilla-2.avif"
+              src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362311/manarola/orilla-2_mls77e.avif"
               alt="Familia disfrutando de la playa"
               class="group-hover:-translate-y-2 transition-transform duration-300"
               loading="lazy"
@@ -162,7 +186,7 @@ import Plano from "../icons/Plano.astro";
           </li>
           <li class="splide__slide group">
             <img
-              src="/images/orilla-3.avif"
+              src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362313/manarola/orilla-3_hcv1nu.avif"
               alt="Familia disfrutando de la playa"
               class="group-hover:-translate-y-2 transition-transform duration-300"
               loading="lazy"
@@ -176,7 +200,7 @@ import Plano from "../icons/Plano.astro";
 
 <style>
   .bg-reserva {
-    background-image: url("/images/bg-plants.avif");
+    background-image: url("https://res.cloudinary.com/dnwshzyqp/image/upload/v1721360369/manarola/bg-plants_dslxin.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -200,6 +224,58 @@ import Plano from "../icons/Plano.astro";
   }
   .splide__pagination__page.is-active {
     background: #f08435;
+  }
+
+  /* Style for the button to open the modal */
+  #openModal {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Overlay background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark gray overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  /* Modal box */
+  .modal {
+    background-color: white;
+    width: 95vw;
+    height: 95vh;
+    position: relative;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  /* Close button */
+  .closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Show modal when active */
+  .overlay.active {
+    visibility: visible;
+    opacity: 1;
   }
 </style>
 
@@ -237,4 +313,28 @@ import Plano from "../icons/Plano.astro";
   });
 
   splideGalleryOrillas.mount();
+</script>
+
+<script type="module">
+  // Get modal elements
+  const modalOverlay = document.getElementById("modalOverlay");
+  const openModalBtn = document.getElementById("openModal");
+  const closeModalBtn = document.querySelector(".closeBtn");
+
+  // Open modal
+  openModalBtn.addEventListener("click", () => {
+    modalOverlay.classList.add("active");
+  });
+
+  // Close modal when clicking the close button
+  closeModalBtn.addEventListener("click", () => {
+    modalOverlay.classList.remove("active");
+  });
+
+  // Close modal when clicking outside the modal content
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      modalOverlay.classList.remove("active");
+    }
+  });
 </script>

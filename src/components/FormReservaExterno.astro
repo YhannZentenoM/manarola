@@ -1,5 +1,5 @@
 ---
-const { nameBoton = "Reservar ahora" } = Astro.props;
+const { nameBoton = "Reservar ahora", wsp } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -31,6 +31,7 @@ const currentPath = Astro.url.pathname;
   <span id="errorNumeros" style="color: red; display: none;"
     >Debe contener exactamente 9 dígitos numéricos.</span
   >
+  <input type="hidden" class="url-wsp" value={wsp}>
   <button
     type="submit"
     class="bg-button btn-submit disabled:bg-button/30 rounded-lg px-6 py-4 text-xs uppercase tracking-widest text-white w-full mt-5"
@@ -95,14 +96,14 @@ const currentPath = Astro.url.pathname;
   const button = document.querySelector(".btn-submit");
   const formMessage = document.querySelector(".submit-form");
 
-  const url =
-      window.location.pathname === "/formulario-zoom"
-        ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x"
-        : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1";
+  // const url =
+  //     window.location.pathname === "/formulario-zoom"
+  //       ? "https://chat.whatsapp.com/KdbZCO88Mr64wSuo9tyx9x" //zoom
+  //       : "https://chat.whatsapp.com/KPPU6SBTSbwCGPGcqN1gqN1";
 
   form.addEventListener("submit", (e) => {
     if (
-      !/^[A-Za-z]{5,}$/.test(inputTexto.value) ||
+      !/^[A-Za-z\s]{5,}$/.test(inputTexto.value) ||
       !/^\d{9}$/.test(inputNumeros.value)
     ) {
       alert(
@@ -132,6 +133,7 @@ const currentPath = Astro.url.pathname;
   let timeLeft = 5; // segundos
 
   function updateCountdown() {
+    const url = document.querySelector(".url-wsp").value
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
 
@@ -145,7 +147,7 @@ const currentPath = Astro.url.pathname;
     if (timeLeft > 0) {
       timeLeft--;
     } else {
-      window.location.href = url; // Cambia esta URL por la página a la que deseas redirigir
+      window.location.href = "https://chat.whatsapp.com/" + url;
     }
   }
 
