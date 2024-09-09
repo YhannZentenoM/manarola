@@ -1,0 +1,25 @@
+
+	.st0{fill:none;} 
+	.st2{opacity:0.67;fill:#F2EAC9;stroke:#B7AEA7;stroke-miterlimit:10;} 
+	.st3{opacity:0.67;} 
+	.st4{fill:#F2EAC9;stroke:#B7AEA7;stroke-miterlimit:10;} 
+	.st5{opacity:0.67;fill:#FF0037;stroke:#7C1919;stroke-miterlimit:10;} 
+	.st6{opacity:0.8;fill:#00B7FF;stroke:#182E7F;stroke-miterlimit:10;} 
+	.st7{opacity:0.8;fill:#256AF4;stroke:#182E7F;stroke-miterlimit:10;} 
+	.blueskylight{
+        /* opacity:0.7; */
+        fill:#10FFE8;
+        stroke:#182E7F;
+        /* stroke-miterlimit:10; */
+    } 
+	.st17{fill:#FFFFFF;} 
+	.st18{fill:#A50000;} 
+
+    @keyframes pulse {
+        50% {
+            opacity: .7;
+        }
+    }
+    .pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }

@@ -1,35 +1,86 @@
 import React, { useState } from "react";
+import MapSvg from "./MapSvg";
+
 
 const InteractiveMap = () => {
   const [progress, setProgress] = useState(0);
   const [lotes, setLotes] = useState([]);
-  // 10FFE8
-  // 256AF4
-  // 00B7FF
+  const [selectedManzana, setSelectedManzana] = useState(null);
+  const [selectedLote, setSelectedLote] = useState(null);
+  const blueskylight = "bg-[#10FFE8]";
+  const blueskydark = "bg-[#256AF4]";
+  const bluesky = "bg-[#00B7FF]";
+  const red = "bg-[#FF0037]";
   const POINTERS = [
     {
       manzana: "N",
-      lote: ["1", "2", "3", "4", "5", "6", "7", "V", "9"],
+      lote: [
+        { number: "1", color: blueskydark },
+        { number: "2", color: blueskydark },
+        { number: "3", color: blueskydark },
+        { number: "4", color: bluesky },
+        { number: "5", color: bluesky },
+        { number: "6", color: bluesky },
+        { number: "7", color: bluesky },
+        { number: "V", color: red },
+        { number: "9", color: bluesky },
+      ],
     },
     {
       manzana: "M",
-      lote: ["1", "2", "3", "4", "5", "6", "7", "V", "9"],
+      lote: [
+        { number: "1", color: blueskydark },
+        { number: "2", color: blueskydark },
+        { number: "V", color: red },
+        { number: "4", color: bluesky },
+        { number: "5", color: bluesky },
+        { number: "V", color: red },
+        { number: "V", color: red },
+      ],
     },
     {
       manzana: "L",
-      lote: ["1", "2", "3", "4", "5", "6", "7", "V", "9"],
+      lote: [
+        { number: "1", color: blueskylight },
+        { number: "2", color: blueskylight },
+        { number: "3", color: blueskylight },
+        { number: "4", color: blueskylight },
+        { number: "5", color: blueskylight },
+        { number: "V", color: red },
+        { number: "V", color: red },
+      ],
     },
     {
       manzana: "K",
-      lote: ["1", "2", "3", "4", "5", "6", "7", "V", "9"],
+      lote: [
+        { number: "1", color: blueskylight },
+        { number: "V", color: red },
+        { number: "V", color: red },
+        { number: "4", color: blueskylight },
+        { number: "V", color: red },
+        { number: "V", color: red }
+      ],
     },
     {
       manzana: "J",
-      lote: ["1", "2", "3", "4", "5", "6", "7", "V", "9"],
+      lote: [
+        { number: "1", color: blueskydark },
+        { number: "2", color: blueskydark },
+        { number: "V", color: red },
+        { number: "V", color: red },
+        { number: "V", color: red }
+      ],
     },
     {
       manzana: "I",
-      lote: ["1", "2", "3", "4", "5", "6", "7", "V", "9"],
+      lote: [
+        { number: "1", color: blueskydark },
+        { number: "2", color: bluesky },
+        { number: "V", color: red },
+        { number: "V", color: red },
+        { number: "V", color: red },
+        { number: "V", color: red }
+      ],
     },
   ];
   const handleClick = () => {
@@ -44,7 +95,8 @@ const InteractiveMap = () => {
   };
 
   return (
-    <div className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1724265628/manarola/mapa_02_bi3jaf.avif')] bg-no-repeat bg-cover bg-center bg-fixed h-full w-full">
+    <div className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1724265628/manarola/mapa_02_bi3jaf.avif')] bg-no-repeat bg-fixed h-full w-full overflow-hidden" style={{backgroundSize: "100% 100%"}}>
+        <MapSvg manzana={selectedManzana} lote={selectedLote} />
       <div className="bg-white rounded-tl-3xl w-[530px] min-h-[360px] absolute bottom-0 right-28 p-10">
         <button className="uppercase text-sm text-white bg-button tracking-widest px-8 py-5 rounded-l-3xl rounded-tr-3xl absolute right-0 -top-8">
           Mostrar amenidades
@@ -105,15 +157,16 @@ const InteractiveMap = () => {
                 {POINTERS.map((pointer, index) => (
                   <div
                     className={`${
-                      index === 0 ? "bg-button" : "bg-black"
+                      selectedManzana === pointer.manzana
+                        ? "bg-green-500"
+                        : "bg-black"
                     } rounded-full w-12 h-12 flex items-center justify-center cursor-pointer`}
-                    onClick={() => setLotes(pointer.lote)}
+                    onClick={() => {
+                      setSelectedManzana(pointer.manzana);
+                      setLotes(pointer.lote);
+                    }}
                   >
-                    <span
-                      className={`${
-                        index === 0 ? "text-button" : "text-white"
-                      } font-semibold text-lg`}
-                    >
+                    <span className={`text-white font-semibold text-lg`}>
                       {pointer.manzana}
                     </span>
                   </div>
@@ -130,15 +183,16 @@ const InteractiveMap = () => {
                 {lotes.map((lote, index) => (
                   <div
                     className={`${
-                      index === 0 ? "bg-button" : "bg-black"
-                    } rounded-full w-12 h-12 flex items-center justify-center`}
+                      selectedLote === lote.number ? "bg-green-500" : lote.color
+                    } rounded-full w-12 h-12 flex items-center justify-center cursor-pointer ${
+                      lote.number === "V" && "pointer-events-none"
+                    }`}
+                    onClick={() => {
+                      setSelectedLote(lote.number);
+                    }}
                   >
-                    <span
-                      className={`${
-                        index === 0 ? "text-button" : "text-white"
-                      } font-semibold text-lg`}
-                    >
-                      {lote}
+                    <span className={`text-white font-semibold text-lg`}>
+                      {lote.number}
                     </span>
                   </div>
                 ))}
@@ -147,8 +201,16 @@ const InteractiveMap = () => {
           )}
           {progress === 100 && (
             <>
-              <input type="text" className="w-full mt-4 border border-zinc-300 rounded-xl p-4 text-base mb-3" placeholder="Nombre completo" />
-              <input type="text" className="w-full border border-zinc-300 rounded-xl p-4 text-base" placeholder="Número de celular" />
+              <input
+                type="text"
+                className="w-full mt-4 border border-zinc-300 rounded-xl p-4 text-base mb-3"
+                placeholder="Nombre completo"
+              />
+              <input
+                type="text"
+                className="w-full border border-zinc-300 rounded-xl p-4 text-base"
+                placeholder="Número de celular"
+              />
             </>
           )}
         </div>
