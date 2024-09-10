@@ -6,7 +6,7 @@ const MapSvg = ({ manzana, lote }) => {
     <svg
     //   width="2285.3"
     //   height="1080"
-      className="h-[100%] w-[100%] absolute left-3 top-4 rotate-1"
+      className="h-[100%] w-[100%] absolute left-2 top-4 rotate-1"
       version="1.1"
       id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
