@@ -3,6 +3,7 @@ import Title from "@/components/Title.astro";
 import ButtonReserva from "../ButtonReserva.astro";
 import Plano from "../icons/Plano.astro";
 import InteractiveMap from "../InteractiveMap";
+import InteractiveMapMobil from "../InteractiveMapMobil";
 ---
 
 <section class="bg-background" id="lotes">
@@ -20,29 +21,11 @@ import InteractiveMap from "../InteractiveMap";
       recuerda que absolutamente todos los lotes cuentan con una increíble vista
       al mar
     </p>
-    <div class="w-full h-[90vh] mt-10 relative">
+    <div class="w-full h-[90vh] mt-10 relative hidden md:block">
       <InteractiveMap client:only />
-      <!-- <div class="py-5 px-2"> -->
-        <!-- <ButtonReserva />
-        <img
-          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1724265628/manarola/mapa_02_bi3jaf.avif"
-          alt="Plano proyecto manarola"
-          class="mt-5"
-          loading="lazy"
-        />
-        <span
-          id="openModal"
-          class="cursor-pointer text-xs tracking-widest uppercase ounded-lg text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
-        >
-          <Plano
-            class="w-7 fill-secondary group-hover:fill-white transition-colors duration-300"
-          />
-          Ampliar imagen</span
-        > -->
-      <!-- </div> -->
-      <!-- <div class="p-10 hidden md:block">
-        <img src="/images/gallery-1.avif" alt="" />
-      </div> -->
+    </div>
+    <div class="mt-10 md:hidden w-full">
+      <InteractiveMapMobil client:only />
     </div>
     <!-- <div id="modalOverlay" class="overlay">
       <div class="modal">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MapSvg from "./MapSvg";
 
-const InteractiveMap = () => {
+const InteractiveMapMobil = () => {
   const [showAmenidades, setShowAmenidades] = useState(false);
   const [progress, setProgress] = useState(0);
   const [lotes, setLotes] = useState([]);
@@ -83,7 +83,7 @@ const InteractiveMap = () => {
       ],
     },
   ];
-  
+
   const handleBackClick = () => {
     setProgress((prevProgress) => {
       // Si está en el 100%, vuelve a 0
@@ -94,7 +94,7 @@ const InteractiveMap = () => {
       return prevProgress - 50;
     });
   };
-  
+
   const handleNextClick = () => {
     setProgress((prevProgress) => {
       // Si está en el 100%, vuelve a 0
@@ -111,33 +111,31 @@ const InteractiveMap = () => {
   };
 
   return (
-    <div
-      className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725901046/manarola/PlanoSinNada_ej6wph.avif')] bg-no-repeat h-full w-full overflow-hidden"
-      style={{ backgroundSize: "100% 100%" }}
-    >
-      <div
-        className={`w-full h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725902880/manarola/AmenidadesSinNada_bqyrc6.avif')] bg-no-repeat transition-opacity duration-300 ${
-          showAmenidades ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ backgroundSize: "100% 100%" }}
-      ></div>
-      <MapSvg manzana={selectedManzana} lote={selectedLote} className={"h-[100%] w-[100%] absolute left-2 top-4 rotate-1"} />
-      <div
-        className={`bg-white rounded-tl-3xl ${
-          showAmenidades ? "w-[50px] min-h-[5px]" : "w-[530px] min-h-[360px]"
-        } absolute bottom-0 right-28 p-10`}
-      >
+    <div>
+      <div className="w-full overflow-x-scroll">
+        <div className="relative max-w-[1200px]">
+          <img
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1725901046/manarola/PlanoSinNada_ej6wph.avif"
+            alt=""
+            className="max-w-[1200px]"
+          />
+          <div
+            className={`w-[1200px] h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725902880/manarola/AmenidadesSinNada_bqyrc6.avif')] bg-no-repeat transition-opacity duration-300 absolute top-0 left-0 ${
+              showAmenidades ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ backgroundSize: "100% 100%" }}
+          ></div>
+          <MapSvg manzana={selectedManzana} lote={selectedLote} className={"h-full w-[1200px] absolute left-2 top-2 rotate-1"} />
+        </div>
+      </div>
+      <div className={`bg-white rounded-tl-3xl p-5 relative w-full`}>
         <button
           className="uppercase text-sm text-white bg-button tracking-widest px-8 py-5 rounded-l-3xl rounded-tr-3xl absolute right-0 -top-8"
           onClick={handleAmenidadesShow}
         >
           {showAmenidades ? "Ocultar" : "Mostrar"} amenidades
         </button>
-        <div
-          className={`inline-flex justify-around gap-x-5 w-full ${
-            showAmenidades ? "hidden" : ""
-          }`}
-        >
+        <div className={`inline-flex justify-around gap-x-3 w-full mt-5`}>
           <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#10FFE8] before:absolute before:left-0">
             110 m<sup>2</sup>
           </span>
@@ -149,9 +147,7 @@ const InteractiveMap = () => {
           </span>
         </div>
         <div
-          className={`inline-flex justify-around gap-x-5 w-full mt-5 ${
-            showAmenidades ? "hidden" : ""
-          }`}
+          className={`inline-flex justify-around gap-x-5 w-full mt-5`}
         >
           <h2 className="uppercase text-zinc-400 font-bold text-sm tracking-widest">
             Manzana
@@ -164,9 +160,7 @@ const InteractiveMap = () => {
           </h2>
         </div>
         <div
-          className={`w-[85%] mx-auto h-3 bg-zinc-200 rounded-lg relative mt-5 ${
-            showAmenidades ? "hidden" : ""
-          }`}
+          className={`w-[85%] mx-auto h-3 bg-zinc-200 rounded-lg relative mt-5`}
         >
           <div
             className="h-full bg-button rounded-md transition-all duration-300"
@@ -191,24 +185,20 @@ const InteractiveMap = () => {
             style={{ left: "99%" }}
           ></div>
         </div>
-        <div
-          className={`w-full text-center mt-5 ${
-            showAmenidades ? "hidden" : ""
-          }`}
-        >
+        <div className={`w-full text-center mt-5`}>
           {progress === 0 && (
             <>
               <h2 className="text-black text-lg font-light">
                 Selecciona tu manzana
               </h2>
-              <div className="inline-flex gap-x-5 mt-3">
+              <div className="inline-flex gap-x-3 mt-3">
                 {POINTERS.map((pointer, index) => (
                   <div
                     className={`${
                       selectedManzana === pointer.manzana
                         ? "bg-green-500"
                         : "bg-black"
-                    } rounded-full w-12 h-12 flex items-center justify-center cursor-pointer`}
+                    } rounded-full w-10 h-10 flex items-center justify-center cursor-pointer`}
                     onClick={() => {
                       setSelectedManzana(pointer.manzana);
                       setLotes(pointer.lote);
@@ -227,12 +217,12 @@ const InteractiveMap = () => {
               <h2 className="text-black text-lg font-light">
                 Selecciona tu lote
               </h2>
-              <div className="flex flex-wrap justify-center gap-x-5 gap-y-3 mt-3 w-full">
+              <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-3 w-full">
                 {lotes.map((lote, index) => (
                   <div
                     className={`${
                       selectedLote === lote.number ? "bg-green-500" : lote.color
-                    } rounded-full w-12 h-12 flex items-center justify-center cursor-pointer ${
+                    } rounded-full w-10 h-10 flex items-center justify-center cursor-pointer ${
                       lote.number === "V" && "pointer-events-none"
                     }`}
                     onClick={() => {
@@ -266,7 +256,7 @@ const InteractiveMap = () => {
           <button
             type="button"
             className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
-              showAmenidades || progress === 0 ? "hidden" : ""
+              progress === 0 ? "hidden" : ""
             }`}
             onClick={handleBackClick}
           >
@@ -274,9 +264,7 @@ const InteractiveMap = () => {
           </button>
           <button
             type="button"
-            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
-              showAmenidades ? "hidden" : ""
-            }`}
+            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block`}
             onClick={handleNextClick}
           >
             Siguiente
@@ -287,4 +275,4 @@ const InteractiveMap = () => {
   );
 };
 
-export default InteractiveMap;
+export default InteractiveMapMobil;
