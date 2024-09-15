@@ -120,7 +120,7 @@ const InteractiveMapMobil = () => {
             className="max-w-[1200px]"
           />
           <div
-            className={`w-[1200px] h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725902880/manarola/AmenidadesSinNada_bqyrc6.avif')] bg-no-repeat transition-opacity duration-300 absolute top-0 left-0 ${
+            className={`w-[1200px] h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726429870/manarola/AmenidadesSinNada_vvpsas.png')] bg-no-repeat transition-opacity duration-300 absolute top-0 left-0 ${
               showAmenidades ? "opacity-100" : "opacity-0"
             }`}
             style={{ backgroundSize: "100% 100%" }}
@@ -128,34 +128,37 @@ const InteractiveMapMobil = () => {
           <MapSvg manzana={selectedManzana} lote={selectedLote} className={"h-full w-[1200px] absolute left-2 top-2 rotate-1"} />
         </div>
       </div>
-      <div className={`bg-white rounded-tl-3xl p-5 relative w-full`}>
+      <div className={`bg-white rounded-tl-3xl p-3 relative w-full`}>
         <button
           className="uppercase text-sm text-white bg-button tracking-widest px-8 py-5 rounded-l-3xl rounded-tr-3xl absolute right-0 -top-8"
           onClick={handleAmenidadesShow}
         >
           {showAmenidades ? "Ocultar" : "Mostrar"} amenidades
         </button>
-        <div className={`inline-flex justify-around gap-x-3 w-full mt-5`}>
-          <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#10FFE8] before:absolute before:left-0">
+        <div className={`inline-flex justify-around gap-x-1 w-full mt-7`}>
+          <span className="font-semibold text-black text-xs pl-[2rem] relative before:w-8 before:h-4 before:rounded-xl before:bg-[#10FFE8] before:absolute before:left-0">
             110 m<sup>2</sup>
           </span>
-          <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#00B7FF] before:absolute before:left-0">
+          <span className="font-semibold text-black text-xs pl-[2rem] relative before:w-8 before:h-4 before:rounded-xl before:bg-[#00B7FF] before:absolute before:left-0">
             130 m<sup>2</sup>
           </span>
-          <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#256AF4] before:absolute before:left-0">
+          <span className="font-semibold text-black text-xs pl-[2rem] relative before:w-8 before:h-4 before:rounded-xl before:bg-[#256AF4] before:absolute before:left-0">
             150 m<sup>2</sup>
+          </span>
+          <span className="font-semibold text-black text-xs pl-[2rem] relative before:w-8 before:h-4 before:rounded-xl before:bg-[#ff0037] before:absolute before:left-0">
+            Vendido
           </span>
         </div>
         <div
           className={`inline-flex justify-around gap-x-5 w-full mt-5`}
         >
-          <h2 className="uppercase text-zinc-400 font-bold text-sm tracking-widest">
+          <h2 className="uppercase text-zinc-400 font-bold text-xs tracking-widest">
             Manzana
           </h2>
-          <h2 className="uppercase text-zinc-400 font-bold text-sm tracking-widest">
+          <h2 className="uppercase text-zinc-400 font-bold text-xs tracking-widest">
             Lote
           </h2>
-          <h2 className="uppercase text-zinc-400 font-bold text-sm tracking-widest">
+          <h2 className="uppercase text-zinc-400 font-bold text-xs tracking-widest">
             Finalizar
           </h2>
         </div>
@@ -194,6 +197,7 @@ const InteractiveMapMobil = () => {
               <div className="inline-flex gap-x-3 mt-3">
                 {POINTERS.map((pointer, index) => (
                   <div
+                    key={index}
                     className={`${
                       selectedManzana === pointer.manzana
                         ? "bg-green-500"
@@ -220,6 +224,7 @@ const InteractiveMapMobil = () => {
               <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-3 w-full">
                 {lotes.map((lote, index) => (
                   <div
+                    key={index}
                     className={`${
                       selectedLote === lote.number ? "bg-green-500" : lote.color
                     } rounded-full w-10 h-10 flex items-center justify-center cursor-pointer ${

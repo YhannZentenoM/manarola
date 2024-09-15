@@ -116,7 +116,7 @@ const InteractiveMap = () => {
       style={{ backgroundSize: "100% 100%" }}
     >
       <div
-        className={`w-full h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725902880/manarola/AmenidadesSinNada_bqyrc6.avif')] bg-no-repeat transition-opacity duration-300 ${
+        className={`w-full h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726429870/manarola/AmenidadesSinNada_vvpsas.png')] bg-no-repeat transition-opacity duration-300 ${
           showAmenidades ? "opacity-100" : "opacity-0"
         }`}
         style={{ backgroundSize: "100% 100%" }}
@@ -134,18 +134,21 @@ const InteractiveMap = () => {
           {showAmenidades ? "Ocultar" : "Mostrar"} amenidades
         </button>
         <div
-          className={`inline-flex justify-around gap-x-5 w-full ${
+          className={`inline-flex justify-around gap-x-2 w-full ${
             showAmenidades ? "hidden" : ""
           }`}
         >
-          <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#10FFE8] before:absolute before:left-0">
+          <span className="font-semibold text-black text-sm pl-[2.7rem] relative before:w-10 before:h-5 before:rounded-xl before:bg-[#10FFE8] before:absolute before:left-0">
             110 m<sup>2</sup>
           </span>
-          <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#00B7FF] before:absolute before:left-0">
+          <span className="font-semibold text-black text-sm pl-[2.7rem] relative before:w-10 before:h-5 before:rounded-xl before:bg-[#00B7FF] before:absolute before:left-0">
             130 m<sup>2</sup>
           </span>
-          <span className="font-semibold text-black text-sm pl-12 relative before:w-10 before:h-5 before:rounded-xl before:bg-[#256AF4] before:absolute before:left-0">
+          <span className="font-semibold text-black text-sm pl-[2.7rem] relative before:w-10 before:h-5 before:rounded-xl before:bg-[#256AF4] before:absolute before:left-0">
             150 m<sup>2</sup>
+          </span>
+          <span className="font-semibold text-black text-sm pl-[2.7rem] relative before:w-10 before:h-5 before:rounded-xl before:bg-[#ff0037] before:absolute before:left-0">
+            Vendido
           </span>
         </div>
         <div
@@ -204,6 +207,7 @@ const InteractiveMap = () => {
               <div className="inline-flex gap-x-5 mt-3">
                 {POINTERS.map((pointer, index) => (
                   <div
+                    key={index}
                     className={`${
                       selectedManzana === pointer.manzana
                         ? "bg-green-500"
@@ -230,6 +234,7 @@ const InteractiveMap = () => {
               <div className="flex flex-wrap justify-center gap-x-5 gap-y-3 mt-3 w-full">
                 {lotes.map((lote, index) => (
                   <div
+                    key={index}
                     className={`${
                       selectedLote === lote.number ? "bg-green-500" : lote.color
                     } rounded-full w-12 h-12 flex items-center justify-center cursor-pointer ${
