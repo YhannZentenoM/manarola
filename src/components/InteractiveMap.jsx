@@ -7,6 +7,8 @@ const InteractiveMap = () => {
   const [lotes, setLotes] = useState([]);
   const [selectedManzana, setSelectedManzana] = useState(null);
   const [selectedLote, setSelectedLote] = useState(null);
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
   const blueskylight = "bg-[#10FFE8]";
   const blueskydark = "bg-[#256AF4]";
   const bluesky = "bg-[#00B7FF]";
@@ -83,7 +85,7 @@ const InteractiveMap = () => {
       ],
     },
   ];
-  
+
   const handleBackClick = () => {
     setProgress((prevProgress) => {
       // Si está en el 100%, vuelve a 0
@@ -94,7 +96,7 @@ const InteractiveMap = () => {
       return prevProgress - 50;
     });
   };
-  
+
   const handleNextClick = () => {
     setProgress((prevProgress) => {
       // Si está en el 100%, vuelve a 0
@@ -112,7 +114,7 @@ const InteractiveMap = () => {
 
   return (
     <div
-      className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725901046/manarola/PlanoSinNada_ej6wph.avif')] bg-no-repeat h-full w-full overflow-hidden"
+      className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725901046/manarola/PlanoSinNada_ej6wph.avif')] bg-no-repeat h-full w-[1280px] relative overflow-hidden"
       style={{ backgroundSize: "100% 100%" }}
     >
       <div
@@ -121,7 +123,13 @@ const InteractiveMap = () => {
         }`}
         style={{ backgroundSize: "100% 100%" }}
       ></div>
-      <MapSvg manzana={selectedManzana} lote={selectedLote} className={"h-[100%] w-[100%] absolute left-2 top-4 rotate-1"} />
+      <MapSvg
+        manzana={selectedManzana}
+        lote={selectedLote}
+        className={
+          "h-full w-[1280px] absolute -left-[5px] -top-[2px] -rotate-[0.1deg]"
+        }
+      />
       <div
         className={`bg-white rounded-tl-3xl ${
           showAmenidades ? "w-[50px] min-h-[5px]" : "w-[530px] min-h-[360px]"
@@ -258,11 +266,13 @@ const InteractiveMap = () => {
                 type="text"
                 className="w-full mt-4 border border-zinc-300 rounded-xl p-4 text-base mb-3"
                 placeholder="Nombre completo"
+                onChange={(e) => setName(e.target.value)}
               />
               <input
                 type="text"
                 className="w-full border border-zinc-300 rounded-xl p-4 text-base"
                 placeholder="Número de celular"
+                onChange={(e) => setTel(e.target.value)}
               />
             </>
           )}
@@ -280,12 +290,33 @@ const InteractiveMap = () => {
           <button
             type="button"
             className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
-              showAmenidades ? "hidden" : ""
+              showAmenidades || progress === 100 ? "hidden" : ""
             }`}
             onClick={handleNextClick}
           >
             Siguiente
           </button>
+          <a
+            href={`https://wa.me/51983792957?text=Hola%2C%20estoy%20interesado%20en%20la%20manzana%20${selectedManzana}%20y%20el%20lote%20${selectedLote}%20mi%20nombre%20es%20${name}%20y%20mi%20teléfono%20es%20${tel}%20.%20%20Gracias.%20`}
+            target="_blank"
+            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
+              showAmenidades || progress === 0 || progress === 50
+                ? "hidden"
+                : ""
+            } ${
+              selectedManzana === null ||
+              selectedLote === null ||
+              name === "" ||
+              tel === ""
+                ? "pointer-events-none bg-button/40"
+                : "bg-button"
+            }`}
+            onClick={() => {
+              handleNextClick();
+            }}
+          >
+            Enviar
+          </a>
         </div>
       </div>
     </div>

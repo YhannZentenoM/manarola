@@ -7,6 +7,8 @@ const InteractiveMapMobil = () => {
   const [lotes, setLotes] = useState([]);
   const [selectedManzana, setSelectedManzana] = useState(null);
   const [selectedLote, setSelectedLote] = useState(null);
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
   const blueskylight = "bg-[#10FFE8]";
   const blueskydark = "bg-[#256AF4]";
   const bluesky = "bg-[#00B7FF]";
@@ -125,7 +127,7 @@ const InteractiveMapMobil = () => {
             }`}
             style={{ backgroundSize: "100% 100%" }}
           ></div>
-          <MapSvg manzana={selectedManzana} lote={selectedLote} className={"h-full w-[1200px] absolute left-2 top-2 rotate-1"} />
+          <MapSvg manzana={selectedManzana} lote={selectedLote} className={"h-full w-[1200px] absolute -left-[1.6px] -top-[2.5px] "} />
         </div>
       </div>
       <div className={`bg-white rounded-tl-3xl p-3 relative w-full`}>
@@ -269,11 +271,34 @@ const InteractiveMapMobil = () => {
           </button>
           <button
             type="button"
-            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block`}
+            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
+              showAmenidades || progress === 100 ? "hidden" : ""
+            }`}
             onClick={handleNextClick}
           >
             Siguiente
           </button>
+          <a
+            href={`https://wa.me/51983792957?text=Hola%2C%20estoy%20interesado%20en%20la%20manzana%20${selectedManzana}%20y%20el%20lote%20${selectedLote}%20mi%20nombre%20es%20${name}%20y%20mi%20teléfono%20es%20${tel}%20.%20%20Gracias.%20`}
+            target="_blank"
+            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
+              showAmenidades || progress === 0 || progress === 50
+                ? "hidden"
+                : ""
+            } ${
+              selectedManzana === null ||
+              selectedLote === null ||
+              name === "" ||
+              tel === ""
+                ? "pointer-events-none bg-button/40"
+                : "bg-button"
+            }`}
+            onClick={() => {
+              handleNextClick();
+            }}
+          >
+            Enviar
+          </a>
         </div>
       </div>
     </div>
