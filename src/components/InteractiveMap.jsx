@@ -114,7 +114,7 @@ const InteractiveMap = () => {
 
   return (
     <div
-      className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1725901046/manarola/PlanoSinNada_ej6wph.avif')] bg-no-repeat h-full w-[1280px] relative overflow-hidden"
+      className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726896332/manarola/fondoMapaInteractivo_hv2mnb.webp')] bg-no-repeat h-full w-[1280px] relative overflow-hidden"
       style={{ backgroundSize: "100% 100%" }}
     >
       <div
@@ -131,18 +131,18 @@ const InteractiveMap = () => {
         }
       />
       <div
-        className={`bg-white rounded-tl-3xl ${
-          showAmenidades ? "w-[50px] min-h-[5px]" : "w-[530px] min-h-[360px]"
-        } absolute bottom-0 right-28 p-10`}
+        className={`bg-white rounded-3xl ${
+          showAmenidades ? "w-[50px] min-h-[5px]" : "w-[530px] min-h-[340px]"
+        } absolute bottom-5 right-28 px-10 py-5`}
       >
         <button
-          className="uppercase text-sm text-white bg-button tracking-widest px-8 py-5 rounded-l-3xl rounded-tr-3xl absolute right-0 -top-8"
+          className="uppercase text-sm text-white bg-button tracking-widest px-8 py-4 rounded-l-3xl rounded-tr-3xl absolute right-0 -top-8"
           onClick={handleAmenidadesShow}
         >
           {showAmenidades ? "Ocultar" : "Mostrar"} amenidades
         </button>
         <div
-          className={`inline-flex justify-around gap-x-2 w-full ${
+          className={`inline-flex justify-around gap-x-2 mt-5 w-full ${
             showAmenidades ? "hidden" : ""
           }`}
         >

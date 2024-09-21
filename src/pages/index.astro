@@ -13,6 +13,7 @@ import Activities from "@/components/sections/Activities.astro";
 import Contact from "@/components/sections/Contact.astro";
 import Formulario from "@/components/sections/Formulario.astro";
 import Gallery from "@/components/sections/Gallery.astro";
+import SliderGalleryMobile from "@/components/SliderGalleryMobile.astro";
 ---
 
 <Layout title="Manarola - Condominio de Playa" description="Diseñado para ofrecer comodidad y exclusividad, lotes con impresionantes vistas, acceso directo a la playa y carretera costanera en Quilca – Camaná">
@@ -26,12 +27,13 @@ import Gallery from "@/components/sections/Gallery.astro";
   <Route />
   <Activities />
   <Gallery />
+  <SliderGalleryMobile />
   <Contact />
   <Formulario />
   <Footer />
 </Layout>
 
-<script>
+<script type="module">
   const showButtons = document.querySelectorAll(".show-button-form");
   const alertDialogForm = document.querySelector("#alert-dialog-form");
   const buttonClose = document.querySelector(".close-form");

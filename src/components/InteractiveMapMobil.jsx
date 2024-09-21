@@ -117,7 +117,7 @@ const InteractiveMapMobil = () => {
       <div className="w-full overflow-x-scroll">
         <div className="relative max-w-[1200px]">
           <img
-            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1725901046/manarola/PlanoSinNada_ej6wph.avif"
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1726896332/manarola/fondoMapaInteractivo_hv2mnb.webp"
             alt=""
             className="max-w-[1200px]"
           />
