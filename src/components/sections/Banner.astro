@@ -4,7 +4,7 @@ import Information from "./Information.astro";
 ---
 
 <section
-  class="bg-white md:bg-transparent md:h-[70vh] px-7 flex flex-col items-center relative overflow-hidden"
+  class="bg-white md:bg-transparent md:h-[70vh] w-full px-7 flex flex-col items-center relative overflow-hidden"
 >
   <video
     autoplay
@@ -12,7 +12,7 @@ import Information from "./Information.astro";
     loop
     onplay="setCurTime()"
     preload="metadata"
-    class="absolute top-0 left-0 bottom-0 md:w-full h-full md:h-screen object-cover scale-110 md:scale-105"
+    class="absolute top-0 left-0 bottom-0 w-full h-full md:h-screen object-cover scale-110 md:scale-105"
   >
     <source src="https://res.cloudinary.com/dnwshzyqp/video/upload/v1721363163/manarola/video_y2gtgo.mp4" type="video/mp4" />
   </video>
