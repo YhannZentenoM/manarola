@@ -24,7 +24,7 @@ import InteractiveMapMobil from "../InteractiveMapMobil";
     <div class="max-w-7xl md:h-[600px] mt-10 relative hidden md:block">
       <InteractiveMap client:only />
     </div>
-    <div class="mt-10 md:hidden w-full">
+    <div class="mt-10 md:hidden w-full" id="map-interactive-mobile">
       <InteractiveMapMobil client:only />
     </div>
     <!-- <div id="modalOverlay" class="overlay">
@@ -299,26 +299,44 @@ import InteractiveMapMobil from "../InteractiveMapMobil";
   splideGalleryOrillas.mount();
 </script>
 
-<script type="module">
+<script >
   // Get modal elements
   const modalOverlay = document.getElementById("modalOverlay");
   const openModalBtn = document.getElementById("openModal");
   const closeModalBtn = document.querySelector(".closeBtn");
 
   // Open modal
-  openModalBtn.addEventListener("click", () => {
+  openModalBtn?.addEventListener("click", () => {
     modalOverlay.classList.add("active");
   });
 
   // Close modal when clicking the close button
-  closeModalBtn.addEventListener("click", () => {
+  closeModalBtn?.addEventListener("click", () => {
     modalOverlay.classList.remove("active");
   });
 
   // Close modal when clicking outside the modal content
-  modalOverlay.addEventListener("click", (e) => {
+  modalOverlay?.addEventListener("click", (e) => {
     if (e.target === modalOverlay) {
       modalOverlay.classList.remove("active");
     }
   });
+
+  const elemento1 = document.getElementById('floating-button');
+  const elemento2 = document.getElementById('map-interactive-mobile');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        elemento1.style.display = 'none'; // Ocultar cuando intersecta
+      } else {
+        elemento1.style.display = 'block'; // Mostrar si no intersecta
+      }
+    });
+  }, {
+    root: null, // Observa todo el viewport
+    threshold: 0.5 // El 50% de superposición
+  });
+
+  observer.observe(elemento2); // Observa el segundo elemento
 </script>

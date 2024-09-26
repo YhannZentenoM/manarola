@@ -250,11 +250,13 @@ const InteractiveMapMobil = () => {
                 type="text"
                 className="w-full mt-4 border border-zinc-300 rounded-xl p-4 text-base mb-3"
                 placeholder="Nombre completo"
+                onChange={(e) => setName(e.target.value)}
               />
               <input
                 type="text"
                 className="w-full border border-zinc-300 rounded-xl p-4 text-base"
                 placeholder="Número de celular"
+                onChange={(e) => setTel(e.target.value)}
               />
             </>
           )}
