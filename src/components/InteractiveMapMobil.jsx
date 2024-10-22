@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import MapSvg from "./MapSvg";
 
 const InteractiveMapMobil = () => {
+  const formRef = useRef(null);
+  const [loading, setLoading] = useState(false);
   const [showAmenidades, setShowAmenidades] = useState(false);
   const [progress, setProgress] = useState(0);
   const [lotes, setLotes] = useState([]);
@@ -13,6 +15,8 @@ const InteractiveMapMobil = () => {
   const blueskydark = "bg-[#256AF4]";
   const bluesky = "bg-[#00B7FF]";
   const red = "bg-[#FF0037]";
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbwxrMzAGsT0QTYxfhyK37J-vHYU2BY6lIT6-_8VUqvLNKUS0kYdGxEOvW6_EbOZocqL/exec";
   const POINTERS = [
     {
       manzana: "N",
@@ -245,20 +249,24 @@ const InteractiveMapMobil = () => {
             </>
           )}
           {progress === 100 && (
-            <>
-              <input
-                type="text"
-                className="w-full mt-4 border border-zinc-300 rounded-xl p-4 text-base mb-3"
-                placeholder="Nombre completo"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input
-                type="text"
-                className="w-full border border-zinc-300 rounded-xl p-4 text-base"
-                placeholder="Número de celular"
-                onChange={(e) => setTel(e.target.value)}
-              />
-            </>
+            <form ref={formRef}>
+            <input
+              type="text"
+              name="Nombre completo"
+              className="w-full mt-4 border border-zinc-300 rounded-xl p-4 text-base mb-3"
+              placeholder="Nombre completo"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              name="Número de celular"
+              className="w-full border border-zinc-300 rounded-xl p-4 text-base"
+              placeholder="Número de celular"
+              onChange={(e) => setTel(e.target.value)}
+            />
+            <input type="hidden" name="Lote" value={selectedLote} />
+            <input type="hidden" name="MZ" value={selectedManzana} />
+          </form>
           )}
         </div>
         <div className="flex justify-between mt-7">
@@ -280,7 +288,40 @@ const InteractiveMapMobil = () => {
           >
             Siguiente
           </button>
-          <a
+          <button
+            type="button"
+            className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
+              showAmenidades || progress === 0 || progress === 50
+                ? "hidden"
+                : ""
+            } ${
+              selectedManzana === null ||
+              selectedLote === null ||
+              name === "" ||
+              tel === ""
+                ? "pointer-events-none bg-button/40"
+                : "bg-button"
+            }`}
+            onClick={(e) => {
+              e.preventDefault();
+              const form = formRef.current;
+              fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                .then((response) => {
+                  setLoading(true);
+                  if (!response.ok) {
+                    alert("Mensaje no fue enviado, intentelo nuevamente.");
+                    return;
+                  }
+                  handleNextClick();
+                  alert("Mensaje enviado!");
+                  setLoading(false);
+                })
+                .catch((error) => console.error("Error!", error.message));
+            }}
+          >
+            {loading ? "Enviando..." : "Enviar"}
+          </button>
+          {/* <a
             href={`https://wa.me/51983792957?text=Hola%2C%20estoy%20interesado%20en%20la%20manzana%20${selectedManzana}%20y%20el%20lote%20${selectedLote}%20mi%20nombre%20es%20${name}%20y%20mi%20teléfono%20es%20${tel}%20.%20%20Gracias.%20`}
             target="_blank"
             className={`uppercase text-sm text-white bg-button tracking-widest px-10 py-3 rounded-3xl mx-auto block ${
@@ -300,7 +341,7 @@ const InteractiveMapMobil = () => {
             }}
           >
             Enviar
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

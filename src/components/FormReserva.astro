@@ -23,7 +23,10 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
     class="p-4 border border-gray-300 w-full text-base bg-transparent mt-4 inputNumeros"
     placeholder="Celular"
   />
-  <span id="errorNumeros" class="errorNumeros" style="color: red; display: none;"
+  <span
+    id="errorNumeros"
+    class="errorNumeros"
+    style="color: red; display: none;"
     >Debe contener exactamente 9 dígitos numéricos.</span
   >
   <button
@@ -91,17 +94,17 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
   const formMessage = document.querySelector(".submit-form");
 
   form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
     if (
       !/^[A-Za-z\s]{5,}$/.test(inputTexto.value) ||
       !/^\d{9}$/.test(inputNumeros.value)
     ) {
-      e.preventDefault();
       alert(
         "Por favor, asegúrate de que ambos campos cumplan con los requisitos."
       );
       return;
     }
-    e.preventDefault();
     button.setAttribute("disabled", "true");
     button.textContent = "Enviando ...";
     fetch(scriptURL, { method: "POST", body: new FormData(form) })
@@ -128,19 +131,16 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
     }, 4000);
   }
 
-  
-    inputTexto.addEventListener("input", () => {
-      const regex = /^[A-Za-z]{5,}$/;
-      if (regex.test(inputTexto.value)) {
-        inputTexto.nextElementSibling.style.display = "none";
-      } else {
-        showError(inputTexto.nextElementSibling);
-      }
-    });
-  
+  inputTexto.addEventListener("input", () => {
+    const regex = /^[A-Za-z]{5,}$/;
+    if (regex.test(inputTexto.value)) {
+      inputTexto.nextElementSibling.style.display = "none";
+    } else {
+      showError(inputTexto.nextElementSibling);
+    }
+  });
 
-  
-    inputNumeros.addEventListener("input", () => {
+  inputNumeros.addEventListener("input", () => {
     const regex = /^\d{9}$/;
     if (regex.test(inputNumeros.value)) {
       inputNumeros.nextElementSibling.style.display = "none";
@@ -148,7 +148,6 @@ const { nameBoton = "Reservar ahora" } = Astro.props;
       showError(inputNumeros.nextElementSibling);
     }
   });
-  
 
   // inputNumeros.addEventListener("input", () => {
   //   console.log(inputNumeros.value)
