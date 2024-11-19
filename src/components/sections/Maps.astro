@@ -3,6 +3,7 @@ import Title from "@/components/Title.astro";
 import ButtonReserva from "../ButtonReserva.astro";
 import Plano from "../icons/Plano.astro";
 import InteractiveMap from "../InteractiveMap";
+import InteractiveMapMobil from "../InteractiveMapMobil";
 ---
 
 <section class="bg-background" id="lotes">
@@ -20,29 +21,11 @@ import InteractiveMap from "../InteractiveMap";
       recuerda que absolutamente todos los lotes cuentan con una increíble vista
       al mar
     </p>
-    <div class="w-full h-[90vh] mt-10 relative">
+    <div class="max-w-7xl md:h-[600px] mt-10 relative hidden md:block">
       <InteractiveMap client:only />
-      <!-- <div class="py-5 px-2"> -->
-        <!-- <ButtonReserva />
-        <img
-          src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1724265628/manarola/mapa_02_bi3jaf.avif"
-          alt="Plano proyecto manarola"
-          class="mt-5"
-          loading="lazy"
-        />
-        <span
-          id="openModal"
-          class="cursor-pointer text-xs tracking-widest uppercase ounded-lg text-secondary hover:text-white transition-colors duration-300 mt-5 flex items-center justify-center gap-x-2 border border-secondary p-2 w-full text-center hover:bg-secondary group"
-        >
-          <Plano
-            class="w-7 fill-secondary group-hover:fill-white transition-colors duration-300"
-          />
-          Ampliar imagen</span
-        > -->
-      <!-- </div> -->
-      <!-- <div class="p-10 hidden md:block">
-        <img src="/images/gallery-1.avif" alt="" />
-      </div> -->
+    </div>
+    <div class="mt-10 md:hidden w-full" id="map-interactive-mobile">
+      <InteractiveMapMobil client:only />
     </div>
     <!-- <div id="modalOverlay" class="overlay">
       <div class="modal">
@@ -81,11 +64,11 @@ import InteractiveMap from "../InteractiveMap";
       <div class="splide__track">
         <ul class="splide__list">
           <li
-            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362229/manarola/slide-4_pwi2wa.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-bottom"
+            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726759077/manarola/slider6_e9thep.webp')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-bottom"
           >
           </li>
           <li
-            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1721362232/manarola/slide-5_ukmnll.avif')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-cover"
+            class="splide__slide bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726758958/manarola/slider5_iafecw.webp')] bg-no-repeat h-96 md:h-[85vh] bg-cover md:bg-cover"
           >
           </li>
           <li
@@ -316,26 +299,44 @@ import InteractiveMap from "../InteractiveMap";
   splideGalleryOrillas.mount();
 </script>
 
-<script type="module">
+<script >
   // Get modal elements
   const modalOverlay = document.getElementById("modalOverlay");
   const openModalBtn = document.getElementById("openModal");
   const closeModalBtn = document.querySelector(".closeBtn");
 
   // Open modal
-  openModalBtn.addEventListener("click", () => {
+  openModalBtn?.addEventListener("click", () => {
     modalOverlay.classList.add("active");
   });
 
   // Close modal when clicking the close button
-  closeModalBtn.addEventListener("click", () => {
+  closeModalBtn?.addEventListener("click", () => {
     modalOverlay.classList.remove("active");
   });
 
   // Close modal when clicking outside the modal content
-  modalOverlay.addEventListener("click", (e) => {
+  modalOverlay?.addEventListener("click", (e) => {
     if (e.target === modalOverlay) {
       modalOverlay.classList.remove("active");
     }
   });
+
+  const elemento1 = document.getElementById('floating-button');
+  const elemento2 = document.getElementById('map-interactive-mobile');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        elemento1.style.display = 'none'; // Ocultar cuando intersecta
+      } else {
+        elemento1.style.display = 'block'; // Mostrar si no intersecta
+      }
+    });
+  }, {
+    root: null, // Observa todo el viewport
+    threshold: 0.5 // El 50% de superposición
+  });
+
+  observer.observe(elemento2); // Observa el segundo elemento
 </script>

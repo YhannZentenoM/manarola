@@ -1,7 +1,8 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "/Users/yhannpooltzentenomonteagudo/Documents/mr24/web2",
+    // "baseUrl": "/Users/yhannpooltzentenomonteagudo/Documents/mr24/web2",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"

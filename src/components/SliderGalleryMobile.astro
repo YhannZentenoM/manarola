@@ -1,0 +1,109 @@
+<script>
+    import Splide from "@splidejs/splide";
+    import "@splidejs/splide/css";
+    var splideGallery = new Splide("#slide-gallery", {
+      type: "loop",
+      autoplay: true,
+      perPage: 1,
+      focus: "center",
+      classes: {
+        pagination: "splide__pagination",
+        page: "splide__pagination__page",
+      },
+      mediaQuery: "min",
+      breakpoints: {
+        640: {
+          destroy: true,
+        },
+      },
+    });
+  
+    splideGallery.mount();
+  </script>
+  
+  <style>
+    .splide__arrow {
+      background: #f08435;
+      opacity: 1;
+      color: white;
+    }
+    .splide__arrow:focus {
+      outline: none;
+    }
+    .splide__arrow--prev {
+      left: 10px;
+    }
+    .splide__arrow--next {
+      right: 10px;
+    }
+    .splide__pagination {
+      bottom: -1.5em;
+    }
+    .splide__pagination__page.is-active {
+      background: #f08435;
+    }
+  </style>
+  
+  <div class="splide mt-5 md:hidden" id="slide-gallery">
+    <div class="splide__arrows">
+      <button class="splide__arrow splide__arrow--prev bg-accent">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+            fill="currentColor"></path></svg
+        >
+      </button>
+      <button class="splide__arrow splide__arrow--next">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.18 3.269a1 1 0 0 0-1.415 0L8.121 9.913a3 3 0 0 0-.001 4.242l6.57 6.575a1 1 0 1 0 1.415-1.414l-6.573-6.572a1 1 0 0 1 0-1.414l6.648-6.647a1 1 0 0 0 0-1.414Z"
+            fill="currentColor"></path></svg
+        >
+      </button>
+    </div>
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide group">
+          <img
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721361552/manarola/gallery-4_qt7aws.avif"
+            alt="Terrazas del proyecto"
+            class="group-hover:-translate-y-2 transition-transform duration-300"
+            loading="lazy"
+          />
+        </li>
+        <li class="splide__slide group">
+          <img
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721361592/manarola/gallery-5_bcr6gx.avif"
+            alt="Terrazas del proyecto"
+            class="group-hover:-translate-y-2 transition-transform duration-300"
+            loading="lazy"
+          />
+        </li>
+        <li class="splide__slide group">
+          <img
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721361697/manarola/gallery-7_vz9kvd.avif"
+            alt="Terrazas del proyecto"
+            class="group-hover:-translate-y-2 transition-transform duration-300"
+            loading="lazy"
+          />
+        </li>
+        <li class="splide__slide group">
+          <img
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721361743/manarola/gallery-8_gp4lep.avif"
+            alt="Terrazas del proyecto"
+            class="group-hover:-translate-y-2 transition-transform duration-300"
+            loading="lazy"
+          />
+        </li>
+        <li class="splide__slide group">
+          <img
+            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1721361782/manarola/gallery-9_isqho6.avif"
+            alt="Terrazas del proyecto"
+            class="group-hover:-translate-y-2 transition-transform duration-300"
+            loading="lazy"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  
