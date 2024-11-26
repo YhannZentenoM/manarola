@@ -15,7 +15,7 @@
 	.st9{font-size:13px;}
 	.st10{font-family:'TenorSans';}
 	.st11{font-size:33.9309px;}
-	.st12{font-size:24.9721px;}
+	.st12{font-size:24.0623px;}
 	.st13{font-size:27px;}
 	.st14{fill:#72CBF4;}
 	.st15{fill:#DF4D3C;}
@@ -46,7 +46,7 @@
 	<g>
 		<text transform="matrix(1 0 0 1 395.1978 258.6352)" class="st0 st8 st9">Inicial</text>
 	</g>
-	<text transform="matrix(1 0 0 1 392.3292 288.36)"><tspan x="0" y="0" class="st10 st3">%</tspan><tspan x="12.78" y="0" class="st10 st12">30</tspan></text>
+	<text transform="matrix(1 0 0 1 386.2988 291.4723)"><tspan x="0" y="0" class="st10 st11">30</tspan><tspan x="40.41" y="0" class="st10 st12">%</tspan></text>
 </g>
 <g>
 	<path class="st0" d="M480.09,179.87H23.14c-9.81,0-17.83-8.03-17.83-17.83v-38.48c0-9.81,8.03-17.83,17.83-17.83h456.95
@@ -111,17 +111,17 @@
 <text transform="matrix(1 0 0 1 196.3901 212.1748)" class="st2 st3"> o págalo en cuotas</text>
 <g>
 	<g>
-		<path class="st18" d="M396.19,387.38c-14.67-1.95-24.25-14.6-22.28-29.42c2.16-16.27,17.39-29.51,33.95-29.51l76.79,0.1
+		<path class="st18" d="M396.19,384.38c-14.67-1.95-24.25-14.6-22.28-29.42c2.16-16.27,17.39-29.51,33.95-29.51l76.79,0.1
 			c1.34,0,2.68,0.09,3.97,0.26c14.67,1.95,24.25,14.6,22.28,29.42c-2.16,16.27-17.39,29.51-33.95,29.51l-76.79-0.1
-			C398.82,387.64,397.48,387.55,396.19,387.38C396.19,387.38,396.19,387.38,396.19,387.38z"/>
-		<path class="st18" d="M488.52,329.48c14.15,1.88,23.65,14,21.7,28.66v0c-2.12,15.97-17.02,28.92-33.27,28.92l-76.79-0.1
+			C398.82,384.64,397.48,384.55,396.19,384.38C396.19,384.38,396.19,384.38,396.19,384.38z"/>
+		<path class="st18" d="M488.52,326.48c14.15,1.88,23.65,14,21.7,28.66v0c-2.12,15.97-17.02,28.92-33.27,28.92l-76.79-0.1
 			c-1.33,0-2.63-0.09-3.89-0.25c-14.15-1.88-23.65-14-21.7-28.66l0,0c2.12-15.97,17.02-28.92,33.27-28.92l76.79,0.1
-			C485.97,329.23,487.26,329.31,488.52,329.48 M488.7,328.13c-1.33-0.18-2.69-0.27-4.06-0.27l-128.04-0.1
+			C485.97,326.23,487.26,326.31,488.52,326.48 M488.7,325.13c-1.33-0.18-2.69-0.27-4.06-0.27l-128.04-0.1
 			c-16.89,0-32.42,13.51-34.62,30.1c-2.02,15.21,7.81,28.18,22.87,30.19c1.33,0.18,53.95,0.27,55.32,0.27l76.78,0.1
-			c16.89,0,32.42-13.51,34.62-30.1C513.59,343.11,503.76,330.13,488.7,328.13L488.7,328.13z"/>
+			c16.89,0,32.42-13.51,34.62-30.1C513.59,340.11,503.76,327.13,488.7,325.13L488.7,325.13z"/>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 347.5684 354.5182)"><tspan x="0" y="0" class="st5 st19"> APROVECHA LA</tspan><tspan x="0" y="18.43" class="st5 st19">PREVENTA</tspan></text>
+		<text transform="matrix(1 0 0 1 347.5684 351.5182)"><tspan x="0" y="0" class="st5 st19"> APROVECHA LA</tspan><tspan x="0" y="18.43" class="st5 st19">PREVENTA</tspan></text>
 	</g>
 	
 		<image style="overflow:visible;" width="2000" height="1334" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9AAAAU2CAYAAADNui3PAAEAAElEQVR4nOz92a8kaZrf+f2e18yX
@@ -7984,7 +7984,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/v/t
 wSEBAAAAgKD/r51hAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBJ
-oyCgs1SdeXIAAAAASUVORK5CYII=" transform="matrix(0.0738 0 0 0.0738 433.2528 315.0561)">
+oyCgs1SdeXIAAAAASUVORK5CYII=" transform="matrix(0.0738 0 0 0.0738 433.2528 312.0561)">
 	</image>
 </g>
 <g>
