@@ -121,12 +121,12 @@ const InteractiveMapMobil = () => {
       <div className="w-full overflow-x-scroll">
         <div className="relative max-w-[1200px]">
           <img
-            src="https://res.cloudinary.com/dnwshzyqp/image/upload/v1726896332/manarola/fondoMapaInteractivo_hv2mnb.webp"
+            src="/images/fondoMapaInteractivo.webp"
             alt=""
             className="max-w-[1200px]"
           />
           <div
-            className={`w-[1200px] h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726429870/manarola/AmenidadesSinNada_vvpsas.png')] bg-no-repeat transition-opacity duration-300 absolute top-0 left-0 ${
+            className={`w-[1200px] h-full bg-[url('/images/AmenidadesSinNada.png')] bg-no-repeat transition-opacity duration-300 absolute top-0 left-0 ${
               showAmenidades ? "opacity-100" : "opacity-0"
             }`}
             style={{ backgroundSize: "100% 100%" }}

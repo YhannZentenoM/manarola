@@ -118,11 +118,11 @@ const formRef = useRef(null);
 
   return (
     <div
-className="bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726896332/manarola/fondoMapaInteractivo_hv2mnb.webp')] bg-no-repeat h-full w-[1280px] relative overflow-hidden"
+className="bg-[url('/images/fondoMapaInteractivo.webp')] bg-no-repeat h-full w-[1280px] relative overflow-hidden"
       style={{ backgroundSize: "100% 100%" }}
     >
       <div
-        className={`w-full h-full bg-[url('https://res.cloudinary.com/dnwshzyqp/image/upload/v1726429870/manarola/AmenidadesSinNada_vvpsas.png')] bg-no-repeat transition-opacity duration-300 ${
+        className={`w-full h-full bg-[url('/images/AmenidadesSinNada.png')] bg-no-repeat transition-opacity duration-300 ${
           showAmenidades ? "opacity-100" : "opacity-0"
         }`}
         style={{ backgroundSize: "100% 100%" }}
