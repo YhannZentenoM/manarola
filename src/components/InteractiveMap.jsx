@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MapSvg from './MapSvg';
 
 const InteractiveMap = () => {
+  const [lotesApi, setLotesApi] = useState([]);
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [showAmenidades, setShowAmenidades] = useState(false);
@@ -17,40 +18,98 @@ const InteractiveMap = () => {
   const red = 'bg-[#FF0037]';
   const scriptURL =
     'https://script.google.com/macros/s/AKfycbwxrMzAGsT0QTYxfhyK37J-vHYU2BY6lIT6-_8VUqvLNKUS0kYdGxEOvW6_EbOZocqL/exec';
+
+  const getLoteInfo = (manzana, lote) => {
+    return lotesApi?.find(
+      (item) => item.manzana === manzana && item.lote === lote
+    );
+  };
+
   const POINTERS = [
     {
       manzana: 'N',
       lote: [
-        { number: '1', color: blueskydark },
-        { number: '2', color: blueskydark },
-        { number: '3', color: blueskydark },
-        { number: '4', color: bluesky },
-        { number: '5', color: bluesky },
-        { number: '6', color: bluesky },
-        { number: '7', color: bluesky },
-        { number: '8', color: bluesky },
+        {
+          number: '1',
+          color: getLoteInfo('N', '1')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '2',
+          color: getLoteInfo('N', '2')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '3',
+          color: getLoteInfo('N', '3')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '4',
+          color: getLoteInfo('N', '4')?.vendido ? red : bluesky,
+        },
+        {
+          number: '5',
+          color: getLoteInfo('N', '5')?.vendido ? red : bluesky,
+        },
+        {
+          number: '6',
+          color: getLoteInfo('N', '6')?.vendido ? red : bluesky,
+        },
+        {
+          number: '7',
+          color: getLoteInfo('N', '7')?.vendido ? red : bluesky,
+        },
+        {
+          number: '8',
+          color: getLoteInfo('N', '8')?.vendido ? red : bluesky,
+        },
         { number: 'V', color: red },
       ],
     },
     {
       manzana: 'M',
       lote: [
-        { number: '1', color: blueskydark },
-        { number: '2', color: blueskydark },
-        { number: '3', color: blueskydark },
+        {
+          number: '1',
+          color: getLoteInfo('M', '1')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '2',
+          color: getLoteInfo('M', '2')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '3',
+          color: getLoteInfo('M', '3')?.vendido ? red : blueskydark,
+        },
         { number: 'V', color: red },
-        { number: '5', color: bluesky },
-        { number: '6', color: bluesky },
+        {
+          number: '5',
+          color: getLoteInfo('M', '5')?.vendido ? red : bluesky,
+        },
+        {
+          number: '6',
+          color: getLoteInfo('M', '6')?.vendido ? red : bluesky,
+        },
         { number: 'V', color: red },
       ],
     },
     {
       manzana: 'L',
       lote: [
-        { number: '1', color: blueskylight },
-        { number: '2', color: blueskylight },
-        { number: '3', color: blueskylight },
-        { number: '4', color: blueskylight },
+        {
+          number: '1',
+          color: getLoteInfo('L', '1')?.vendido ? red : blueskylight,
+        },
+        {
+          number: '2',
+          color: getLoteInfo('L', '2')?.vendido ? red : blueskylight,
+        },
+        {
+          number: '3',
+          color: getLoteInfo('L', '3')?.vendido ? red : blueskylight,
+        },
+        {
+          number: '4',
+          color: getLoteInfo('L', '4')?.vendido ? red : blueskylight,
+        },
         { number: 'V', color: red },
         { number: 'V', color: red },
         { number: 'V', color: red },
@@ -59,7 +118,10 @@ const InteractiveMap = () => {
     {
       manzana: 'K',
       lote: [
-        { number: '1', color: blueskylight },
+        {
+          number: '1',
+          color: getLoteInfo('K', '1')?.vendido ? red : blueskylight,
+        },
         { number: 'V', color: red },
         { number: 'V', color: red },
         { number: 'V', color: red },
@@ -70,8 +132,14 @@ const InteractiveMap = () => {
     {
       manzana: 'J',
       lote: [
-        { number: '1', color: blueskydark },
-        { number: '2', color: blueskydark },
+        {
+          number: '1',
+          color: getLoteInfo('J', '1')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '2',
+          color: getLoteInfo('J', '2')?.vendido ? red : blueskydark,
+        },
         { number: 'V', color: red },
         { number: 'V', color: red },
         { number: 'V', color: red },
@@ -80,15 +148,34 @@ const InteractiveMap = () => {
     {
       manzana: 'I',
       lote: [
-        { number: '1', color: blueskydark },
-        { number: '2', color: bluesky },
-        { number: '3', color: blueskylight },
+        {
+          number: '1',
+          color: getLoteInfo('I', '1')?.vendido ? red : blueskydark,
+        },
+        {
+          number: '2',
+          color: getLoteInfo('I', '2')?.vendido ? red : bluesky,
+        },
+        {
+          number: '3',
+          color: getLoteInfo('I', '3')?.vendido ? red : blueskylight,
+        },
         { number: 'V', color: red },
         { number: 'V', color: red },
         { number: 'V', color: red },
       ],
     },
   ];
+
+  useEffect(() => {
+    getLotes();
+  }, []);
+
+  const getLotes = async () => {
+    const response = await fetch('https://pluralgroup.pe/admin/api.php');
+    const data = await response.json();
+    setLotesApi(data);
+  };
 
   const handleBackClick = () => {
     setProgress((prevProgress) => {
@@ -118,7 +205,7 @@ const InteractiveMap = () => {
 
   return (
     <div
-      className="bg-[url('/images/fondoMapaInteractivo.webp')] bg-no-repeat h-full w-[1280px] relative overflow-hidden"
+      className="bg-[url('/images/fondoMapaInteractivo.webp')] bg-no-repeat h-full w-[1280px] relative overflow-hidden mx-auto"
       style={{ backgroundSize: '100% 100%' }}
     >
       <div
@@ -128,6 +215,7 @@ const InteractiveMap = () => {
         style={{ backgroundSize: '100% 100%' }}
       ></div>
       <MapSvg
+        lotes={lotesApi}
         manzana={selectedManzana}
         lote={selectedLote}
         className={
@@ -143,7 +231,7 @@ const InteractiveMap = () => {
           className='uppercase text-sm text-white bg-button tracking-widest px-8 py-4 rounded-l-3xl rounded-tr-3xl absolute right-0 -top-8'
           onClick={handleAmenidadesShow}
         >
-          {showAmenidades ? 'Ocultar' : '          Mostrar'} amenidades
+          {showAmenidades ? 'Ocultar' : 'Mostrar'} amenidades
         </button>
         <div
           className={`inline-flex justify-around gap-x-2 mt-5 w-full ${

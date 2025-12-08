@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/styles.css';
 
-const MapSvg = ({ manzana, lote, className }) => {
+const MapSvg = ({ lotes, manzana, lote, className }) => {
+  // const [lotes, setLotes] = useState([]);
+
+  // const getLotes = async () => {
+  //   const response = await fetch('https://pluralgroup.pe/admin/api.php');
+  //   const data = await response.json();
+  //   setLotes(data);
+  // };
+
+  // useEffect(() => {
+  //   getLotes();
+  // }, []);
+
+  const getLoteInfo = (manzana, lote) => {
+    return lotes?.find(
+      (item) => item.manzana === manzana && item.lote === lote
+    );
+  };
+
   return (
     <svg
-      // width="2285.3"
-      // height="1080"
       className={className}
       version='1.1'
       id='Capa_1'
@@ -17,53 +33,100 @@ const MapSvg = ({ manzana, lote, className }) => {
     >
       {/* <!-- lotes --> */}
       <polygon
-        // className={`fill-[#ff0037] stroke-[#7c1919]`}
-        className={`${
-          manzana === 'N' && lote === '8' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '8')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '8'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         points='185.3,658.7 232.1,687 299.6,649.5 305.3,646.2 262.3,620.3 249.6,626.6 '
       />
       <polygon
-        className={`${
-          manzana === 'N' && lote === '7' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '7')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '7'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         points='283.1,717.8 355.6,676.5 305.4,646.3 299.6,649.5 233.1,687.6 '
       />
       <path
-        className={`${
-          manzana === 'N' && lote === '6' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '6')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '6'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         d='M405.6,707.3c0,0,0.1,0.1,0.3,0.2c0.2-0.1,0.3-0.2,0.3-0.2c-17.5-11.2-32.8-19.9-51.7-30L283.4,718l50.3,30.4L405.6,707.3z'
       />
       <path
-        className={`${
-          manzana === 'N' && lote === '5' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '5')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '5'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         d='M384.6,779.2c12.8-7.4,71.9-41.6,72.3-41.6c-15.9-9.5-47.5-28.1-50.9-30.1c-4.4,2.5-55.2,31.7-71.8,41.2L384.6,779.2z'
       />
       <path
-        className={`${
-          manzana === 'N' && lote === '4' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '4')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '4'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         d='M435,809.7c12.4-7,72.7-41,72.9-41.4c-16.2-9.8-33.3-20-51.1-30.6c-0.3,0-59.5,34.2-72.3,41.6L435,809.7z'
       />
       <path
-        className={`${
-          manzana === 'N' && lote === '3' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '3')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '3'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M485.4,840.2l66.8-38.1c3.6-2.1,5.8-3.4,5.9-3.5c-15.4-9.4-32.2-19.5-50.1-30.3c-0.3,0.5-60.5,34.4-72.9,41.4L485.4,840.2z'
       />
       <path
-        className={`${
-          manzana === 'N' && lote === '2' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '2')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '2'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M556.3,799.7L556.3,799.7l-4.1,2.4c-15.4,8.9-56.4,32.2-66.8,38.1l50.3,30.4l71.6-41.9c-13.9-8.5-30.5-18.7-49.2-30.1
 	C557.7,799.2,557,799.5,556.3,799.7z'
       />
       <path
-        className={`${
-          manzana === 'N' && lote === '1' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('N', '1')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'N' && lote === '1'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M535.9,870.7c20,13.5,54,25.8,80.1,11.3c11.6-6.4,19.3-18.2,23.1-35l-9.3-5.6c-7.1-3.7-15-8-22.6-12.7
 	c-0.4,0.4-57.6,33.8-71.6,41.9L535.9,870.7z'
       />
@@ -80,15 +143,27 @@ const MapSvg = ({ manzana, lote, className }) => {
         d='M354.3,581.5l-49.6-29.1l-0.9-0.6c-10.8,3.5-50.4,22.6-62.5,29.1l48.5,28.9L354.3,581.5z'
       />
       <polygon
-        className={`${
-          manzana === 'M' && lote === '6' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('M', '6')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'M' && lote === '6'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         points='355,581.9 354.6,581.7 290.1,610.1 342.7,641.4 342.7,641.4 407.8,612.8 356.5,582.8 '
       />
       <polygon
-        className={`${
-          manzana === 'M' && lote === '5' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('M', '5')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'M' && lote === '5'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         points='397.7,673.5 462.6,644.9 422.5,621.5 408.5,613.2 407.8,612.8 343,641.6 389.9,669.6 '
       />
       <polygon
@@ -96,15 +171,27 @@ const MapSvg = ({ manzana, lote, className }) => {
         points='516.8,676.7 464.3,645.9 463.5,645.5 398,674.4 450.8,705.8 '
       />
       <polygon
-        className={`${
-          manzana === 'M' && lote === '3' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('M', '3')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'M' && lote === '3'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         points='570,707.9 522.5,680 517.6,677.2 516.9,676.7 450.8,705.8 450.8,705.8 504.3,737.7 '
       />
       <polygon
-        className={`${
-          manzana === 'M' && lote === '2' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('M', '2')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'M' && lote === '2'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         points='594.2,753.1 624.1,739.5 581.4,714.5 570.9,708.4 504.3,737.7 557.9,769.6 558.3,769.4 557.9,769.1 '
       />
       <polygon
@@ -120,27 +207,51 @@ const MapSvg = ({ manzana, lote, className }) => {
         points='422,593.1 464.4,617.9 534.3,591.6 491.2,566.9 '
       />
       <polygon
-        className={`${
-          manzana === 'L' && lote === '4' ? 'fill-green-500' : 'fill-[#10FFE8]'
-        } stroke-[#182E7F]`}
+        className={
+          getLoteInfo('L', '4')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'L' && lote === '4'
+                  ? 'fill-green-500'
+                  : 'fill-[#10FFE8]'
+              } stroke-[#182E7F]`
+        }
         points='465.5,618.6 507.9,643.3 578.2,616.8 535.2,592.1 '
       />
       <polygon
-        className={`${
-          manzana === 'L' && lote === '3' ? 'fill-green-500' : 'fill-[#10FFE8]'
-        } stroke-[#182E7F]`}
+        className={
+          getLoteInfo('L', '3')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'L' && lote === '3'
+                  ? 'fill-green-500'
+                  : 'fill-[#10FFE8]'
+              } stroke-[#182E7F]`
+        }
         points='509,643.9 551.2,668.6 622.1,641.9 579.1,617.3 '
       />
       <polygon
-        className={`${
-          manzana === 'L' && lote === '2' ? 'fill-green-500' : 'fill-[#10FFE8]'
-        } stroke-[#182E7F]`}
+        className={
+          getLoteInfo('L', '2')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'L' && lote === '2'
+                  ? 'fill-green-500'
+                  : 'fill-[#10FFE8]'
+              } stroke-[#182E7F]`
+        }
         points='666,667.1 623,642.4 552.4,669.3 594.6,694 '
       />
       <path
-        className={`${
-          manzana === 'L' && lote === '1' ? 'fill-green-500' : 'fill-[#10FFE8]'
-        } stroke-[#182E7F]`}
+        className={
+          getLoteInfo('L', '1')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'L' && lote === '1'
+                  ? 'fill-green-500'
+                  : 'fill-[#10FFE8]'
+              } stroke-[#182E7F]`
+        }
         d='M696.5,684.6l-29.8-17.1l-71.1,27.1l64.5,37.7c6.5-12.2,14.8-24,24.7-35.3C688.4,692.7,692.4,688.6,696.5,684.6z'
       />
       <path
@@ -157,9 +268,15 @@ const MapSvg = ({ manzana, lote, className }) => {
         d='M662.4,551.7l-42.8,8.5c15.1,7.8,30.3,15.7,44.9,23.3l44.4-8.2L662.4,551.7z'
       />
       <path
-        className={`${
-          manzana === 'J' && lote === '2' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('J', '2')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'J' && lote === '2'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M708.9,575.4l-44.4,8.2c15.3,8,30,15.7,43.3,22.7l45.4-8.3L708.9,575.4z'
       />
       <path
@@ -183,16 +300,28 @@ const MapSvg = ({ manzana, lote, className }) => {
         d='M668,602l-57.4,10c0.8,0.4,1.5,0.9,2.2,1.3c15.4,8.8,29.6,16.9,41.6,23.9l60.9-10.5L668,602z'
       />
       <path
-        className={`${
-          manzana === 'J' && lote === '1' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('J', '1')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'J' && lote === '1'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M782.8,625.3c4.1-2.1,8.2-4,12.4-5.9c-5-2.6-42-21.4-42-21.4l-45.4,8.3c25.7,13.5,46,24.3,55.1,29.2l1.3-0.3
 	c0.5-0.3,1-0.5,1.4-0.8C771.2,631.3,776.9,628.2,782.8,625.3z'
       />
       <path
-        className={`${
-          manzana === 'K' && lote === '1' ? 'fill-green-500' : 'fill-[#10FFE8]'
-        } stroke-[#182E7F]`}
+        className={
+          getLoteInfo('K', '1')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'K' && lote === '1'
+                  ? 'fill-green-500'
+                  : 'fill-[#10FFE8]'
+              } stroke-[#182E7F]`
+        }
         d='M748.9,644.2l-33.6-17.5l-60.9,10.5c0.4,0.2,0.8,0.5,1.2,0.7l57.2,32.1c0,0,0,0,0.1-0.1C723.7,661,735.7,652.4,748.9,644.2z
 	'
       />
@@ -210,29 +339,53 @@ const MapSvg = ({ manzana, lote, className }) => {
         d='M718.9,537.9c0,0-24.5,5.9-35,8.5c9.7,4.8,19.4,9.6,29.1,14.5l37.7-9.2C738.4,546,727.9,541.5,718.9,537.9z'
       />
       <path
-        className={`${
-          manzana === 'I' && lote === '3' ? 'fill-green-500' : 'fill-[#10FFE8]'
-        } stroke-[#182E7F]`}
+        className={
+          getLoteInfo('I', '3')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'I' && lote === '3'
+                  ? 'fill-green-500'
+                  : 'fill-[#10FFE8]'
+              } stroke-[#182E7F]`
+        }
         d='M750.7,551.7l-37.7,9.2c10.9,5.5,21.6,10.9,31.7,16.1l39.1-9C783.9,568,759.6,555.8,750.7,551.7z'
       />
       <path
-        className={`${
-          manzana === 'I' && lote === '2' ? 'fill-green-500' : 'fill-[#00b7ff]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('I', '2')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'I' && lote === '2'
+                  ? 'fill-green-500'
+                  : 'fill-[#00b7ff]'
+              } stroke-[#182e7f]`
+        }
         d='M814.4,583.6l2.8,1.1c-1.5-0.8-2.9-1.5-4.3-2.3c-9-4.7-29-14.5-29-14.5l-39.1,9c11,5.6,21.3,11,30.4,15.7L814.4,583.6
 	L814.4,583.6z'
       />
       <path
-        className={`${
-          manzana === 'I' && lote === '1' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('I', '1')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'I' && lote === '1'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M842.5,598.4c-8.9-4.8-17.3-9.4-25.4-13.6l-2.8-1.1l-39.3,9c17.3,9,32,16.6,37,19.3l5.7-2.4c9-3.7,17.9-7.1,26.5-10.1
 	C843.7,599,843.1,598.7,842.5,598.4z'
       />
       <path
-        className={`${
-          manzana === 'M' && lote === '1' ? 'fill-green-500' : 'fill-[#256af4]'
-        } stroke-[#182e7f]`}
+        className={
+          getLoteInfo('M', '1')?.vendido
+            ? 'fill-[#ff0037] stroke-[#7c1919]'
+            : `${
+                manzana === 'M' && lote === '1'
+                  ? 'fill-green-500'
+                  : 'fill-[#256af4]'
+              } stroke-[#182e7f]`
+        }
         d='M624.5,739.8l29,17.3c0,0-5.8,12.4-6.9,25.1c-1.1,12.5-0.5,41.3-0.5,41.3l-87.8-54L624.5,739.8z'
       />
 

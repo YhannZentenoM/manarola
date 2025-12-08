@@ -20,18 +20,12 @@ import InteractiveMapMobil from "../InteractiveMapMobil";
       recuerda que absolutamente todos los lotes cuentan con una increíble vista
       al mar
     </p>
-    <div class="max-w-7xl md:h-[600px] mt-10 relative hidden md:block">
-      <InteractiveMap client:only />
+    <div class="w-full md:h-[600px] relative hidden md:block">
+      <InteractiveMap client:load />
     </div>
     <div class="mt-10 md:hidden w-full" id="map-interactive-mobile">
-      <InteractiveMapMobil client:only />
+      <InteractiveMapMobil client:load />
     </div>
-    <!-- <div id="modalOverlay" class="overlay">
-      <div class="modal">
-        <button class="closeBtn">&times;</button>
-        <InteractiveMap client:only />
-      </div>
-    </div> -->
   </div>
 </section>
 
